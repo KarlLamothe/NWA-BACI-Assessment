@@ -57,7 +57,8 @@ adonis2(Veg.data.df ~ Year*Waterbody.Name,
 
 d <- vegdist(Veg.data.df, method = "bray")
 disp <- betadisper(d, Site.info$Year)
-anova(disp)
+anova(disp) #significant
+permutest(disp, pairwise = TRUE, permutations = 999)
 plot(disp, ellipse = TRUE, hull = FALSE) # 1 sd data ellipse
 
 # extract distances to centroid
