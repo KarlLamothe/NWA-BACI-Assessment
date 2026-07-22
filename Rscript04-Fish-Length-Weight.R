@@ -18,8 +18,8 @@ TL.W.site.info <- merge(TL.W, Site.info, "Field.Number")
 # Limit the number of columns and rename variables
 TL.W.site.info2 <- TL.W.site.info[c(1,3,7,8,9,18)]
 colnames(TL.W.site.info2) <- c("Field.Number","Year","Species","Total.Length","Weight","Cell")
-TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - East Cell SCU"] <- "East"
-TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - West Cell SCU"] <- "West"
+TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - East Cell SCU"] <- "East Cell"
+TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - West Cell SCU"] <- "West Cell"
 TL.W.site.info2$Year <- as.character(TL.W.site.info2$Year)
 
 # remove incomplete rows and rows with species that have weights of 0
@@ -333,7 +333,7 @@ print(pairwise_results, n=36)
 ################################################################################
 ################################################################################
 TL.ECDF<-ggplot(TL.W.site.info3, aes(Total.Length, colour =Year)) +
-  scale_color_manual(values=c("#5D3A9B", "#E66100"))+
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
   stat_ecdf(lwd = 0.75) +
   facet_wrap(~Cell) +
   labs(y = "Empirical Cumulative\nDistribution Function", x = "Total Length (mm)")+
@@ -401,15 +401,15 @@ size.comp <- TL.W.site.info3 %>%
 
 Prop.length.gg<-ggplot(size.comp,aes(LengthClass, Prop,fill =Year)) +
   geom_col(position = "dodge") +
-  scale_fill_manual(values=c("#5D3A9B", "#E66100"))+
+  scale_fill_manual(values=c("#134A8E", "#E8291C"))+
   labs(x = "Length Class (mm)", y = 'Proportion') +
   facet_wrap(~Cell) +
   theme(axis.text.x = element_text(angle = 90, vjust=0.5, hjust=1))
 Prop.length.gg
 
-png("Results/Figures/ECDF.lengclasses.tiff", height=5, width=6, units='in', res=800)
+#png("Results/Figures/ECDF.lengclasses.tiff", height=5, width=6, units='in', res=800)
 TL.ECDF/Prop.length.gg + plot_layout(guides='collect')
-dev.off()
+#dev.off()
 
 tab <- table(TL.W.site.info3$Year, TL.W.site.info3$LengthClass)
 chisq.test(tab)
