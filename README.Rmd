@@ -1,0 +1,18 @@
+---
+title: "README.md"
+author: "Karl Lamothe"
+date: "2026-07-22"
+output: html_document
+---
+
+# My Project
+
+This work assesses the fish community composition, water quality, and vegetation data from a Before-After-Control-Impact study at the St. Clair National Wildlife Area on the removal of White Water Lily in the East Cell. 
+
+## Contents
+- Data
+- Scripts
+- Results
+
+## Author
+Karl Lamothe
