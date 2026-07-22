@@ -51,7 +51,7 @@ Water.gg<-ggplot(Water.data, aes(y=Measure, x=Cell, color=Year))+
         axis.title.x = element_blank(),
         legend.position = 'top')
 
-#tiff('Results/Figures/WaterQ.boxplots.tiff',height=4, width=7, units='in', res=800)
+#png('Results/Figures/WaterQ.boxplots.png',height=4, width=7, units='in', res=800)
 Water.gg
 #dev.off()
 
@@ -196,6 +196,6 @@ WQ.ordination<-ggplot(sites, aes(PCoA1, PCoA2, colour = Year, fill = Year)) +
   facet_wrap(~ Cell)+
   labs(x = xlab, y = ylab)
 
-#tiff("Results/Figures/Water.Quality.Ordination.tiff", width=7, height=3, units='in', res=800)
+#png("Results/Figures/Water.Quality.Ordination.png", width=7, height=3, units='in', res=800)
 WQ.ordination
 #dev.off()
