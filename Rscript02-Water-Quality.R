@@ -132,6 +132,19 @@ ggplot(Water.data.df, aes(x = Year, y = log(Turbidity..ntu.), colour = Waterbody
   theme(legend.title = element_blank())
 emmeans(Cond.model, pairwise ~ Waterbody.Name | Year)
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Combined
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+Water.data.df
+colnames(Water.data)
+
+results <- Water.data %>%
+  group_by(Variable) %>%
+  do(tidy(lm(Measure ~ Year*Cell, data = .), conf.int = TRUE))
+results
+
+#write.csv(results, "Results/Water.Quality.csv")
+
 ################################################################################
 ################################################################################
 # PERMANOVA
