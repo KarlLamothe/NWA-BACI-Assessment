@@ -127,11 +127,13 @@ ggplot(L.gibbosus, aes(x=Total.Length, y=Weight, color=Year))+
        title=expression(paste(italic("Lepomis gibbosus"))))
 
 # model
-L.gib.lm<-lm(log(Weight)~log(Total.Length) + YearCell, data=L.gibbosus)
+L.gib.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=L.gibbosus)
 plot(L.gib.lm) # some outliers but lots of data so not worried
 summary(L.gib.lm)
 hoCoef(L.gib.lm, 2, 3)
 confint(L.gib.lm)
+
+pairs(emmeans(L.gib.lm, ~ Year * Cell))
 
 #######################
 # Lepomis macrochirus #
@@ -147,11 +149,13 @@ ggplot(L.macrochirus, aes(x=Total.Length, y=Weight, color=Year))+
        title=expression(paste(italic("Lepomis macrochirus"))))
 
 # model
-L.mac.lm<-lm(log(Weight)~log(Total.Length) + YearCell, data=L.macrochirus)
+L.mac.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=L.macrochirus)
 summary(L.mac.lm) # some outliers but lots of data so not worried
 plot(L.mac.lm)
 hoCoef(L.mac.lm, 2, 3)
 confint(L.mac.lm)
+
+pairs(emmeans(L.mac.lm, ~ Year * Cell))
 
 #########################
 # Micropterus nigricans #
@@ -167,11 +171,13 @@ ggplot(M.nigricans, aes(x=Total.Length, y=Weight, color=Year))+
        title=expression(paste(italic("Micropterus nigricans"))))
 
 # model
-M.nig.lm<-lm(log(Weight)~log(Total.Length) + YearCell, data=M.nigricans)
+M.nig.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=M.nigricans)
 summary(M.nig.lm)
 plot(M.nig.lm) # ac couple outliers but not too bad
 hoCoef(M.nig.lm, 2, 3)
 confint(M.nig.lm)
+
+pairs(emmeans(M.nig.lm, ~ Year * Cell))
 
 #########################
 # Pomoxis nigromaculatus
@@ -186,7 +192,7 @@ ggplot(P.nigromaculatus, aes(x=Total.Length, y=Weight, color=Year))+
        title=expression(paste(italic("Pomoxis nigromaculatus"))))
 
 # model
-P.nig.lm<-lm(log(Weight)~log(Total.Length) + YearCell, data=P.nigromaculatus)
+P.nig.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=P.nigromaculatus)
 summary(P.nig.lm)
 plot(P.nig.lm)
 hoCoef(P.nig.lm, 2, 3)
@@ -206,7 +212,7 @@ ggplot(A.ocellicauda, aes(x=log(Total.Length), y=log(Weight), color=Year))+
     title=expression(paste(italic("Amia ocellicauda"))))
 
 # model
-A.oce.lm<-lm(log(Weight)~log(Total.Length) + YearCell, data=A.ocellicauda)
+A.oce.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=A.ocellicauda)
 summary(A.oce.lm)
 hoCoef(A.oce.lm, 2, 3)
 confint(A.oce.lm)
@@ -224,7 +230,7 @@ ggplot(N.crysoleucas, aes(x=Total.Length, y=Weight, color=Year))+
        title=expression(paste(italic("Notemigonus crysoleucas"))))
 
 # model
-N.crys.lm<-lm(log(Weight)~log(Total.Length) + YearCell, data=N.crysoleucas)
+N.crys.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=N.crysoleucas)
 summary(N.crys.lm)
 plot(N.crys.lm)
 hoCoef(N.crys.lm, 2, 3)
@@ -236,8 +242,10 @@ confint(N.crys.lm)
 # full model results
 results <- TL.W.site.info4 %>%
   group_by(Species) %>%
-  do(tidy(lm(log(Weight) ~ log(Total.Length) + YearCell, data = .), conf.int = TRUE))
+  do(tidy(lm(log(Weight) ~ log(Total.Length) + Year*Cell, data = .), conf.int = TRUE))
 results
+
+#write.csv(results, "Results/Fish.LW.models.csv")
 
 # for plotting
 results2 <- results %>%
@@ -311,6 +319,11 @@ print(pairwise_results, n=36)
 (exp(-0.0430) - 1) * 100 
 (exp(-0.0805) - 1) * 100 
 (exp(-0.00541) - 1) * 100 
+# Golden Shiner captured in the 2023 East Cell were estimated to weigh approximately 4.21% 
+# less at a given length than those captured in the 2024 East Cell (95% CI: 0.54%-7.73%).
+
+# Bluegill  2023-2024
+(exp(0.061) - 1) * 100 
 # Golden Shiner captured in the 2023 East Cell were estimated to weigh approximately 4.21% 
 # less at a given length than those captured in the 2024 East Cell (95% CI: 0.54%-7.73%).
 
