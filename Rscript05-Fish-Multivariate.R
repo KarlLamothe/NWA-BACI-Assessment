@@ -114,7 +114,6 @@ aggregate(Richness$Richness, list(Richness$YearCell), mean)
 ### Look at species richness estimators and accumulation curves
 colnames(fish_wide)
 specpool(fish_wide[c(4:8,10:13,15,17:22)], fish_wide$YearCell)
-?specpool
 
 east23 <- fish_wide[fish_wide$YearCell == "2023-East Cell", ]
 east24 <- fish_wide[fish_wide$YearCell == "2024-East Cell", ]
@@ -178,9 +177,9 @@ accum.plotgg<-ggplot(accum_df, aes(x = Sites, y = Richness, colour = Year, fill 
         legend.position.inside = c(0.85, 0.4),
         legend.background = element_blank())
 
-png("Results/Figures/spec.accum.gg.png", width=6, height=2.5, units='in', res=800)
+#png("Results/Figures/spec.accum.gg.png", width=6, height=2.5, units='in', res=800)
 accum.plotgg
-dev.off()
+#dev.off()
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Permanova of relative abundance CPUE 
@@ -230,7 +229,7 @@ sites$Field.Number <- fish_wide_CPUE2$Field.Number
 
 # significant species
 fit <- envfit(sites[, c("PCoA1", "PCoA2")],
-              comm_relative,
+              comm,
               permutations = 999)
 
 species_fit <- as.data.frame(scores(fit, display = "vectors"))
@@ -252,7 +251,7 @@ vec %>%
   head(20)
 
 sig_vec <- vec %>%
-  filter(pval < 0.05)
+  filter(pval < 0.01)
 sig_vec
 
 centroids <- sites %>%
@@ -296,15 +295,15 @@ fish.ord.gg<-ggplot(sites, aes(PCoA1, PCoA2, colour = Year, fill = Year)) +
   coord_cartesian() +
   facet_wrap(~ Cell) +
   geom_point(data = centroids, shape = 4, size = 3, stroke = 1.5)+
-  geom_text(data = sig_vec, aes(x = PCoA1/2, y = PCoA2/2, label = Species),
-            inherit.aes = FALSE, size = 3, fontface='italic')+
-  geom_segment(data = sig_vec, aes(x = 0, y = 0, xend = PCoA1/2, yend = PCoA2/2),
-               inherit.aes = FALSE) +
+  #geom_text(data = sig_vec, aes(x = PCoA1/2, y = PCoA2/2, label = Species),
+  #          inherit.aes = FALSE, size = 3, fontface='italic')+
+  #geom_segment(data = sig_vec, aes(x = 0, y = 0, xend = PCoA1/2, yend = PCoA2/2),
+  #             inherit.aes = FALSE) +
   labs(x = xlab, y = ylab)
 
-png("Results/Figures/Fish.Ordination.png", width=7, height=3, units='in', res=800)
+#png("Results/Figures/Fish.Ordination.png", width=7, height=3, units='in', res=800)
 fish.ord.gg
-dev.off()
+#dev.off()
 
 ################################################################################
 ################################################################################
@@ -339,101 +338,47 @@ var_df <- fish_wide_CPUE2 %>%
       .names = "var_{.col}"
     )
   )
+t(var_df)
 
-#################################################################################
-#################################################################################
-## PERMANOVA: Does community composition differ with Year, Temp, Cond, or pH?
-## distance based RDA: How much of the variation in community composition can be 
-##      represented by these predictors?
-#################################################################################
-#################################################################################
-#Site.variables <- cbind.data.frame(
-#  Field.Number = Site.info$Field.Number,
-#  Cell = Site.info$Waterbody.Name,
-#  Year = Site.info$Year,
-#  Temp = Site.info$Water.Temperature,
-#  Cond = Site.info$Conductivity,
-#  pH = Site.info$pH,
-#  DO = Site.info$Dissolved.Oxygen,
-#  Turb = Site.info$Turbidity..ntu.,
-#  Emergent = Site.info$Emergent,
-#  Submerged = Site.info$Submerged, 
-#  Floating = Site.info$Floating
-#)
-#Site.variables$Cell[Site.variables$Cell=="St. Clair NWA - East Cell SCU"] <- "East Cell"
-#Site.variables$Cell[Site.variables$Cell=="St. Clair NWA - West Cell SCU"] <- "West Cell"
-#
-## remove rows that had zero fish and also a row without a pH measure
-#Site.variables2 <- Site.variables[-c(50,62,72,77,131,139),]
-#Site.variables2$Year <- as.character(Site.variables2$Year)
-#
-## new fish data frames removing the row without a ph measure and remove rare species
-## Perca flavescens, Noturus gyriunus, Carassius auratus, Ameiurus natalis
-## Cyprinus carpio
-#colnames(comm_relative)
-#fish_fit_rel <- comm_relative[-c(1,5,6,13,14)]
-#fish_fit_rel <- fish_fit_rel[-c(62),]
-#
-## distance based RDA
-#mod <- dbrda(
-#  fish_fit_rel ~ Year*Cell + Temp + Cond + DO + Submerged + Emergent + Floating,
-#  data = Site.variables2,
-#  distance = "bray"
-#)
-#
-## Is the dbRDA model significant?
-#anova(mod) #yes
-#anova(mod, by = "term")
-#RsquareAdj(mod)
-#plot(mod)
-#summary(mod)
-#
-#site_scores <- scores(mod, display = "sites")
-#site_scores <- as.data.frame(site_scores)
-#site_scores$Year <- Site.variables2$Year
-#site_scores$Temp <- Site.variables2$Temp
-#site_scores$Cell <- Site.variables2$Cell
-#
-#env_scores <- as.data.frame(scores(mod, display = "bp"))
-#env_scores$Variable <- rownames(env_scores)
-#
-## plot
-#ggplot(site_scores, aes(dbRDA1, dbRDA2, colour = Year)) +
-#  geom_hline(yintercept = 0, linetype='dashed', lwd=0.5) +
-#  geom_vline(xintercept = 0, linetype='dashed', lwd=0.5) +
-#  geom_point(size = 2) +
-#  scale_color_manual(values=c("#134A8E","#E8291C"))+
-#  stat_ellipse(level = 0.95) +
-#  geom_segment(data = env_scores, aes(x = 0, y = 0, xend = dbRDA1*3, yend = dbRDA2*3),
-#               arrow = arrow(length = unit(0.2, "cm")),
-#               inherit.aes = FALSE) +
-#  geom_text(data = env_scores, aes(dbRDA1*3, dbRDA2*3, label = Variable), inherit.aes = FALSE) 
-##labs(x = "dbRDA Axis 1 (34.5%)", y= "dbRDA Axis 2 (30.0%)")
-#
-## Does community composition differ with Year, Temp, Cond, or pH?
-#adonis2(
-#  fish_fit_rel ~ Year*Cell + Temp + Cond + DO + Submerged + Emergent + Floating,
-#  data = Site.variables2,
-#  method = "bray",
-#  by='margin'
-#)
-#
 #################################################################################
 #################################################################################
 ## Chubsucker only
 #################################################################################
 #################################################################################
-#Chubsucker <- Fish.Counts.CPUE[Fish.Counts.CPUE$Species=="Erimyzon sucetta",]
-#Chubsucker$Year <- as.character(Chubsucker$Year)
-#
-#ggplot(Chubsucker, aes(x = Year, y = CPUE)) +
-#  geom_jitter(position = position_jitterdodge(
-#    jitter.width = 0.2, jitter.height = 0.0,dodge.width = 0.8),  
-#    size=3, pch=20, alpha=0.5)+
-#  labs(y="CPUE") +
-#  facet_wrap(~Cell) +
-#  theme(legend.position = 'none',
-#        axis.title.x = element_blank())
-#
-#aggregate(Chubsucker$Number.Captured, list(Chubsucker$Year, Chubsucker$Cell), sum)
-#summary(lm(log(CPUE)~Year*Cell, data=Chubsucker))
+Chubsucker <- Fish.Counts.CPUE[Fish.Counts.CPUE$Species=="Erimyzon sucetta",]
+Chubsucker$Year <- as.character(Chubsucker$Year)
+Chubsucker$Cell[Chubsucker$Cell=="St. Clair NWA - East Cell SCU"] <- "East Cell"
+Chubsucker$Cell[Chubsucker$Cell=="St. Clair NWA - West Cell SCU"] <- "West Cell"
+Chubsucker$YearCell <- interaction(Chubsucker$Year, Chubsucker$Cell, sep="_")
+
+ggplot(Chubsucker, aes(x = Year, y = CPUE)) +
+  geom_jitter(position = position_jitterdodge(
+    jitter.width = 0.2, jitter.height = 0.0,dodge.width = 0.8),  
+    size=3, pch=20, alpha=0.5)+
+  labs(y="CPUE") +
+  facet_wrap(~Cell) +
+  theme(legend.position = 'none',
+        axis.title.x = element_blank())
+
+ggplot(Chubsucker, aes(x=Year, y=Number.Captured, color=Year)) +
+  facet_wrap(~Cell, scales='free_y') +
+  scale_colour_manual(values=c("#134A8E", "#E8291C"))+
+  geom_jitter(size=1, width=0.2, height=0) +
+  theme(legend.position = 'none',
+        axis.title.x = element_blank())
+
+ggplot(Chubsucker, aes(x=Year, y=CPUE, color=Year)) +
+  facet_wrap(~Cell, scales='free_y') +
+  scale_colour_manual(values=c("#134A8E", "#E8291C"))+
+  geom_jitter(size=1, width=0.2, height=0) +
+  theme(legend.position = 'none',
+        axis.title.x = element_blank())
+
+aggregate(Chubsucker$Number.Captured, list(Chubsucker$Year, Chubsucker$Cell), sum)
+LCS.mod<-lm(log(CPUE)~Year*Cell, data=Chubsucker)
+summary(LCS.mod)
+emmeans(LCS.mod, pairwise ~ Year*Cell)
+
+################################################################################
+library(grateful)
+cite_packages(out.format = "docx", out.dir = ".", citation.style = 'wetlands-ecology-and-management')
