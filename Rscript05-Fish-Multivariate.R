@@ -52,13 +52,27 @@ fish_wide <- fish_wide[,-18]
 # CPUE
 colnames(fish_wide)
 fish_wide_CPUE <- fish_wide[,4:22] / fish_wide[,23]
+fish_wide$YearCell <- interaction(fish_wide$Year, fish_wide$Cell, sep="-")
+
+# Presence Absence
+fish_wide_PA   <- fish_wide_CPUE
+fish_wide_PA[fish_wide_PA>0] <-1
+
+# Add columns 
 fish_wide_CPUE <- cbind.data.frame(Year = fish_wide$Year,
                                    Field.Number = fish_wide$Field.Number,
                                    Cell = fish_wide$Cell,
                                    fish_wide_CPUE)
 colnames(fish_wide_CPUE)
 
-# remove Lepomis sp, and hybrids
+fish_wide_PA   <- cbind.data.frame(Year = fish_wide$Year,
+                                   Field.Number = fish_wide$Field.Number,
+                                   Cell = fish_wide$Cell,
+                                   YearCell = fish_wide$YearCell,
+                                   fish_wide_PA)
+colnames(fish_wide_PA)
+
+# remove Lepomis sp, and hybrids from CPUE data
 fish_wide_CPUE2 <- fish_wide_CPUE[-c(9,14,16)]
 
 # remove rows that have zero fish counts after removal of lepomis sp and hybrids
@@ -68,6 +82,7 @@ fish_wide_CPUE2 <- fish_wide_CPUE2[-c(50,72,77,131,139),]
 fish_wide_CPUE2$YearCell <- interaction(fish_wide_CPUE2$Year,
                                         fish_wide_CPUE2$Cell,
                                         sep = "_")
+
 ###################
 Fish.Counts.CPUE <- merge(Fish, Effort, "Field.Number")
 Fish.Counts.CPUE$CPUE <- Fish.Counts.CPUE$Number.Captured/Fish.Counts.CPUE$Effort
@@ -79,8 +94,94 @@ Fish.Counts.CPUE$CPUE <- Fish.Counts.CPUE$Number.Captured/Fish.Counts.CPUE$Effor
 # fish_wide_CPUE = Fish counts / Effort
 # fish_wide_CPUE2 = fish_wide_CPUE with hybrids/Lepomis sp removed and resulting
 #     rows with sum = 0
+# fish_wide_PA = presence absence data, which includes hybrids and Lepomis sp.
 ################################################################################
 ################################################################################
+# species richness
+Richness <- cbind.data.frame(
+  Richness = rowSums(fish_wide_PA[5:23]),
+  Cell     = fish_wide_PA$Cell,
+  Year     = fish_wide_PA$Year,
+  YearCell = fish_wide_PA$YearCell
+)
+Richnessaov <- lm(Richness~YearCell, data=Richness)
+summary(Richnessaov)
+emmeans(Richnessaov, pairwise ~ YearCell)
+
+aggregate(Richness$Richness, list(Richness$YearCell), sd)
+aggregate(Richness$Richness, list(Richness$YearCell), mean)
+
+### Look at species richness estimators and accumulation curves
+colnames(fish_wide)
+specpool(fish_wide[c(4:8,10:13,15,17:22)], fish_wide$YearCell)
+?specpool
+
+east23 <- fish_wide[fish_wide$YearCell == "2023-East Cell", ]
+east24 <- fish_wide[fish_wide$YearCell == "2024-East Cell", ]
+west23 <- fish_wide[fish_wide$YearCell == "2023-West Cell", ]
+west24 <- fish_wide[fish_wide$YearCell == "2024-West Cell", ]
+colnames(east23)
+
+east23 <- east23[c(4:8,10:13,15,17:22)]
+east24 <- east24[c(4:8,10:13,15,17:22)]
+west23 <- west23[c(4:8,10:13,15,17:22)]
+west24 <- west24[c(4:8,10:13,15,17:22)]
+
+sa_e23 <- specaccum(east23, method = "random")
+sa_e24 <- specaccum(east24, method = "random")
+sa_w23 <- specaccum(west23, method = "random")
+sa_w24 <- specaccum(west24, method = "random")
+
+# Convert to dataframe
+accum_df <- bind_rows(data.frame(
+  Sites = sa_e23$sites, 
+  Richness = sa_e23$richness,
+  SD = sa_e23$sd,
+  YearCell = "2023 East"),
+  data.frame(
+    Sites = sa_e24$sites,
+    Richness = sa_e24$richness,
+    SD = sa_e24$sd,
+    YearCell = "2024 East"),
+  data.frame(
+    Sites = sa_w23$sites,
+    Richness = sa_w23$richness,
+    SD = sa_w23$sd,
+    YearCell = "2023 West"),
+  data.frame(
+    Sites = sa_w24$sites,
+    Richness = sa_w24$richness,
+    SD = sa_w24$sd,
+    YearCell = "2024 West")
+)
+
+accum_df <- accum_df %>%
+  mutate(
+    Lower = Richness - SD,
+    Upper = Richness + SD
+  )
+
+accum_df$Year <- c(rep("2023",35),rep("2024",40),rep("2023",36),rep("2024",40))
+accum_df$Cell <- c(rep("East Cell",75),rep("West Cell",76))
+
+accum.plotgg<-ggplot(accum_df, aes(x = Sites, y = Richness, colour = Year, fill = Year)) +
+  geom_ribbon(aes(ymin = Lower, ymax = Upper), alpha = 0.2, colour = NA) +
+  geom_line(lwd = 0.5) +
+  facet_wrap(~Cell)+
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  scale_fill_manual(values=c("#134A8E", "#E8291C"))+
+  labs(x = "Number of Sites", y = "Accumulated Species Richness", 
+       colour = "Year", fill = "Year")+
+  ylim(0,15)+
+  theme(legend.title = element_blank(),
+        legend.position = "inside",
+        legend.position.inside = c(0.85, 0.4),
+        legend.background = element_blank())
+
+png("Results/Figures/spec.accum.gg.png", width=6, height=2.5, units='in', res=800)
+accum.plotgg
+dev.off()
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Permanova of relative abundance CPUE 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
