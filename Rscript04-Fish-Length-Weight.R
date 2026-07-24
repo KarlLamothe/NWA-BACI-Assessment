@@ -18,8 +18,8 @@ TL.W.site.info <- merge(TL.W, Site.info, "Field.Number")
 # Limit the number of columns and rename variables
 TL.W.site.info2 <- TL.W.site.info[c(1,3,7,8,9,18)]
 colnames(TL.W.site.info2) <- c("Field.Number","Year","Species","Total.Length","Weight","Cell")
-TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - East Cell SCU"] <- "East Cell"
-TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - West Cell SCU"] <- "West Cell"
+TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - East Cell SCU"] <- "East"
+TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - West Cell SCU"] <- "West"
 TL.W.site.info2$Year <- as.character(TL.W.site.info2$Year)
 
 # remove incomplete rows and rows with species that have weights of 0
@@ -293,13 +293,16 @@ pairwise_results$sig <-
 # plot
 pairwise.diffs.gg<-ggplot(pairwise_results, aes(x = pct_diff, y = Species, color=sig)) +
   geom_vline(xintercept = 0, lty = "dashed") +
-  geom_errorbarh(aes(xmin = pct_low, xmax = pct_high), width = 0.2) +
+  geom_errorbar(aes(xmin = pct_low, xmax = pct_high), width = 0.2) +
   geom_point(size = 1.5) +
   facet_wrap(~contrast) +
   scale_colour_manual(values = c("black", "red"),labels = c("CI overlaps 0","CI excludes 0")) +
   labs(x = "Difference in weight (g) at a given length (%)", y = NULL, color=NULL) +
   theme(axis.text.y = element_text(face='italic'),
-        legend.position='top')
+        legend.position='top',
+        legend.margin = margin(0, 0, 0, 0),
+        legend.spacing.x = unit(0, "mm"),
+        legend.spacing.y = unit(0, "mm"))
 
 #png("Results/Figures/Pairwise.lengthweight.png", width=7.5, height=4, units='in', res=800)
 pairwise.diffs.gg
