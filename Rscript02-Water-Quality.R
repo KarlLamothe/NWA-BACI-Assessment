@@ -185,8 +185,8 @@ eig <- disp$eig
 var_explained <- eig / sum(eig[eig > 0]) * 100
 var_explained[1:2]
 
-xlab <- paste0("PCoA1 (", round(var_explained[1], 1), "%)")
-ylab <- paste0("PCoA2 (", round(var_explained[2], 1), "%)")
+xlab <- paste0("PCoA1 (", round(var_explained[1], 2), "%)")
+ylab <- paste0("PCoA2 (", round(var_explained[2], 2), "%)")
 
 centroids <- sites %>%
   group_by(Cell, Year) %>%

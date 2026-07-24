@@ -1,6 +1,6 @@
 # List of packages being used
 list.of.packages <- c('ggplot2', 'dplyr', 'DHARMa','tidyr','vegan','reshape2',
-                      'emmeans','broom','sf','terra','tidyterra','maptiles',
+                      'emmeans','broom','sf','terra','tidyterra','maptiles','grateful',
                       'ggspatial','cowplot','FSAmisc','patchwork','BiodiversityR')
 
 # Identify packages in the list that are not on the computer
@@ -27,6 +27,7 @@ library(cowplot)
 library(FSAmisc)
 library(patchwork)
 library(BiodiversityR)
+library(grateful)
 
 # set ggplot theme
 theme_set(theme_bw() +

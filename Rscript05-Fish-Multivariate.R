@@ -9,6 +9,8 @@ Site.info <- read.csv("Data/Site-information.csv", header=T)
 aggregate(Site.info$Effort, list(Site.info$Year, Site.info$Waterbody.Name), mean)
 aggregate(Site.info$Effort, list(Site.info$Year, Site.info$Waterbody.Name), sd)
 aggregate(Site.info$Effort, list(Site.info$Year, Site.info$Waterbody.Name), length)
+aggregate(Site.info$Effort, list(Site.info$Year, Site.info$Waterbody.Name), max)
+aggregate(Site.info$Effort, list(Site.info$Year, Site.info$Waterbody.Name), min)
 
 # clean fish data
 colnames(Fish)
@@ -108,10 +110,11 @@ Richnessaov <- lm(Richness~YearCell, data=Richness)
 summary(Richnessaov)
 emmeans(Richnessaov, pairwise ~ YearCell)
 
+#summary
 aggregate(Richness$Richness, list(Richness$YearCell), sd)
 aggregate(Richness$Richness, list(Richness$YearCell), mean)
 
-### Look at species richness estimators and accumulation curves
+# Look at species richness estimators and accumulation curves
 colnames(fish_wide)
 specpool(fish_wide[c(4:8,10:13,15,17:22)], fish_wide$YearCell)
 
@@ -185,13 +188,18 @@ accum.plotgg
 # Permanova of relative abundance CPUE 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 comm <- fish_wide_CPUE2[4:(ncol(fish_wide_CPUE2)-1)]
-adonis2(comm ~ YearCell, data = fish_wide_CPUE2, method='bray', by='margin')
+adonis2(comm ~ Year*Cell, 
+        data = fish_wide_CPUE2, 
+        method='bray',
+        permutations = 999,
+        by='terms')
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # calculate multivariate dispersion #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 dist <- vegdist(comm, method = "bray")
 mod <- betadisper(dist, group=fish_wide_CPUE2$YearCell) # multivariate dispersion
+anova(mod)
 
 # calculate difference in dispersion between years
 set.seed(876)
@@ -206,6 +214,7 @@ Year_distance <- cbind.data.frame(Distance=Year_distance,
 ggplot(Year_distance, aes(x=Year_Cell, y=Distance))+
   geom_boxplot()
 
+# distance to centroid
 Year_distance %>%
   group_by(Year_Cell) %>%
   summarise(
@@ -267,8 +276,8 @@ hulls <- sites %>%
   group_by(Cell, Year) %>%
   slice(chull(PCoA1, PCoA2))
 
-xlab <- paste0("PCoA1 (", round(var_explained[1], 1), "%)")
-ylab <- paste0("PCoA2 (", round(var_explained[2], 1), "%)")
+xlab <- paste0("PCoA1 (", round(var_explained[1], 2), "%)")
+ylab <- paste0("PCoA2 (", round(var_explained[2], 2), "%)")
 
 ggplot(sites, aes(PCoA1, PCoA2, colour = Year, fill = Year)) +
   geom_hline(yintercept = 0, linetype='dashed', lwd=0.5)+
@@ -328,7 +337,7 @@ species_cols <- c(
   "Pomoxis nigromaculatus",
   "Umbra limi"
 )
-
+options(scipen=999)
 var_df <- fish_wide_CPUE2 %>%
   group_by(YearCell) %>%
   summarise(
@@ -380,5 +389,8 @@ summary(LCS.mod)
 emmeans(LCS.mod, pairwise ~ Year*Cell)
 
 ################################################################################
-library(grateful)
-cite_packages(out.format = "docx", out.dir = ".", citation.style = 'wetlands-ecology-and-management')
+################################################################################
+cite_packages(out.format = "docx", out.dir = ".", 
+              citation.style = 'wetlands-ecology-and-management')
+################################################################################
+################################################################################
