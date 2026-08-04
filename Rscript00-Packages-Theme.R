@@ -2,7 +2,7 @@
 list.of.packages <- c('ggplot2', 'dplyr', 'DHARMa','tidyr','vegan','reshape2',
                       'emmeans','broom','sf','terra','tidyterra','maptiles','grateful',
                       'ggspatial','cowplot','FSAmisc','patchwork','BiodiversityR',
-                      'lubridate')
+                      'lubridate', 'purrr')
 
 # Identify packages in the list that are not on the computer
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -16,6 +16,7 @@ library(broom)
 library(vegan)
 library(dplyr)
 library(reshape2)
+library(purrr)
 library(DHARMa)
 library(emmeans)
 library(tidyr)
