@@ -1,0 +1,1049 @@
+Field.Number,Year,Species,Common.Name,Weight_g,Volume_mL,Cell,Rake_depth_m,SAV_category,Algae_category
+2023-LCS-NWA-080823-001A,2023,Ceratophyllum demersum,Coontail,514.8,520.0,East,1.2,3,0
+2023-LCS-NWA-080823-001A,2023,Potamogeton pusillus,"Pondweed, slender",0.1,0.0,East,1.2,3,0
+2023-LCS-NWA-080823-001A,2023,Elodea canadensis,Canada waterweed,13.7,14.0,East,1.2,3,0
+2023-LCS-NWA-080823-001A,2023,Nymphaea sp.,"Water lily, white",13.9,16.0,East,1.2,3,0
+2023-LCS-NWA-080823-002A,2023,Ceratophyllum demersum,Coontail,391.2,380.0,East,1.26,3,0
+2023-LCS-NWA-080823-002A,2023,Elodea canadensis,Canada waterweed,0.8,0.0,East,1.26,3,0
+2023-LCS-NWA-080823-003A,2023,Nymphaea sp.,"Water lily, white",165.3,180.0,East,0.94,3,0
+2023-LCS-NWA-080823-003A,2023,Hydrocharis morsus-ranae,European frog-bit,2.7,4.0,East,0.94,3,0
+2023-LCS-NWA-080823-003A,2023,Ceratophyllum demersum,Coontail,10.3,12.0,East,0.94,3,0
+2023-LCS-NWA-080823-003A,2023,Myriophyllum spicatum,"Water milfoil, Eurasian",64.6,70.0,East,0.94,3,0
+2023-LCS-NWA-080823-003A,2023,Utricularia sp.,Bladderwort sp.,28.5,30.0,East,0.94,3,0
+2023-LCS-NWA-080823-003A,2023,Potamogeton pusillus,"Pondweed, slender",8.3,10.0,East,0.94,3,0
+2023-LCS-NWA-080823-004A,2023,Ceratophyllum demersum,Coontail,17.2,18.0,East,1.25,1,0
+2023-LCS-NWA-080823-004A,2023,Myriophyllum spicatum,"Water milfoil, Eurasian",31.4,40.0,East,1.25,1,0
+2023-LCS-NWA-080823-004A,2023,Hydrocharis morsus-ranae,European frog-bit,21.1,24.0,East,1.25,1,0
+2023-LCS-NWA-080823-004A,2023,Stuckenia pectinatus,"Pondweed, Sago",0.8,0.0,East,1.25,1,0
+2023-LCS-NWA-080823-004A,2023,Elodea canadensis,Canada waterweed,3.9,4.0,East,1.25,1,0
+2023-LCS-NWA-080823-005A,2023,Ceratophyllum demersum,Coontail,27.0,25.0,East,1.23,1,0
+2023-LCS-NWA-080823-005A,2023,Utricularia sp.,Bladderwort sp.,0.1,0.0,East,1.23,1,0
+2023-LCS-NWA-090823-001A,2023,Ceratophyllum demersum,Coontail,132.1,130.0,East,1.23,1,0
+2023-LCS-NWA-090823-002A,2023,Utricularia sp.,Bladderwort sp.,13.5,14.0,East,0.698,3,0
+2023-LCS-NWA-090823-002A,2023,Stuckenia pectinatus,"Pondweed, Sago",172.7,180.0,East,0.698,3,0
+2023-LCS-NWA-090823-002A,2023,Myriophyllum spicatum,"Water milfoil, Eurasian",113.3,120.0,East,0.698,3,0
+2023-LCS-NWA-090823-002A,2023,Ceratophyllum demersum,Coontail,23.9,25.0,East,0.698,3,0
+2023-LCS-NWA-090823-002A,2023,Potamogeton pusillus,"Pondweed, slender",1.1,0.0,East,0.698,3,0
+2023-LCS-NWA-090823-002A,2023,Lemna trisulca,"Duckweed, star",0.2,0.0,East,0.698,3,0
+2023-LCS-NWA-090823-002A,2023,Najas sp.,Naiad sp.,27.2,28.0,East,0.698,3,0
+2023-LCS-NWA-090823-003A,2023,Utricularia sp.,Bladderwort sp.,12.0,12.0,East,0.455,1,0
+2023-LCS-NWA-090823-003A,2023,Lemna trisulca,"Duckweed, star",0.2,0.0,East,0.455,1,0
+2023-LCS-NWA-090823-003A,2023,Potamogeton pusillus,"Pondweed, slender",8.5,8.0,East,0.455,1,0
+2023-LCS-NWA-090823-003A,2023,Nymphaea sp.,"Water lily, white",143.0,160.0,East,0.455,1,0
+2023-LCS-NWA-090823-003A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,East,0.455,1,0
+2023-LCS-NWA-090823-004A,2023,Ceratophyllum demersum,Coontail,188.5,190.0,East,1.03,3,0
+2023-LCS-NWA-090823-004A,2023,Nymphaea sp.,"Water lily, white",1201.7,1250.0,East,1.03,3,0
+2023-LCS-NWA-090823-005A,2023,Nymphaea sp.,"Water lily, white",117.8,140.0,East,0.71,1,0
+2023-LCS-NWA-090823-005A,2023,Ceratophyllum demersum,Coontail,0.1,0.0,East,0.71,1,0
+2023-LCS-NWA-090823-005A,2023,Hydrocharis morsus-ranae,European frog-bit,7.1,12.0,East,0.71,1,0
+2023-LCS-NWA-090823-006A,2023,Ceratophyllum demersum,Coontail,139.7,140.0,East,1,2,0
+2023-LCS-NWA-090823-006A,2023,Elodea canadensis,Canada waterweed,61.0,65.0,East,1,2,0
+2023-LCS-NWA-090823-006A,2023,Potamogeton pusillus,"Pondweed, slender",10.4,12.0,East,1,2,0
+2023-LCS-NWA-100823-001A,2023,Ceratophyllum demersum,Coontail,800.0,833.0,East,1.6,3,0
+2023-LCS-NWA-100823-001A,2023,Nymphaea sp.,"Water lily, white",60.8,65.0,East,1.6,3,0
+2023-LCS-NWA-100823-001A,2023,Hydrocharis morsus-ranae,European frog-bit,26.7,28.0,East,1.6,3,0
+2023-LCS-NWA-100823-001A,2023,Lemna trisulca,"Duckweed, star",0.1,0.0,East,1.6,3,0
+2023-LCS-NWA-100823-001A,2023,Potamogeton pusillus,"Pondweed, slender",11.3,12.0,East,1.6,3,0
+2023-LCS-NWA-100823-002A,2023,Nymphaea sp.,"Water lily, white",227.2,255.0,East,1.31,1,0
+2023-LCS-NWA-100823-002A,2023,Ceratophyllum demersum,Coontail,40.2,45.0,East,1.31,1,0
+2023-LCS-NWA-100823-003A,2023,Nymphaea sp.,"Water lily, white",93.1,110.0,East,0.775,1,0
+2023-LCS-NWA-100823-003A,2023,Ceratophyllum demersum,Coontail,29.2,32.0,East,0.775,1,0
+2023-LCS-NWA-100823-004A,2023,Ceratophyllum demersum,Coontail,0.5,0.0,East,0.758,2,1
+2023-LCS-NWA-100823-004A,2023,Myriophyllum spicatum,"Water milfoil, Eurasian",63.2,70.0,East,0.758,2,1
+2023-LCS-NWA-100823-004A,2023,Utricularia sp.,Bladderwort sp.,24.5,30.0,East,0.758,2,1
+2023-LCS-NWA-100823-004A,2023,Elodea canadensis,Canada waterweed,0.4,0.0,East,0.758,2,1
+2023-LCS-NWA-100823-004A,2023,Algae,Algae,2.8,2.0,East,0.758,2,1
+2023-LCS-NWA-100823-005A,2023,Myriophyllum spicatum,"Water milfoil, Eurasian",97.3,110.0,East,0.834,1,0
+2023-LCS-NWA-100823-005A,2023,Hydrocharis morsus-ranae,European frog-bit,0.3,0.0,East,0.834,1,0
+2023-LCS-NWA-100823-005A,2023,Elodea canadensis,Canada waterweed,1.1,2.0,East,0.834,1,0
+2023-LCS-NWA-100823-005A,2023,Lemna trisulca,"Duckweed, star",0.0,0.0,East,0.834,1,0
+2023-LCS-NWA-100823-005A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,East,0.834,1,0
+2023-LCS-NWA-100823-006A,2023,Chara sp.,Stonewort (Starry),287.1,290.0,East,0.605,3,1
+2023-LCS-NWA-100823-006A,2023,Ceratophyllum demersum,Coontail,10.9,12.0,East,0.605,3,1
+2023-LCS-NWA-100823-006A,2023,Nymphaea sp.,"Water lily, white",24.3,26.0,East,0.605,3,1
+2023-LCS-NWA-140823-001A,2023,Nymphaea sp.,"Water lily, white",461.8,480.0,East,1.284,3,0
+2023-LCS-NWA-140823-001A,2023,Hydrocharis morsus-ranae,European frog-bit,14.3,18.0,East,1.284,3,0
+2023-LCS-NWA-140823-001A,2023,Ceratophyllum demersum,Coontail,522.8,520.0,East,1.284,3,0
+2023-LCS-NWA-140823-001A,2023,Elodea canadensis,Canada waterweed,816.8,800.0,East,1.284,3,0
+2023-LCS-NWA-140823-001A,2023,Potamogeton pusillus,"Pondweed, slender",30.5,30.0,East,1.284,3,0
+2023-LCS-NWA-140823-002A,2023,Myriophyllum spicatum,"Water milfoil, Eurasian",0.9,2.0,East,0.49,2,0
+2023-LCS-NWA-140823-002A,2023,Hydrocharis morsus-ranae,European frog-bit,30.8,40.0,East,0.49,2,0
+2023-LCS-NWA-140823-002A,2023,Ceratophyllum demersum,Coontail,0.4,0.0,East,0.49,2,0
+2023-LCS-NWA-140823-002A,2023,Lemna trisulca,"Duckweed, star",0.2,0.0,East,0.49,2,0
+2023-LCS-NWA-140823-002A,2023,Nymphaea sp.,"Water lily, white",260.3,290.0,East,0.49,2,0
+2023-LCS-NWA-140823-002A,2023,Potamogeton pusillus,"Pondweed, slender",0.1,0.0,East,0.49,2,0
+2023-LCS-NWA-140823-002A,2023,Utricularia sp.,Bladderwort sp.,3.7,4.0,East,0.49,2,0
+2023-LCS-NWA-140823-002A,2023,Elodea canadensis,Canada waterweed,0.1,0.0,East,0.49,2,0
+2023-LCS-NWA-140823-003A,2023,Ceratophyllum demersum,Coontail,62.3,60.0,East,1.292,2,0
+2023-LCS-NWA-140823-003A,2023,Potamogeton pusillus,"Pondweed, slender",3.7,4.0,East,1.292,2,0
+2023-LCS-NWA-140823-003A,2023,Elodea canadensis,Canada waterweed,26.2,30.0,East,1.292,2,0
+2023-LCS-NWA-140823-004A,2023,Chara sp.,Stonewort (Starry),62.1,65.0,East,0.672,3,0
+2023-LCS-NWA-140823-004A,2023,Ceratophyllum demersum,Coontail,0.1,0.0,East,0.672,3,0
+2023-LCS-NWA-140823-005A,2023,No Vegetation ,No Vegetation ,,,East,1.03,0,0
+2023-LCS-NWA-140823-006A,2023,Nymphaea sp.,"Water lily, white",15.1,18.0,East,0.573,1,0
+2023-LCS-NWA-150823-001A,2023,Nymphaea sp.,"Water lily, white",78.5,100.0,East,0.539,1,0
+2023-LCS-NWA-150823-002A,2023,Utricularia sp.,Bladderwort sp.,30.6,36.0,East,0.43,2,0
+2023-LCS-NWA-150823-002A,2023,Nymphaea sp.,"Water lily, white",10.5,12.0,East,0.43,2,0
+2023-LCS-NWA-150823-002A,2023,Ceratophyllum demersum,Coontail,0.3,0.0,East,0.43,2,0
+2023-LCS-NWA-150823-003A,2023,Ceratophyllum demersum,Coontail,4.6,6.0,East,0.491,1,0
+2023-LCS-NWA-150823-004A,2023,Ceratophyllum demersum,Coontail,5.3,6.0,East,0.785,3,0
+2023-LCS-NWA-150823-004A,2023,Nymphaea sp.,"Water lily, white",179.6,230.0,East,0.785,3,0
+2023-LCS-NWA-150823-004A,2023,Utricularia sp.,Bladderwort sp.,67.8,65.0,East,0.785,3,0
+2023-LCS-NWA-150823-005A,2023,Nymphaea sp.,"Water lily, white",0.9,2.0,East,0.42,1,0
+2023-LCS-NWA-150823-005A,2023,Utricularia sp.,Bladderwort sp.,12.9,15.0,East,0.42,1,0
+2023-LCS-NWA-150823-006A,2023,Ceratophyllum demersum,Coontail,5.9,6.0,East,0.421,1,0
+2023-LCS-NWA-150823-006A,2023,Nymphaea sp.,"Water lily, white",0.8,0.0,East,0.421,1,0
+2023-LCS-NWA-160823-001A,2023,Nymphaea sp.,"Water lily, white",191.7,230.0,East,0.838,2,0
+2023-LCS-NWA-160823-001A,2023,Ceratophyllum demersum,Coontail,52.8,55.0,East,0.838,2,0
+2023-LCS-NWA-160823-002A,2023,Ceratophyllum demersum,Coontail,29.6,30.0,East,0.85,2,0
+2023-LCS-NWA-160823-002A,2023,Utricularia sp.,Bladderwort sp.,46.7,48.0,East,0.85,2,0
+2023-LCS-NWA-160823-002A,2023,Stuckenia pectinatus,"Pondweed, Sago",10.9,12.0,East,0.85,2,0
+2023-LCS-NWA-160823-003A,2023,Nymphaea sp.,"Water lily, white",60.5,80.0,East,0.87,1,0
+2023-LCS-NWA-160823-003A,2023,Ceratophyllum demersum,Coontail,0.8,2.0,East,0.87,1,0
+2023-LCS-NWA-160823-004A,2023,Ceratophyllum demersum,Coontail,196.8,200.0,East,1.75,2,0
+2023-LCS-NWA-160823-004A,2023,Elodea canadensis,Canada waterweed,9.2,8.0,East,1.75,2,0
+2023-LCS-NWA-160823-005A,2023,Ceratophyllum demersum,Coontail,301.1,300.0,East,1.01,3,0
+2023-LCS-NWA-160823-005A,2023,Elodea canadensis,Canada waterweed,34.8,40.0,East,1.01,3,0
+2023-LCS-NWA-160823-005A,2023,Potamogeton pusillus,"Pondweed, slender",8.4,10.0,East,1.01,3,0
+2023-LCS-NWA-160823-005A,2023,Hydrocharis morsus-ranae,European frog-bit,11.2,12.0,East,1.01,3,0
+2023-LCS-NWA-160823-005A,2023,Lemna trisulca,"Duckweed, star",0.0,0.0,East,1.01,3,0
+2023-LCS-NWA-160823-005A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,East,1.01,3,0
+2023-LCS-NWA-160823-006A,2023,Hydrocharis morsus-ranae,European frog-bit,0.2,0.0,East,1.22,1,2
+2023-LCS-NWA-160823-006A,2023,Algae,Algae,38.3,38.0,East,1.22,1,2
+2023-LCS-NWA-210823-001A,2023,Utricularia sp.,Bladderwort sp.,35.6,55.0,West,0.873,2,0
+2023-LCS-NWA-210823-001A,2023,Ceratophyllum demersum,Coontail,63.5,70.0,West,0.873,2,0
+2023-LCS-NWA-210823-001A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.873,2,0
+2023-LCS-NWA-210823-001A,2023,Lemna trisulca,"Duckweed, star",0.4,2.0,West,0.873,2,0
+2023-LCS-NWA-210823-001A,2023,Hydrocharis morsus-ranae,European frog-bit,7.3,8.0,West,0.873,2,0
+2023-LCS-NWA-210823-001A,2023,Potamogeton pusillus,"Pondweed, slender",0.2,0.0,West,0.873,2,0
+2023-LCS-NWA-210823-001A,2023,Nymphaea sp.,"Water lily, white",109.5,120.0,West,0.873,2,0
+2023-LCS-NWA-210823-002A,2023,Ceratophyllum demersum,Coontail,131.3,130.0,West,1.174,3,0
+2023-LCS-NWA-210823-002A,2023,Elodea canadensis,Canada waterweed,208.4,210.0,West,1.174,3,0
+2023-LCS-NWA-210823-002A,2023,Hydrocharis morsus-ranae,European frog-bit,175.8,200.0,West,1.174,3,0
+2023-LCS-NWA-210823-003A,2023,Nymphaea sp.,"Water lily, white",288.3,330.0,West,1.26,3,0
+2023-LCS-NWA-210823-003A,2023,Ceratophyllum demersum,Coontail,0.8,0.0,West,1.26,3,0
+2023-LCS-NWA-210823-003A,2023,Elodea canadensis,Canada waterweed,2.1,4.0,West,1.26,3,0
+2023-LCS-NWA-210823-003A,2023,Utricularia sp.,Bladderwort sp.,22.0,25.0,West,1.26,3,0
+2023-LCS-NWA-210823-003A,2023,Hydrocharis morsus-ranae,European frog-bit,1.8,2.0,West,1.26,3,0
+2023-LCS-NWA-210823-004A,2023,Nymphaea sp.,"Water lily, white",52.0,60.0,West,0.756,1,0
+2023-LCS-NWA-210823-004A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.756,1,0
+2023-LCS-NWA-210823-005A,2023,Nymphaea sp.,"Water lily, white",33.3,36.0,West,0.985,2,0
+2023-LCS-NWA-210823-005A,2023,Hydrocharis morsus-ranae,European frog-bit,23.9,30.0,West,0.985,2,0
+2023-LCS-NWA-210823-005A,2023,Lemna trisulca,"Duckweed, star",0.7,0.0,West,0.985,2,0
+2023-LCS-NWA-210823-005A,2023,Elodea canadensis,Canada waterweed,55.9,60.0,West,0.985,2,0
+2023-LCS-NWA-210823-005A,2023,Ceratophyllum demersum,Coontail,78.7,80.0,West,0.985,2,0
+2023-LCS-NWA-210823-005A,2023,Utricularia sp.,Bladderwort sp.,9.1,10.0,West,0.985,2,0
+2023-LCS-NWA-210823-006A,2023,Lemna trisulca,"Duckweed, star",1.1,0.0,West,0.94,3,0
+2023-LCS-NWA-210823-006A,2023,Hydrocharis morsus-ranae,European frog-bit,22.0,26.0,West,0.94,3,0
+2023-LCS-NWA-210823-006A,2023,Potamogeton pusillus,"Pondweed, slender",1.2,0.0,West,0.94,3,0
+2023-LCS-NWA-210823-006A,2023,Ceratophyllum demersum,Coontail,1.5,2.0,West,0.94,3,0
+2023-LCS-NWA-210823-006A,2023,Utricularia sp.,Bladderwort sp.,95.4,100.0,West,0.94,3,0
+2023-LCS-NWA-210823-006A,2023,Nymphaea sp.,"Water lily, white",317.6,360.0,West,0.94,3,0
+2023-LCS-NWA-210823-006A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.94,3,0
+2023-LCS-NWA-220823-001A,2023,Ceratophyllum demersum,Coontail,7.0,8.0,West,0.87,3,0
+2023-LCS-NWA-220823-001A,2023,Utricularia sp.,Bladderwort sp.,39.9,45.0,West,0.87,3,0
+2023-LCS-NWA-220823-001A,2023,Hydrocharis morsus-ranae,European frog-bit,8.8,10.0,West,0.87,3,0
+2023-LCS-NWA-220823-001A,2023,Nymphaea sp.,"Water lily, white",162.9,200.0,West,0.87,3,0
+2023-LCS-NWA-220823-001A,2023,Lemna trisulca,"Duckweed, star",20.9,22.0,West,0.87,3,0
+2023-LCS-NWA-220823-001A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.87,3,0
+2023-LCS-NWA-220823-002A,2023,Utricularia sp.,Bladderwort sp.,6.8,10.0,West,1.23,1,0
+2023-LCS-NWA-220823-002A,2023,Ceratophyllum demersum,Coontail,4.7,4.0,West,1.23,1,0
+2023-LCS-NWA-220823-002A,2023,Nymphaea sp.,"Water lily, white",36.0,40.0,West,1.23,1,0
+2023-LCS-NWA-220823-003A,2023,Nelumbo lutea,"Lotus, American",79.3,100.0,West,0.843,2,0
+2023-LCS-NWA-220823-003A,2023,Ceratophyllum demersum,Coontail,3.9,6.0,West,0.843,2,0
+2023-LCS-NWA-220823-003A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.843,2,0
+2023-LCS-NWA-220823-004A,2023,No Vegetation ,No Vegetation ,,,West,0.63,0,0
+2023-LCS-NWA-220823-005A,2023,Ceratophyllum demersum,Coontail,19.9,20.0,West,1.22,1,0
+2023-LCS-NWA-220823-005A,2023,Utricularia sp.,Bladderwort sp.,7.0,8.0,West,1.22,1,0
+2023-LCS-NWA-220823-005A,2023,Hydrocharis morsus-ranae,European frog-bit,57.1,70.0,West,1.22,1,0
+2023-LCS-NWA-220823-005A,2023,Nymphaea sp.,"Water lily, white",35.9,35.0,West,1.22,1,0
+2023-LCS-NWA-220823-005A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,1.22,1,0
+2023-LCS-NWA-220823-006A,2023,Hydrocharis morsus-ranae,European frog-bit,21.7,25.0,West,0.678,1,0
+2023-LCS-NWA-220823-006A,2023,Ceratophyllum demersum,Coontail,13.7,24.0,West,0.678,1,0
+2023-LCS-NWA-220823-006A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.678,1,0
+2023-LCS-NWA-240823-001A,2023,Nymphaea sp.,"Water lily, white",14.8,20.0,West,0.657,1,0
+2023-LCS-NWA-240823-001A,2023,Ceratophyllum demersum,Coontail,0.5,2.0,West,0.657,1,0
+2023-LCS-NWA-240823-001A,2023,Lemna trisulca,"Duckweed, star",0.1,0.0,West,0.657,1,0
+2023-LCS-NWA-240823-001A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.657,1,0
+2023-LCS-NWA-240823-002A,2023,Ceratophyllum demersum,Coontail,1.0,2.0,West,1.18,1,0
+2023-LCS-NWA-240823-003A,2023,Nymphaea sp.,"Water lily, white",178.3,200.0,West,1.06,2,0
+2023-LCS-NWA-240823-003A,2023,Hydrocharis morsus-ranae,European frog-bit,28.6,35.0,West,1.06,2,0
+2023-LCS-NWA-240823-003A,2023,Ceratophyllum demersum,Coontail,11.4,14.0,West,1.06,2,0
+2023-LCS-NWA-240823-003A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,1.06,2,0
+2023-LCS-NWA-240823-004A,2023,Nymphaea sp.,White water lily,,,West,0.95,3,0
+2023-LCS-NWA-240823-004A,2023,Ceratophyllum demersum,Coontail,,,West,0.95,3,0
+2023-LCS-NWA-240823-004A,2023,Elodea canadensis,Canada waterweed,,,West,0.95,3,0
+2023-LCS-NWA-240823-005A,2023,Ceratophyllum demersum,Coontail,14.7,18.0,West,1.315,1,0
+2023-LCS-NWA-240823-005A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,1.315,1,0
+2023-LCS-NWA-240823-006A,2023,No Vegetation ,No Vegetation ,,,West,0.71,1,0
+2023-LCS-NWA-280823-001A,2023,Nymphaea sp.,"Water lily, white",32.8,36.0,West,1.01,1,0
+2023-LCS-NWA-280823-002A,2023,Ceratophyllum demersum,Coontail,3.5,4.0,West,0.98,1,0
+2023-LCS-NWA-280823-003A,2023,Ceratophyllum demersum,Coontail,0.2,0.0,West,1.01,1,1
+2023-LCS-NWA-280823-004A,2023,Nymphaea sp.,"Water lily, white",88.4,100.0,West,1.14,2,0
+2023-LCS-NWA-280823-004A,2023,Hydrocharis morsus-ranae,European frog-bit,0.7,0.0,West,1.14,2,0
+2023-LCS-NWA-280823-004A,2023,Ceratophyllum demersum,Coontail,8.9,16.0,West,1.14,2,0
+2023-LCS-NWA-280823-004A,2023,Lemna trisulca,"Duckweed, star",0.3,0.0,West,1.14,2,0
+2023-LCS-NWA-280823-004A,2023,Utricularia sp.,Bladderwort sp.,8.1,8.0,West,1.14,2,0
+2023-LCS-NWA-280823-005A,2023,Nymphaea sp.,"Water lily, white",170.4,230.0,West,1.01,1,0
+2023-LCS-NWA-280823-006A,2023,No Vegetation ,No Vegetation ,,,West,1.05,0,0
+2023-LCS-NWA-290823-001A,2023,No Vegetation ,No Vegetation ,,,West,1.03,0,0
+2023-LCS-NWA-290823-002A,2023,Ceratophyllum demersum,Coontail,3.9,6.0,West,0.84,2,0
+2023-LCS-NWA-290823-002A,2023,Nymphaea sp.,"Water lily, white",43.4,50.0,West,0.84,2,0
+2023-LCS-NWA-290823-002A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.84,2,0
+2023-LCS-NWA-290823-003A,2023,No Vegetation ,No Vegetation ,,,West,1.04,0,1
+2023-LCS-NWA-290823-004A,2023,Ceratophyllum demersum,Coontail,16.5,16.0,West,0.98,1,0
+2023-LCS-NWA-290823-005A,2023,Nymphaea sp.,"Water lily, white",204.4,250.0,West,0.94,1,0
+2023-LCS-NWA-290823-006A,2023,Ceratophyllum demersum,Coontail,80.2,80.0,West,0.85,3,0
+2023-LCS-NWA-290823-006A,2023,Nymphaea sp.,"Water lily, white",74.2,75.0,West,0.85,3,0
+2023-LCS-NWA-290823-006A,2023,Hydrocharis morsus-ranae,European frog-bit,1.0,0.0,West,0.85,3,0
+2023-LCS-NWA-290823-006A,2023,Potamogeton pusillus,"Pondweed, slender",0.7,0.0,West,0.85,3,0
+2023-LCS-NWA-290823-006A,2023,Utricularia sp.,Bladderwort sp.,135.0,130.0,West,0.85,3,0
+2023-LCS-NWA-300823-001A,2023,Ceratophyllum demersum,Coontail,26.2,30.0,West,0.92,3,0
+2023-LCS-NWA-300823-001A,2023,Lemna trisulca,"Duckweed, star",7.3,6.0,West,0.92,3,0
+2023-LCS-NWA-300823-001A,2023,Hydrocharis morsus-ranae,European frog-bit,49.9,60.0,West,0.92,3,0
+2023-LCS-NWA-300823-001A,2023,Nymphaea sp.,"Water lily, white",270.6,330.0,West,0.92,3,0
+2023-LCS-NWA-300823-002A,2023,Ceratophyllum demersum,Coontail,2.0,2.0,West,1.05,2,0
+2023-LCS-NWA-300823-002A,2023,Nymphaea sp.,"Water lily, white",98.5,110.0,West,1.05,2,0
+2023-LCS-NWA-300823-002A,2023,Hydrocharis morsus-ranae,European frog-bit,321.7,400.0,West,1.05,2,0
+2023-LCS-NWA-300823-003A,2023,Ceratophyllum demersum,Coontail,18.4,20.0,West,0.93,3,0
+2023-LCS-NWA-300823-003A,2023,Stuckenia pectinatus,"Pondweed, Sago",33.5,35.0,West,0.93,3,0
+2023-LCS-NWA-300823-003A,2023,Lemna trisulca,"Duckweed, star",10.1,12.0,West,0.93,3,0
+2023-LCS-NWA-300823-003A,2023,Utricularia sp.,Bladderwort sp.,107.0,105.0,West,0.93,3,0
+2023-LCS-NWA-300823-004A,2023,Lemna trisulca,"Duckweed, star",1.1,0.0,West,0.96,3,0
+2023-LCS-NWA-300823-004A,2023,Nymphaea sp.,"Water lily, white",3.2,4.0,West,0.96,3,0
+2023-LCS-NWA-300823-004A,2023,Ceratophyllum demersum,Coontail,22.6,26.0,West,0.96,3,0
+2023-LCS-NWA-300823-004A,2023,Potamogeton pusillus,"Pondweed, slender",10.6,12.0,West,0.96,3,0
+2023-LCS-NWA-300823-004A,2023,Nelumbo lutea,"Lotus, American",329.8,380.0,West,0.96,3,0
+2023-LCS-NWA-300823-005A,2023,Nelumbo lutea,"Lotus, American",16.7,26.0,West,1.08,2,0
+2023-LCS-NWA-300823-005A,2023,Ceratophyllum demersum,Coontail,225.0,230.0,West,1.08,2,0
+2023-LCS-NWA-300823-005A,2023,Nymphaea sp.,"Water lily, white",52.5,55.0,West,1.08,2,0
+2023-LCS-NWA-300823-005A,2023,Lemna trisulca,"Duckweed, star",0.0,0.0,West,1.08,2,0
+2023-LCS-NWA-300823-005A,2023,Lemna sp.,Duckweed sp.,0.0,0.0,West,1.08,2,0
+2023-LCS-NWA-300823-006A,2023,Nelumbo lutea,"Lotus, American",28.1,40.0,West,0.88,1,0
+2023-LCS-NWA-300823-006A,2023,Ceratophyllum demersum,Coontail,2.4,0.0,West,0.88,1,0
+2024-LCS-NWA-070824-001A,2024,Ceratophyllum demersum,Coontail,2.5,2.0,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Elodea canadensis,Common waterweed,,,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Juncus sp.,Rush sp.,,,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Nitellopsis obtusa,Starry stonewort,166.0,175.0,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Nymphaea sp.,White water lily,,,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Pontederia cordata,Pickerelweed,,,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Potamogeton pusillus,Slender pondweed,0.1,0.0,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Utricularia sp.,Bladderwort sp.,0.6,1.0,East,0.76,3,0
+2024-LCS-NWA-070824-001A,2024,Utricularia vulgaris,Common bladderwort,32.7,34.0,East,0.76,3,0
+2024-LCS-NWA-070824-002A,2024,Ceratophyllum demersum,Coontail,11.5,12.0,East,0.95,1,0
+2024-LCS-NWA-070824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.95,1,0
+2024-LCS-NWA-070824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.95,1,0
+2024-LCS-NWA-070824-002A,2024,Nymphaea sp.,White water lily,55.9,70.0,East,0.95,1,0
+2024-LCS-NWA-070824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.95,1,0
+2024-LCS-NWA-070824-003A,2024,Ceratophyllum demersum,Coontail,9.9,9.0,East,0.9,2,0
+2024-LCS-NWA-070824-003A,2024,Lemna minor,Lesser duckweed,,,East,0.9,2,0
+2024-LCS-NWA-070824-003A,2024,Nitellopsis obtusa,Starry stonewort,136.0,140.0,East,0.9,2,0
+2024-LCS-NWA-070824-003A,2024,Nymphaea sp.,White water lily,,,East,0.9,2,0
+2024-LCS-NWA-070824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.9,2,0
+2024-LCS-NWA-070824-003A,2024,Stuckenia pectinatus,Sago pondweed,10.5,10.0,East,0.9,2,0
+2024-LCS-NWA-070824-003A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.9,2,0
+2024-LCS-NWA-070824-004A,2024,Ceratophyllum demersum,Coontail,8.8,10.0,East,0.64,2,0
+2024-LCS-NWA-070824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,54.0,76.0,East,0.64,2,0
+2024-LCS-NWA-070824-004A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.64,2,0
+2024-LCS-NWA-070824-004A,2024,Nymphaea sp.,White water lily,100.8,125.0,East,0.64,2,0
+2024-LCS-NWA-070824-004A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,East,0.64,2,0
+2024-LCS-NWA-070824-004A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.64,2,0
+2024-LCS-NWA-070824-004A,2024,Typha sp.,Cattail sp.,,,East,0.64,2,0
+2024-LCS-NWA-070824-005A,2024,Ceratophyllum demersum,Coontail,3.6,4.0,East,0.81,1,0
+2024-LCS-NWA-070824-005A,2024,Decodon verticillatus,Swamp loosestrife,,,East,0.81,1,0
+2024-LCS-NWA-070824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.81,1,0
+2024-LCS-NWA-070824-005A,2024,Lemna minor,Lesser duckweed,,,East,0.81,1,0
+2024-LCS-NWA-070824-005A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,East,0.81,1,0
+2024-LCS-NWA-070824-005A,2024,Nymphaea sp.,White water lily,56.7,65.0,East,0.81,1,0
+2024-LCS-NWA-070824-005A,2024,Spirodela polyrhiza,Greater duckweed,,,East,0.81,1,0
+2024-LCS-NWA-070824-005A,2024,Utricularia vulgaris,Common bladderwort,0.0,0.0,East,0.81,1,0
+2024-LCS-NWA-080824-001A,2024,Ceratophyllum demersum,Coontail,20.3,21.0,East,1,1,0
+2024-LCS-NWA-080824-001A,2024,Elodea canadensis,Common waterweed,1.8,2.0,East,1,1,0
+2024-LCS-NWA-080824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,1,1,0
+2024-LCS-NWA-080824-001A,2024,Lemna minor,Lesser duckweed,,,East,1,1,0
+2024-LCS-NWA-080824-001A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,1,1,0
+2024-LCS-NWA-080824-001A,2024,Nymphaea sp.,White water lily,354.9,420.0,East,1,1,0
+2024-LCS-NWA-080824-001A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.9,1.0,East,1,1,0
+2024-LCS-NWA-080824-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,1,1,0
+2024-LCS-NWA-080824-002A,2024,Ceratophyllum demersum,Coontail,207.2,215.0,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Decodon verticillatus,Swamp loosestrife,,,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Elodea canadensis,Common waterweed,452.1,450.0,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Lemna trisulca,Star duckweed,0.1,0.0,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Nitella sp.,Stonewort sp.,,,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Nymphaea sp.,White water lily,1.1,1.0,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Potamogeton pusillus,Slender pondweed,6.2,6.0,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,66.2,70.0,East,1.7,3,0
+2024-LCS-NWA-080824-002A,2024,Typha sp.,Cattail sp.,,,East,1.7,3,0
+2024-LCS-NWA-080824-003A,2024,Ceratophyllum demersum,Coontail,269.1,275.0,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Elodea canadensis,Common waterweed,43.5,45.0,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,0.6,1.0,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Lemna minor,Lesser duckweed,,,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Lemna trisulca,Star duckweed,2.9,2.0,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Nitella sp.,Stonewort sp.,,,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Nymphaea sp.,White water lily,,,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Potamogeton pusillus,Slender pondweed,0.9,0.0,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,13.2,14.0,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Ranunculus sp.,Crowfoot sp.,1.3,1.0,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Spirodela polyrhiza,Greater duckweed,,,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Stuckenia pectinatus,Sago pondweed,,,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Typha sp.,Cattail sp.,,,East,1.5,3,0
+2024-LCS-NWA-080824-003A,2024,Utricularia sp.,Bladderwort sp.,,,East,1.5,3,0
+2024-LCS-NWA-080824-004A,2024,Ceratophyllum demersum,Coontail,25.6,26.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Elodea canadensis,Common waterweed,,,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,0.3,0.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Lemna minor,Lesser duckweed,,,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Lemna trisulca,Star duckweed,5.8,6.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Myriophyllum sibiricum,Northern water milfoil,8.1,8.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Myriophyllum spicatum,Eurasian water milfoil,,,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Nymphaea sp.,White water lily,43.7,55.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.5,0.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Spirodela polyrhiza,Greater duckweed,,,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Utricularia gibba,Humped bladderwort,0.2,0.0,East,0.66,1,0
+2024-LCS-NWA-080824-004A,2024,Utricularia vulgaris,Common bladderwort,30.0,30.0,East,0.66,1,0
+2024-LCS-NWA-080824-005A,2024,Ceratophyllum demersum,Coontail,64.3,70.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Decodon verticillatus,Swamp loosestrife,,,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Elodea canadensis,Common waterweed,68.7,70.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,2.8,4.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Lemna trisulca,Star duckweed,0.8,1.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Myriophyllum sibiricum,Northern water milfoil,12.6,15.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Nitella sp.,Stonewort sp.,7.5,8.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Nymphaea sp.,White water lily,33.3,40.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Potamogeton pusillus,Slender pondweed,0.0,0.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,17.8,17.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Ranunculus sp.,Crowfoot sp.,3.3,4.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Typha sp.,Cattail sp.,,,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Utricularia gibba,Humped bladderwort,0.0,0.0,East,0.78,2,0
+2024-LCS-NWA-080824-005A,2024,Utricularia vulgaris,Common bladderwort,6.8,7.0,East,0.78,2,0
+2024-LCS-NWA-120824-001A,2024,Algae,Algae,,,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Ceratophyllum demersum,Coontail,13.5,14.0,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Elodea canadensis,Common waterweed,0.3,0.0,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Najas sp.,Naiad sp./ water nymph sp.,,,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Nitella sp.,Stonewort sp.,0.5,0.0,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Nymphaea sp.,White water lily,120.1,145.0,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.0,0.0,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.76,1,0
+2024-LCS-NWA-120824-001A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.76,1,0
+2024-LCS-NWA-120824-002A,2024,Ceratophyllum demersum,Coontail,36.8,39.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Elodea canadensis,Common waterweed,0.8,1.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Myriophyllum sibiricum,Northern water milfoil,3.2,3.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Najas flexilis,Slender naiad/ water nymph,0.2,0.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Nitella sp.,Stonewort sp.,1.6,2.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Nitellopsis obtusa,Starry stonewort,15.3,16.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Nymphaea sp.,White water lily,44.3,50.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.6,0.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Utricularia gibba,Humped bladderwort,1.0,1.0,East,0.62,2,0
+2024-LCS-NWA-120824-002A,2024,Utricularia vulgaris,Common bladderwort,114.7,120.0,East,0.62,2,0
+2024-LCS-NWA-120824-003A,2024,Ceratophyllum demersum,Coontail,,,East,0.6,1,0
+2024-LCS-NWA-120824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.6,1,0
+2024-LCS-NWA-120824-003A,2024,Lemna minor,Lesser duckweed,,,East,0.6,1,0
+2024-LCS-NWA-120824-003A,2024,Nymphaea sp.,White water lily,68.8,90.0,East,0.6,1,0
+2024-LCS-NWA-120824-003A,2024,Sagittaria sp.,Arrowhead sp.,,,East,0.6,1,0
+2024-LCS-NWA-120824-003A,2024,Spirodela polyrhiza,Greater duckweed,,,East,0.6,1,0
+2024-LCS-NWA-120824-003A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.6,1,0
+2024-LCS-NWA-120824-004A,2024,Ceratophyllum demersum,Coontail,21.5,22.0,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Elodea canadensis,Common waterweed,81.5,85.0,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Lemna minor,Lesser duckweed,,,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Najas sp.,Naiad sp./ water nymph sp.,,,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Nitella sp.,Stonewort sp.,,,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Nymphaea sp.,White water lily,,,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Potamogeton pusillus,Slender pondweed,0.5,1.0,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.9,2,0
+2024-LCS-NWA-120824-004A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.9,2,0
+2024-LCS-NWA-120824-005A,2024,Ceratophyllum demersum,Coontail,35.8,39.0,East,0.52,2,0
+2024-LCS-NWA-120824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,62.7,90.0,East,0.52,2,0
+2024-LCS-NWA-120824-005A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.52,2,0
+2024-LCS-NWA-120824-005A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,0.52,2,0
+2024-LCS-NWA-120824-005A,2024,Nymphaea sp.,White water lily,106.2,130.0,East,0.52,2,0
+2024-LCS-NWA-120824-005A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,East,0.52,2,0
+2024-LCS-NWA-120824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.4,0.0,East,0.52,2,0
+2024-LCS-NWA-120824-005A,2024,Utricularia vulgaris,Common bladderwort,7.4,8.0,East,0.52,2,0
+2024-LCS-NWA-130824-001A,2024,Algae,Algae,,,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Ceratophyllum demersum,Coontail,53.0,57.0,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Elodea canadensis,Common waterweed,0.9,1.0,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,13.2,18.0,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Lemna trisulca,Star duckweed,0.1,0.0,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Nymphaea sp.,White water lily,,,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Stuckenia pectinatus,Sago pondweed,8.3,11.0,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Typha sp.,Cattail sp.,,,East,0.82,1,0
+2024-LCS-NWA-130824-001A,2024,Utricularia vulgaris,Common bladderwort,12.8,13.0,East,0.82,1,0
+2024-LCS-NWA-130824-002A,2024,Algae,Algae,,,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Ceratophyllum demersum,Coontail,20.9,20.0,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Decodon verticillatus,Swamp loosestrife,,,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Elodea canadensis,Common waterweed,1.8,2.0,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Najas minor,Brittle naiad/Brittle water nymph,13.7,15.0,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Nitellopsis obtusa,Starry stonewort,101.9,100.0,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Nymphaea sp.,White water lily,4.9,6.0,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.37,3,0
+2024-LCS-NWA-130824-002A,2024,Utricularia vulgaris,Common bladderwort,10.0,10.0,East,0.37,3,0
+2024-LCS-NWA-130824-003A,2024,Ceratophyllum demersum,Coontail,39.9,46.0,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Nitella sp.,Stonewort sp.,,,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Nymphaea sp.,White water lily,82.6,100.0,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Typha sp.,Cattail sp.,,,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Unknown Submerged,Unknown Submerged,2.1,2.0,East,0.72,2,0
+2024-LCS-NWA-130824-003A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.72,2,0
+2024-LCS-NWA-130824-004A,2024,Ceratophyllum demersum,Coontail,24.9,26.0,East,0.68,2,0
+2024-LCS-NWA-130824-004A,2024,Elodea canadensis,Common waterweed,,,East,0.68,2,0
+2024-LCS-NWA-130824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.68,2,0
+2024-LCS-NWA-130824-004A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.68,2,0
+2024-LCS-NWA-130824-004A,2024,Najas minor,Brittle naiad/Brittle water nymph,17.1,18.0,East,0.68,2,0
+2024-LCS-NWA-130824-004A,2024,Nymphaea sp.,White water lily,11.2,14.0,East,0.68,2,0
+2024-LCS-NWA-130824-004A,2024,Potamogeton crispus,Curly-leaved pondweed,4.2,6.0,East,0.68,2,0
+2024-LCS-NWA-130824-004A,2024,Potamogeton pusillus,Slender pondweed,8.7,10.0,East,0.68,2,0
+2024-LCS-NWA-130824-004A,2024,Utricularia vulgaris,Common bladderwort,2.7,3.0,East,0.68,2,0
+2024-LCS-NWA-130824-005A,2024,Ceratophyllum demersum,Coontail,7.2,7.0,East,0.68,1,0
+2024-LCS-NWA-130824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,0.7,1.0,East,0.68,1,0
+2024-LCS-NWA-130824-005A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.68,1,0
+2024-LCS-NWA-130824-005A,2024,Nymphaea sp.,White water lily,250.9,330.0,East,0.68,1,0
+2024-LCS-NWA-130824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.68,1,0
+2024-LCS-NWA-130824-005A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.68,1,0
+2024-LCS-NWA-140824-001A,2024,Ceratophyllum demersum,Coontail,38.3,39.0,East,0.85,1,0
+2024-LCS-NWA-140824-001A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.85,1,0
+2024-LCS-NWA-140824-001A,2024,Najas minor,Brittle naiad/Brittle water nymph,0.0,0.0,East,0.85,1,0
+2024-LCS-NWA-140824-001A,2024,Nymphaea sp.,White water lily,,,East,0.85,1,0
+2024-LCS-NWA-140824-001A,2024,Spirodela polyrhiza,Greater duckweed,,,East,0.85,1,0
+2024-LCS-NWA-140824-002A,2024,Ceratophyllum demersum,Coontail,1.5,2.0,East,0.97,1,0
+2024-LCS-NWA-140824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.97,1,0
+2024-LCS-NWA-140824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.97,1,0
+2024-LCS-NWA-140824-002A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,0.97,1,0
+2024-LCS-NWA-140824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.97,1,0
+2024-LCS-NWA-140824-002A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,East,0.97,1,0
+2024-LCS-NWA-140824-003A,2024,Ceratophyllum demersum,Coontail,,,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,9.0,13.0,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Lemna trisulca,Star duckweed,0.2,0.0,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Najas minor,Brittle naiad/Brittle water nymph,0.1,0.0,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Nymphaea sp.,White water lily,5.5,8.0,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.4,0.0,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Utricularia sp.,Bladderwort sp.,0.2,0.0,East,0.31,1,0
+2024-LCS-NWA-140824-003A,2024,Wolffia sp.,Watermeal sp.,,,East,0.31,1,0
+2024-LCS-NWA-140824-004A,2024,Ceratophyllum demersum,Coontail,30.6,33.0,East,0.55,2,0
+2024-LCS-NWA-140824-004A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.55,2,0
+2024-LCS-NWA-140824-004A,2024,Najas minor,Brittle naiad/Brittle water nymph,40.8,40.0,East,0.55,2,0
+2024-LCS-NWA-140824-004A,2024,Nymphaea sp.,White water lily,30.6,40.0,East,0.55,2,0
+2024-LCS-NWA-140824-004A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.55,2,0
+2024-LCS-NWA-140824-005A,2024,Algae,Algae,,,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Ceratophyllum demersum,Coontail,15.2,15.0,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,90.9,125.0,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Najas minor,Brittle naiad/Brittle water nymph,1.5,1.0,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Nitella sp.,Stonewort sp.,0.1,0.0,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Nymphaea sp.,White water lily,,,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Potamogeton pusillus,Slender pondweed,0.1,0.0,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Stuckenia pectinatus,Sago pondweed,,,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Typha sp.,Cattail sp.,,,East,0.3,1,0
+2024-LCS-NWA-140824-005A,2024,Utricularia vulgaris,Common bladderwort,27.1,29.0,East,0.3,1,0
+2024-LCS-NWA-150824-001A,2024,Ceratophyllum demersum,Coontail,39.9,42.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Elodea canadensis,Common waterweed,55.0,60.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,19.4,28.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Lemna trisulca,Star duckweed,0.4,0.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Myriophyllum sibiricum,Northern water milfoil,16.6,19.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Nitella sp.,Stonewort sp.,6.9,6.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Nymphaea sp.,White water lily,379.7,475.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Pontederia cordata,Pickerelweed,,,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Potamogeton pusillus,Slender pondweed,1.4,1.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Sagittaria sp.,Arrowhead sp.,,,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Utricularia gibba,Humped bladderwort,1.1,1.0,East,0.79,2,0
+2024-LCS-NWA-150824-001A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.79,2,0
+2024-LCS-NWA-150824-002A,2024,Ceratophyllum demersum,Coontail,7.8,8.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Elodea canadensis,Common waterweed,8.0,8.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,0.8,1.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Lemna trisulca,Star duckweed,0.3,0.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Myriophyllum sibiricum,Northern water milfoil,14.8,15.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Najas sp.,Naiad sp./ water nymph sp.,,,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Nitella sp.,Stonewort sp.,1.3,1.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Nitella sp.,Stonewort sp.,0.1,0.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Nymphaea sp.,White water lily,84.3,105.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Pontederia cordata,Pickerelweed,,,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Potamogeton pusillus,Slender pondweed,0.1,0.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Typha sp.,Cattail sp.,,,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Utricularia gibba,Humped bladderwort,1.1,1.0,East,0.73,2,0
+2024-LCS-NWA-150824-002A,2024,Utricularia vulgaris,Common bladderwort,65.4,65.0,East,0.73,2,0
+2024-LCS-NWA-150824-003A,2024,Ceratophyllum demersum,Coontail,6.7,7.0,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Elodea canadensis,Common waterweed,0.8,1.0,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,0.2,0.0,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Lemna minor,Lesser duckweed,,,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Myriophyllum sibiricum,Northern water milfoil,3.9,4.0,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Nitella sp.,Stonewort sp.,0.2,0.0,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Nymphaea sp.,White water lily,79.1,95.0,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.57,1,0
+2024-LCS-NWA-150824-003A,2024,Utricularia vulgaris,Common bladderwort,19.9,21.0,East,0.57,1,0
+2024-LCS-NWA-150824-004A,2024,Ceratophyllum demersum,Coontail,2.7,2.0,East,0.86,2,0
+2024-LCS-NWA-150824-004A,2024,Elodea canadensis,Common waterweed,14.0,13.0,East,0.86,2,0
+2024-LCS-NWA-150824-004A,2024,Najas minor,Brittle naiad/Brittle water nymph,0.1,0.0,East,0.86,2,0
+2024-LCS-NWA-150824-004A,2024,Nymphaea sp.,White water lily,124.7,160.0,East,0.86,2,0
+2024-LCS-NWA-150824-004A,2024,Potamogeton pusillus,Slender pondweed,0.1,0.0,East,0.86,2,0
+2024-LCS-NWA-150824-004A,2024,Sagittaria sp.,Arrowhead sp.,,,East,0.86,2,0
+2024-LCS-NWA-150824-004A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.86,2,0
+2024-LCS-NWA-150824-004A,2024,Utricularia vulgaris,Common bladderwort,17.0,18.0,East,0.86,2,0
+2024-LCS-NWA-150824-005A,2024,Ceratophyllum demersum,Coontail,116.1,130.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Elodea canadensis,Common waterweed,137.2,140.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Najas flexilis,Slender naiad/ water nymph,12.0,14.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Najas minor,Brittle naiad/Brittle water nymph,32.0,34.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Nitellopsis obtusa,Starry stonewort,12.1,12.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Nymphaea sp.,White water lily,119.8,140.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Potamogeton pusillus,Slender pondweed,8.0,9.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Potamogeton robbinsii,Fern pondweed,,,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Stuckenia pectinatus,Sago pondweed,9.4,10.0,East,1.32,3,0
+2024-LCS-NWA-150824-005A,2024,Utricularia sp.,Bladderwort sp.,,,East,1.32,3,0
+2024-LCS-NWA-190824-001A,2024,Algae,Algae,0.0,0.0,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Ceratophyllum demersum,Coontail,5.5,4.0,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,35.7,44.0,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Lemna trisulca,Star duckweed,0.0,0.0,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Nymphaea sp.,White water lily,,,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Potamogeton crispus,Curly-leaved pondweed,,,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.1,0.0,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.3,1,1
+2024-LCS-NWA-190824-001A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.3,1,1
+2024-LCS-NWA-190824-002A,2024,Algae,Algae,,,East,0.64,1,0
+2024-LCS-NWA-190824-002A,2024,Ceratophyllum demersum,Coontail,0.8,1.0,East,0.64,1,0
+2024-LCS-NWA-190824-002A,2024,Elodea canadensis,Common waterweed,5.5,6.0,East,0.64,1,0
+2024-LCS-NWA-190824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.64,1,0
+2024-LCS-NWA-190824-002A,2024,Lemna minor,Lesser duckweed,,,East,0.64,1,0
+2024-LCS-NWA-190824-002A,2024,Nymphaea sp.,White water lily,,,East,0.64,1,0
+2024-LCS-NWA-190824-002A,2024,Spirodela polyrhiza,Greater duckweed,,,East,0.64,1,0
+2024-LCS-NWA-190824-002A,2024,Wolffia sp.,Watermeal sp.,,,East,0.64,1,0
+2024-LCS-NWA-190824-003A,2024,Ceratophyllum demersum,Coontail,,,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Lemna minor,Lesser duckweed,,,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Lemna trisulca,Star duckweed,,,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Najas flexilis,Slender naiad/ water nymph,0.4,1.0,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Najas minor,Brittle naiad/Brittle water nymph,14.5,16.0,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Nitella sp.,Stonewort sp.,16.3,14.0,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Nymphaea sp.,White water lily,,,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Potamogeton crispus,Curly-leaved pondweed,,,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Sparganium sp.,Burreed sp.,,,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Spirodela polyrhiza,Greater duckweed,,,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Typha sp.,Cattail sp.,,,East,0.43,1,0
+2024-LCS-NWA-190824-003A,2024,Utricularia vulgaris,Common bladderwort,0.0,0.0,East,0.43,1,0
+2024-LCS-NWA-190824-004A,2024,Ceratophyllum demersum,Coontail,17.2,19.0,East,1.01,1,0
+2024-LCS-NWA-190824-004A,2024,Elodea canadensis,Common waterweed,3.3,4.0,East,1.01,1,0
+2024-LCS-NWA-190824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,1.01,1,0
+2024-LCS-NWA-190824-004A,2024,Lemna minor,Lesser duckweed,,,East,1.01,1,0
+2024-LCS-NWA-190824-004A,2024,Nymphaea sp.,White water lily,,,East,1.01,1,0
+2024-LCS-NWA-190824-004A,2024,Spirodela polyrhiza,Greater duckweed,,,East,1.01,1,0
+2024-LCS-NWA-190824-004A,2024,Unknown Submerged,Unknown Submerged,0.3,0.0,East,1.01,1,0
+2024-LCS-NWA-190824-004A,2024,Utricularia vulgaris,Common bladderwort,21.0,22.0,East,1.01,1,0
+2024-LCS-NWA-190824-005A,2024,Ceratophyllum demersum,Coontail,33.1,35.0,East,0.92,3,0
+2024-LCS-NWA-190824-005A,2024,Elodea canadensis,Common waterweed,0.9,1.0,East,0.92,3,0
+2024-LCS-NWA-190824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,,,East,0.92,3,0
+2024-LCS-NWA-190824-005A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,East,0.92,3,0
+2024-LCS-NWA-190824-005A,2024,Lemna trisulca,Star duckweed,0.5,0.0,East,0.92,3,0
+2024-LCS-NWA-190824-005A,2024,Nitellopsis obtusa,Starry stonewort,172.4,180.0,East,0.92,3,0
+2024-LCS-NWA-190824-005A,2024,Nymphaea sp.,White water lily,2.4,3.0,East,0.92,3,0
+2024-LCS-NWA-200824-001A,2024,Ceratophyllum demersum,Coontail,26.7,28.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Elodea canadensis,Common waterweed,77.9,80.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,59.7,80.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Lemna trisulca,Star duckweed,1.1,1.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Myriophyllum sibiricum,Northern water milfoil,36.7,49.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Nitella sp.,Stonewort sp.,5.2,5.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Nymphaea sp.,White water lily,8.2,9.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Potamogeton pusillus,Slender pondweed,2.0,2.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.0,0.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Ranunculus sp.,Crowfoot sp.,1.1,2.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Stuckenia pectinatus,Sago pondweed,,,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Utricularia gibba,Humped bladderwort,7.2,8.0,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Utricularia sp.,Bladderwort sp.,,,East,0.89,2,0
+2024-LCS-NWA-200824-001A,2024,Wolffia sp.,Watermeal sp.,,,East,0.89,2,0
+2024-LCS-NWA-200824-002A,2024,Ceratophyllum demersum,Coontail,196.0,200.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Elodea canadensis,Common waterweed,10.0,10.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,0.7,1.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Lemna trisulca,Star duckweed,0.3,0.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Myriophyllum sibiricum,Northern water milfoil,95.0,115.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Myriophyllum sp.,Milfoil sp.,11.5,13.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Nitella sp.,Stonewort sp.,,,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Nymphaea sp.,White water lily,115.2,130.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Potamogeton pusillus,Slender pondweed,0.8,0.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.0,0.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Utricularia sp.,Bladderwort sp.,,,East,1.12,2,0
+2024-LCS-NWA-200824-002A,2024,Wolffia sp.,Watermeal sp.,,,East,1.12,2,0
+2024-LCS-NWA-200824-003A,2024,Ceratophyllum demersum,Coontail,96.7,100.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Elodea canadensis,Common waterweed,164.5,165.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,11.3,13.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Lemna minor,Lesser duckweed,,,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Lemna trisulca,Star duckweed,11.4,12.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Myriophyllum sibiricum,Northern water milfoil,118.6,140.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Nymphaea sp.,White water lily,301.0,360.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Potamogeton pusillus,Slender pondweed,13.6,13.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Potamogeton robbinsii,Fern pondweed,,,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Ranunculus sp.,Crowfoot sp.,0.1,0.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Utricularia gibba,Humped bladderwort,0.9,1.0,East,1.01,3,0
+2024-LCS-NWA-200824-003A,2024,Utricularia vulgaris,Common bladderwort,30.2,32.0,East,1.01,3,0
+2024-LCS-NWA-200824-004A,2024,Ceratophyllum demersum,Coontail,263.7,275.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Elodea canadensis,Common waterweed,77.8,75.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,309.1,425.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Lemna minor,Lesser duckweed,,,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Lemna trisulca,Star duckweed,4.8,5.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Myriophyllum sibiricum,Northern water milfoil,7.6,9.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Myriophyllum spicatum,Eurasian water milfoil,,,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Nitella sp.,Stonewort sp.,0.1,0.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Nymphaea sp.,White water lily,12.9,20.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Potamogeton pusillus,Slender pondweed,,,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Potamogeton robbinsii,Fern pondweed,,,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,5.0,5.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Ranunculus sp.,Crowfoot sp.,4.4,4.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Stuckenia pectinatus,Sago pondweed,5.3,6.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Utricularia gibba,Humped bladderwort,0.1,0.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Utricularia sp.,Bladderwort sp.,6.7,6.0,East,0.92,3,0
+2024-LCS-NWA-200824-004A,2024,Wolffia sp.,Watermeal sp.,,,East,0.92,3,0
+2024-LCS-NWA-200824-005A,2024,Ceratophyllum demersum,Coontail,310.8,320.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Elodea canadensis,Common waterweed,,,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,1.1,1.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Lemna minor,Lesser duckweed,,,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Lemna trisulca,Star duckweed,3.8,4.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Myriophyllum sibiricum,Northern water milfoil,0.1,0.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Nymphaea sp.,White water lily,55.3,70.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Potamogeton robbinsii,Fern pondweed,,,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,10.2,10.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Ranunculus sp.,Crowfoot sp.,0.2,0.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Utricularia gibba,Humped bladderwort,0.0,0.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Utricularia sp.,Bladderwort sp.,0.0,0.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Utricularia vulgaris,Common bladderwort,14.2,14.0,East,0.74,3,0
+2024-LCS-NWA-200824-005A,2024,Wolffia sp.,Watermeal sp.,,,East,0.74,3,0
+2024-LCS-NWA-210824-001A,2024,Elodea canadensis,Common waterweed,,,West,0.9,0,0
+2024-LCS-NWA-210824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.9,0,0
+2024-LCS-NWA-210824-001A,2024,Lemna minor,Lesser duckweed,,,West,0.9,0,0
+2024-LCS-NWA-210824-001A,2024,Myriophyllum spicatum,Eurasian water milfoil,,,West,0.9,0,0
+2024-LCS-NWA-210824-001A,2024,Nymphaea sp.,White water lily,,,West,0.9,0,0
+2024-LCS-NWA-210824-001A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.9,0,0
+2024-LCS-NWA-210824-001A,2024,Wolffia sp.,Watermeal sp.,,,West,0.9,0,0
+2024-LCS-NWA-210824-002A,2024,Ceratophyllum demersum,Coontail,1.7,2.0,West,0.86,1,1
+2024-LCS-NWA-210824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.86,1,1
+2024-LCS-NWA-210824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.86,1,1
+2024-LCS-NWA-210824-002A,2024,Lemna trisulca,Star duckweed,,,West,0.86,1,1
+2024-LCS-NWA-210824-002A,2024,Nymphaea sp.,White water lily,,,West,0.86,1,1
+2024-LCS-NWA-210824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.86,1,1
+2024-LCS-NWA-210824-002A,2024,Stuckenia pectinatus,Sago pondweed,,,West,0.86,1,1
+2024-LCS-NWA-210824-002A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,0.86,1,1
+2024-LCS-NWA-210824-003A,2024,Ceratophyllum demersum,Coontail,93.1,95.0,West,1.01,2,0
+2024-LCS-NWA-210824-003A,2024,Elodea canadensis,Common waterweed,0.9,1.0,West,1.01,2,0
+2024-LCS-NWA-210824-003A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,1.01,2,0
+2024-LCS-NWA-210824-003A,2024,Lemna trisulca,Star duckweed,1.0,1.0,West,1.01,2,0
+2024-LCS-NWA-210824-003A,2024,Nymphaea sp.,White water lily,,,West,1.01,2,0
+2024-LCS-NWA-210824-003A,2024,Potamogeton pusillus,Slender pondweed,1.1,1.0,West,1.01,2,0
+2024-LCS-NWA-210824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,1.01,2,0
+2024-LCS-NWA-210824-003A,2024,Stuckenia pectinatus,Sago pondweed,,,West,1.01,2,0
+2024-LCS-NWA-210824-003A,2024,Wolffia sp.,Watermeal sp.,,,West,1.01,2,0
+2024-LCS-NWA-210824-004A,2024,Ceratophyllum demersum,Coontail,7.5,8.0,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,5.5,7.0,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Lemna trisulca,Star duckweed,0.4,0.0,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Nymphaea sp.,White water lily,20.6,24.0,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,,,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Stuckenia pectinatus,Sago pondweed,0.1,0.0,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.87,1,0
+2024-LCS-NWA-210824-004A,2024,Wolffia sp.,Watermeal sp.,,,West,0.87,1,0
+2024-LCS-NWA-210824-005A,2024,Ceratophyllum demersum,Coontail,23.3,24.0,West,0.85,1,0
+2024-LCS-NWA-210824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.85,1,0
+2024-LCS-NWA-210824-005A,2024,Lemna minor,Lesser duckweed,,,West,0.85,1,0
+2024-LCS-NWA-210824-005A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.85,1,0
+2024-LCS-NWA-210824-005A,2024,Nelumbo lutea,American lotus,,,West,0.85,1,0
+2024-LCS-NWA-210824-005A,2024,Nymphaea sp.,White water lily,,,West,0.85,1,0
+2024-LCS-NWA-210824-005A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.85,1,0
+2024-LCS-NWA-210824-005A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.85,1,0
+2024-LCS-NWA-210824-005A,2024,Wolffia sp.,Watermeal sp.,,,West,0.85,1,0
+2024-LCS-NWA-220824-001A,2024,Ceratophyllum demersum,Coontail,37.4,38.0,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Elodea canadensis,Common waterweed,0.0,0.0,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Lemna trisulca,Star duckweed,0.2,0.0,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Myriophyllum sp.,Milfoil sp.,,,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Nymphaea sp.,White water lily,195.6,235.0,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.69,1,0
+2024-LCS-NWA-220824-001A,2024,Wolffia sp.,Watermeal sp.,,,West,0.69,1,0
+2024-LCS-NWA-220824-002A,2024,Ceratophyllum demersum,Coontail,418.1,435.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Elodea canadensis,Common waterweed,4.4,4.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Lemna trisulca,Star duckweed,0.4,0.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Myriophyllum spicatum,Eurasian water milfoil,2.1,2.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Nelumbo lutea,American lotus,15.4,19.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Nymphaea sp.,White water lily,,,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Pontederia cordata,Pickerelweed,,,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.3,0.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Sagittaria sp.,Arrowhead sp.,6.9,8.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Sparganium sp.,Burreed sp.,,,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Stuckenia pectinatus,Sago pondweed,,,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.92,3,0
+2024-LCS-NWA-220824-002A,2024,Wolffia sp.,Watermeal sp.,,,West,0.92,3,0
+2024-LCS-NWA-220824-003A,2024,Ceratophyllum demersum,Coontail,76.7,77.0,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Elodea canadensis,Common waterweed,0.2,0.0,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Myriophyllum spicatum,Eurasian water milfoil,,,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Nelumbo lutea,American lotus,,,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Nitellopsis obtusa,Starry stonewort,153.7,160.0,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Nymphaea sp.,White water lily,,,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Potamogeton pusillus,Slender pondweed,3.3,4.0,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Potamogeton robbinsii,Fern pondweed,,,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Sparganium sp.,Burreed sp.,,,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Utricularia vulgaris,Common bladderwort,18.9,20.0,West,0.84,3,0
+2024-LCS-NWA-220824-003A,2024,Wolffia sp.,Watermeal sp.,,,West,0.84,3,0
+2024-LCS-NWA-220824-004A,2024,Ceratophyllum demersum,Coontail,1.1,1.0,West,0.99,1,0
+2024-LCS-NWA-220824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,2.9,3.0,West,0.99,1,0
+2024-LCS-NWA-220824-004A,2024,Lemna minor,Lesser duckweed,,,West,0.99,1,0
+2024-LCS-NWA-220824-004A,2024,Nymphaea sp.,White water lily,353.4,430.0,West,0.99,1,0
+2024-LCS-NWA-220824-004A,2024,Sagittaria sp.,Arrowhead sp.,43.3,75.0,West,0.99,1,0
+2024-LCS-NWA-220824-004A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.99,1,0
+2024-LCS-NWA-220824-004A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.99,1,0
+2024-LCS-NWA-220824-005A,2024,Ceratophyllum demersum,Coontail,73.0,80.0,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Lemna minor,Lesser duckweed,,,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Nymphaea sp.,White water lily,,,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Spirodela polyrhiza,Greater duckweed,,,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Unknown Submerged,Unknown Submerged,0.2,0.0,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Utricularia gibba,Humped bladderwort,0.0,0.0,West,1.04,1,0
+2024-LCS-NWA-220824-005A,2024,Wolffia sp.,Watermeal sp.,,,West,1.04,1,0
+2024-LCS-NWA-260824-001A,2024,Ceratophyllum demersum,Coontail,26.8,28.0,West,0.57,2,0
+2024-LCS-NWA-260824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.57,2,0
+2024-LCS-NWA-260824-001A,2024,Lemna minor,Lesser duckweed,,,West,0.57,2,0
+2024-LCS-NWA-260824-001A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.57,2,0
+2024-LCS-NWA-260824-001A,2024,Lemna trisulca,Star duckweed,0.2,0.0,West,0.57,2,0
+2024-LCS-NWA-260824-001A,2024,Nymphaea sp.,White water lily,124.3,150.0,West,0.57,2,0
+2024-LCS-NWA-260824-001A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.57,2,0
+2024-LCS-NWA-260824-001A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.57,2,0
+2024-LCS-NWA-260824-001A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,0.57,2,0
+2024-LCS-NWA-260824-002A,2024,Ceratophyllum demersum,Coontail,,,West,0.62,1,0
+2024-LCS-NWA-260824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,2.5,4.0,West,0.62,1,0
+2024-LCS-NWA-260824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.62,1,0
+2024-LCS-NWA-260824-002A,2024,Nelumbo lutea,American lotus,,,West,0.62,1,0
+2024-LCS-NWA-260824-002A,2024,Nymphaea sp.,White water lily,220.1,265.0,West,0.62,1,0
+2024-LCS-NWA-260824-002A,2024,Sparganium sp.,Burreed sp.,,,West,0.62,1,0
+2024-LCS-NWA-260824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.62,1,0
+2024-LCS-NWA-260824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,0.0,0.0,West,0.34,1,0
+2024-LCS-NWA-260824-003A,2024,Lemna minor,Lesser duckweed,,,West,0.34,1,0
+2024-LCS-NWA-260824-003A,2024,Lemna trisulca,Star duckweed,,,West,0.34,1,0
+2024-LCS-NWA-260824-003A,2024,Nymphaea sp.,White water lily,,,West,0.34,1,0
+2024-LCS-NWA-260824-003A,2024,Sagittaria sp.,Arrowhead sp.,,,West,0.34,1,0
+2024-LCS-NWA-260824-003A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.34,1,0
+2024-LCS-NWA-260824-003A,2024,Utricularia vulgaris,Common bladderwort,8.7,7.0,West,0.34,1,0
+2024-LCS-NWA-260824-004A,2024,Algae,Algae,0.0,0.0,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Ceratophyllum demersum,Coontail,9.2,10.0,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Lemna trisulca,Star duckweed,0.4,0.0,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Nitella sp.,Stonewort sp.,0.0,0.0,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Nymphaea sp.,White water lily,,,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Potamogeton sp.,Pondweed sp.,0.0,0.0,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Utricularia vulgaris,Common bladderwort,47.9,48.0,West,0.8,1,1
+2024-LCS-NWA-260824-004A,2024,Wolffia sp.,Watermeal sp.,,,West,0.8,1,1
+2024-LCS-NWA-260824-005A,2024,Algae,Algae,,,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Ceratophyllum demersum,Coontail,79.4,80.0,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Elodea canadensis,Common waterweed,0.3,0.0,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Lemna trisulca,Star duckweed,0.3,1.0,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Myriophyllum spicatum,Eurasian water milfoil,,,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Nitella sp.,Stonewort sp.,,,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Nymphaea sp.,White water lily,,,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.76,2,0
+2024-LCS-NWA-260824-005A,2024,Wolffia sp.,Watermeal sp.,,,West,0.76,2,0
+2024-LCS-NWA-270824-001A,2024,Ceratophyllum demersum,Coontail,29.2,32.0,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Elodea canadensis,Common waterweed,1.5,2.0,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,7.8,10.0,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Lemna minor,Lesser duckweed,,,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Lemna trisulca,Star duckweed,0.2,0.0,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Nymphaea sp.,White water lily,111.3,130.0,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Typha sp.,Cattail sp.,,,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Utricularia gibba,Humped bladderwort,0.1,0.0,West,0.86,1,0
+2024-LCS-NWA-270824-001A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.86,1,0
+2024-LCS-NWA-270824-002A,2024,Ceratophyllum demersum,Coontail,17.4,18.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Elodea canadensis,Common waterweed,1.0,1.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,12.2,16.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Lemna minor,Lesser duckweed,,,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Nitella sp.,Stonewort sp.,2.7,2.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Nymphaea sp.,White water lily,0.0,0.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Potamogeton natans,Floating pondweed,10.3,15.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Utricularia gibba,Humped bladderwort,0.5,0.0,West,0.54,2,0
+2024-LCS-NWA-270824-002A,2024,Utricularia vulgaris,Common bladderwort,66.8,75.0,West,0.54,2,0
+2024-LCS-NWA-270824-003A,2024,Ceratophyllum demersum,Coontail,721.2,710.0,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Elodea canadensis,Common waterweed,1.1,2.0,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Lemna minor,Lesser duckweed,,,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Lemna trisulca,Star duckweed,0.4,1.0,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Myriophyllum sibiricum,Northern water milfoil,,,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Nymphaea sp.,White water lily,,,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Potamogeton pusillus,Slender pondweed,0.2,0.0,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Potamogeton robbinsii,Fern pondweed,,,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.0,0.0,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Unknown Submerged,Unknown Submerged,0.0,0.0,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Utricularia gibba,Humped bladderwort,0.0,0.0,West,1,3,0
+2024-LCS-NWA-270824-003A,2024,Wolffia sp.,Watermeal sp.,,,West,1,3,0
+2024-LCS-NWA-270824-004A,2024,Algae,Algae,0.0,0.0,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Ceratophyllum demersum,Coontail,22.9,25.0,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,79.9,115.0,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Lemna minor,Lesser duckweed,,,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Nymphaea sp.,White water lily,,,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Utricularia vulgaris,Common bladderwort,39.4,50.0,West,0.72,1,1
+2024-LCS-NWA-270824-004A,2024,Wolffia sp.,Watermeal sp.,,,West,0.72,1,1
+2024-LCS-NWA-270824-005A,2024,Ceratophyllum demersum,Coontail,85.4,90.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Elodea canadensis,Common waterweed,78.2,80.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,451.5,610.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Lemna trisulca,Star duckweed,4.0,4.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Myriophyllum sibiricum,Northern water milfoil,3.3,3.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Nitella sp.,Stonewort sp.,2.8,2.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Nymphaea sp.,White water lily,21.9,25.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Potamogeton pusillus,Slender pondweed,3.8,4.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Ranunculus sp.,Crowfoot sp.,1.0,1.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Utricularia gibba,Humped bladderwort,2.3,4.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Utricularia vulgaris,Common bladderwort,4.5,5.0,West,0.58,3,0
+2024-LCS-NWA-270824-005A,2024,Wolffia sp.,Watermeal sp.,,,West,0.58,3,0
+2024-LCS-NWA-280824-001A,2024,Ceratophyllum demersum,Coontail,189.3,205.0,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,73.3,95.0,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Lemna minor,Lesser duckweed,,,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Lemna trisulca,Star duckweed,2.1,2.0,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Nitella sp.,Stonewort sp.,0.6,0.0,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Nymphaea sp.,White water lily,92.8,100.0,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Utricularia vulgaris,Common bladderwort,43.3,43.0,West,0.6,2,0
+2024-LCS-NWA-280824-001A,2024,Wolffia sp.,Watermeal sp.,,,West,0.6,2,0
+2024-LCS-NWA-280824-002A,2024,Ceratophyllum demersum,Coontail,30.8,32.0,West,0.48,1,0
+2024-LCS-NWA-280824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.48,1,0
+2024-LCS-NWA-280824-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.48,1,0
+2024-LCS-NWA-280824-002A,2024,Lemna trisulca,Star duckweed,0.3,0.0,West,0.48,1,0
+2024-LCS-NWA-280824-002A,2024,Nymphaea sp.,White water lily,154.5,185.0,West,0.48,1,0
+2024-LCS-NWA-280824-002A,2024,Pontederia cordata,Pickerelweed,,,West,0.48,1,0
+2024-LCS-NWA-280824-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.48,1,0
+2024-LCS-NWA-280824-002A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.48,1,0
+2024-LCS-NWA-280824-002A,2024,Wolffia sp.,Watermeal sp.,,,West,0.48,1,0
+2024-LCS-NWA-280824-003A,2024,Ceratophyllum demersum,Coontail,91.7,98.0,West,0.93,1,0
+2024-LCS-NWA-280824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.93,1,0
+2024-LCS-NWA-280824-003A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.93,1,0
+2024-LCS-NWA-280824-003A,2024,Lemna trisulca,Star duckweed,2.2,2.0,West,0.93,1,0
+2024-LCS-NWA-280824-003A,2024,Nymphaea sp.,White water lily,,,West,0.93,1,0
+2024-LCS-NWA-280824-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.93,1,0
+2024-LCS-NWA-280824-003A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.93,1,0
+2024-LCS-NWA-280824-003A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,0.93,1,0
+2024-LCS-NWA-280824-004A,2024,Algae,Algae,0.0,0.0,West,0.8,2,1
+2024-LCS-NWA-280824-004A,2024,Ceratophyllum demersum,Coontail,13.2,14.0,West,0.8,2,1
+2024-LCS-NWA-280824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,124.0,150.0,West,0.8,2,1
+2024-LCS-NWA-280824-004A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.8,2,1
+2024-LCS-NWA-280824-004A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.8,2,1
+2024-LCS-NWA-280824-004A,2024,Nymphaea sp.,White water lily,,,West,0.8,2,1
+2024-LCS-NWA-280824-004A,2024,Spirodela polyrhiza,Greater duckweed,0.5,1.0,West,0.8,2,1
+2024-LCS-NWA-280824-004A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,0.8,2,1
+2024-LCS-NWA-280824-005A,2024,Ceratophyllum demersum,Coontail,281.3,295.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Elodea canadensis,Common waterweed,0.1,0.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,9.0,12.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Lemna trisulca,Star duckweed,2.5,3.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Nymphaea sp.,White water lily,47.5,60.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,2.0,2.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Utricularia vulgaris,Common bladderwort,7.7,7.0,West,0.95,2,0
+2024-LCS-NWA-280824-005A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,0.95,2,0
+2024-LCS-NWA-280824-006A,2024,Ceratophyllum demersum,Coontail,1047.6,1095.0,West,0.81,3,0
+2024-LCS-NWA-280824-006A,2024,Hydrocharis morsus-ranae,European frog-bit,7.7,9.0,West,0.81,3,0
+2024-LCS-NWA-280824-006A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.81,3,0
+2024-LCS-NWA-280824-006A,2024,Lemna trisulca,Star duckweed,1.3,1.0,West,0.81,3,0
+2024-LCS-NWA-280824-006A,2024,Nymphaea sp.,White water lily,738.7,850.0,West,0.81,3,0
+2024-LCS-NWA-280824-006A,2024,Potamogeton pusillus,Slender pondweed,0.2,0.0,West,0.81,3,0
+2024-LCS-NWA-280824-006A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.81,3,0
+2024-LCS-NWA-280824-006A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,0.81,3,0
+2024-LCS-NWA-290824-001A,2024,Ceratophyllum demersum,Coontail,240.0,255.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Elodea canadensis,Common waterweed,3.2,4.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Hydrocharis morsus-ranae,European frog-bit,98.9,150.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Lemna trisulca,Star duckweed,2.8,2.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Nymphaea sp.,White water lily,3.8,5.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Potamogeton pusillus,Slender pondweed,0.2,1.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Ranunculus sp.,Crowfoot sp.,0.9,1.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Utricularia vulgaris,Common bladderwort,10.0,11.0,West,1,2,0
+2024-LCS-NWA-290824-001A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,1,2,0
+2024-LCS-NWA-290824-002A,2024,Ceratophyllum demersum,Coontail,66.4,70.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Elodea canadensis,Common waterweed,103.9,110.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Hydrocharis morsus-ranae,European frog-bit,213.6,295.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Lemna minor,Lesser duckweed,,,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Nymphaea sp.,White water lily,56.0,65.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.8,1.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Ranunculus sp.,Crowfoot sp.,2.0,2.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.89,2,0
+2024-LCS-NWA-290824-002A,2024,Wolffia sp.,Watermeal sp.,,,West,0.89,2,0
+2024-LCS-NWA-290824-003A,2024,Algae,Algae,0.0,0.0,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Ceratophyllum demersum,Coontail,55.5,64.0,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Hydrocharis morsus-ranae,European frog-bit,33.9,47.0,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Lemna minor,Lesser duckweed,,,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Lemna trisulca,Star duckweed,0.8,1.0,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Nymphaea sp.,White water lily,136.3,185.0,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.1,0.0,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.69,2,0
+2024-LCS-NWA-290824-003A,2024,Wolffia sp.,Watermeal sp.,,,West,0.69,2,0
+2024-LCS-NWA-290824-004A,2024,Ceratophyllum demersum,Coontail,108.2,110.0,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Elodea canadensis,Common waterweed,,,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Lemna minor,Lesser duckweed,,,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Lemna sp.,Duckweed sp.,0.0,0.0,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Lemna trisulca,Star duckweed,1.0,2.0,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Nymphaea sp.,White water lily,42.7,60.0,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Unknown Submerged,Unknown Submerged,0.2,0.0,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Utricularia vulgaris,Common bladderwort,0.4,0.0,West,0.97,1,0
+2024-LCS-NWA-290824-004A,2024,Wolffia sp.,Watermeal sp.,,,West,0.97,1,0
+2024-LCS-NWA-290824-005A,2024,Algae,Algae,0.0,0.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Ceratophyllum demersum,Coontail,50.3,54.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Lemna trisulca,Star duckweed,0.9,2.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Nymphaea sp.,White water lily,,,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Potamogeton sp.,Pondweed sp.,0.0,0.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Stuckenia pectinatus,Sago pondweed,11.6,14.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Unknown Submerged,Unknown Submerged,6.8,8.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Unknown Submerged,Unknown Submerged,0.8,1.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Utricularia vulgaris,Common bladderwort,1.8,2.0,West,1,1,0
+2024-LCS-NWA-290824-005A,2024,Wolffia sp.,Watermeal sp.,,,West,1,1,0
+2024-LCS-NWA-290824-006A,2024,Algae,Algae,0.0,0.0,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Ceratophyllum demersum,Coontail,41.8,46.0,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Nymphaea sp.,White water lily,0.9,1.0,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Spirodela polyrhiza,Greater duckweed,0.3,0.0,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Typha sp.,Cattail sp.,,,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Utricularia vulgaris,Common bladderwort,8.2,9.0,West,0.9,1,0
+2024-LCS-NWA-290824-006A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,0.9,1,0
+2024-LCS-NWA-030924-001A,2024,Ceratophyllum demersum,Coontail,45.6,48.0,West,1,2,0
+2024-LCS-NWA-030924-001A,2024,Hydrocharis morsus-ranae,European frog-bit,130.5,170.0,West,1,2,0
+2024-LCS-NWA-030924-001A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,1,2,0
+2024-LCS-NWA-030924-001A,2024,Lemna trisulca,Star duckweed,0.3,0.0,West,1,2,0
+2024-LCS-NWA-030924-001A,2024,Nymphaea sp.,White water lily,105.6,125.0,West,1,2,0
+2024-LCS-NWA-030924-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,1,2,0
+2024-LCS-NWA-030924-001A,2024,Typha sp.,Cattail sp.,,,West,1,2,0
+2024-LCS-NWA-030924-001A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,1,2,0
+2024-LCS-NWA-030924-002A,2024,Algae,Algae,0.0,0.0,West,0.95,1,1
+2024-LCS-NWA-030924-002A,2024,Ceratophyllum demersum,Coontail,31.9,35.0,West,0.95,1,1
+2024-LCS-NWA-030924-002A,2024,Hydrocharis morsus-ranae,European frog-bit,113.2,150.0,West,0.95,1,1
+2024-LCS-NWA-030924-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.95,1,1
+2024-LCS-NWA-030924-002A,2024,Lemna trisulca,Star duckweed,0.7,2.0,West,0.95,1,1
+2024-LCS-NWA-030924-002A,2024,Nymphaea sp.,White water lily,142.9,180.0,West,0.95,1,1
+2024-LCS-NWA-030924-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.95,1,1
+2024-LCS-NWA-030924-002A,2024,Wolffia sp.,Watermeal sp.,,,West,0.95,1,1
+2024-LCS-NWA-030924-003A,2024,Algae,Algae,0.0,0.0,West,0.85,1,0
+2024-LCS-NWA-030924-003A,2024,Ceratophyllum demersum,Coontail,15.3,16.0,West,0.85,1,0
+2024-LCS-NWA-030924-003A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.85,1,0
+2024-LCS-NWA-030924-003A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.85,1,0
+2024-LCS-NWA-030924-003A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.85,1,0
+2024-LCS-NWA-030924-003A,2024,Nelumbo lutea,American lotus,,,West,0.85,1,0
+2024-LCS-NWA-030924-003A,2024,Nymphaea sp.,White water lily,1.0,1.0,West,0.85,1,0
+2024-LCS-NWA-030924-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.85,1,0
+2024-LCS-NWA-030924-003A,2024,Wolffia sp.,Watermeal sp.,0.0,0.0,West,0.85,1,0
+2024-LCS-NWA-030924-004A,2024,Ceratophyllum demersum,Coontail,388.7,385.0,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Elodea canadensis,Common waterweed,0.1,0.0,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Hydrocharis morsus-ranae,European frog-bit,,,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Lemna trisulca,Star duckweed,0.3,0.0,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Najas minor,Brittle naiad/Brittle water nymph,52.7,55.0,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Nitellopsis obtusa,Starry stonewort,0.2,0.0,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Nymphaea sp.,White water lily,,,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Potamogeton pusillus,Slender pondweed,1.5,1.0,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,2.9,3.0,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Schoenplectus sp.,Bulrush sp.,,,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Spirodela polyrhiza,Greater duckweed,,,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Stuckenia pectinatus,Sago pondweed,,,West,0.8,3,0
+2024-LCS-NWA-030924-004A,2024,Wolffia sp.,Watermeal sp.,,,West,0.8,3,0
+2024-LCS-NWA-030924-005A,2024,Ceratophyllum demersum,Coontail,31.0,33.0,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Hydrocharis morsus-ranae,European frog-bit,0.0,0.0,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Lemna minor,Lesser duckweed,,,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Lemna trisulca,Star duckweed,0.0,0.0,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Najas minor,Brittle naiad/Brittle water nymph,5.2,6.0,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Nelumbo lutea,American lotus,,,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Nitellopsis obtusa,Starry stonewort,50.0,50.0,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Nymphaea sp.,White water lily,46.5,55.0,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.1,0.0,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.6,2,1
+2024-LCS-NWA-030924-005A,2024,Wolffia sp.,Watermeal sp.,,,West,0.6,2,1
+2024-LCS-NWA-040924-001A,2024,Algae,Algae,0.0,0.0,West,0.91,1,1
+2024-LCS-NWA-040924-001A,2024,Ceratophyllum demersum,Coontail,,,West,0.91,1,1
+2024-LCS-NWA-040924-001A,2024,Hydrocharis morsus-ranae,European frog-bit,37.8,50.0,West,0.91,1,1
+2024-LCS-NWA-040924-001A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.91,1,1
+2024-LCS-NWA-040924-001A,2024,Nymphaea sp.,White water lily,,,West,0.91,1,1
+2024-LCS-NWA-040924-001A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.91,1,1
+2024-LCS-NWA-040924-001A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.91,1,1
+2024-LCS-NWA-040924-001A,2024,Wolffia sp.,Watermeal sp.,,,West,0.91,1,1
+2024-LCS-NWA-040924-002A,2024,Ceratophyllum demersum,Coontail,20.8,19.0,West,0.47,2,0
+2024-LCS-NWA-040924-002A,2024,Hydrocharis morsus-ranae,European frog-bit,70.7,100.0,West,0.47,2,0
+2024-LCS-NWA-040924-002A,2024,Lemna minor,Lesser duckweed,0.0,0.0,West,0.47,2,0
+2024-LCS-NWA-040924-002A,2024,Lemna trisulca,Star duckweed,1.1,2.0,West,0.47,2,0
+2024-LCS-NWA-040924-002A,2024,Nymphaea sp.,White water lily,24.1,80.0,West,0.47,2,0
+2024-LCS-NWA-040924-002A,2024,Riccia fluitans,Floating slender liverwort/Floating crystalwort,0.0,0.0,West,0.47,2,0
+2024-LCS-NWA-040924-002A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.47,2,0
+2024-LCS-NWA-040924-002A,2024,Utricularia sp.,Bladderwort sp.,,,West,0.47,2,0
+2024-LCS-NWA-040924-002A,2024,Wolffia sp.,Watermeal sp.,,,West,0.47,2,0
+2024-LCS-NWA-040924-003A,2024,Ceratophyllum demersum,Coontail,73.1,75.0,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Elodea canadensis,Common waterweed,,,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Hydrocharis morsus-ranae,European frog-bit,0.0,0.0,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Lemna minor,Lesser duckweed,,,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Lemna trisulca,Star duckweed,0.2,0.0,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Najas minor,Brittle naiad/Brittle water nymph,0.0,0.0,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Nitella sp.,Stonewort sp.,,,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Nymphaea sp.,White water lily,133.9,150.0,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Potamogeton zosteriformis,Flat-stemmed pondweed,0.1,0.0,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Spirodela polyrhiza,Greater duckweed,0.0,0.0,West,0.85,2,0
+2024-LCS-NWA-040924-003A,2024,Wolffia sp.,Watermeal sp.,,,West,0.85,2,0
