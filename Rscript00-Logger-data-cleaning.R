@@ -39,10 +39,6 @@ logger_data <- logger_data %>%
     )
   )
 
-# remove any negative values
-logger_data <- logger_data %>%
-  filter(DO_mgL >= 0)
-
 # revise column names
 logger_data <- logger_data %>%
   rename(
@@ -53,6 +49,17 @@ logger_data <- logger_data %>%
     Q = `Q ()`
   )
 
+min(logger_data$DO_mgL)
+max(logger_data$DO_mgL)
+min(logger_data$Temp_C)
+max(logger_data$Temp_C)
+
+# remove any negative values
+logger_data <- logger_data %>%
+  filter(DO_mgL >= 0)
+
+# write csv
+write.csv(logger_data, "Data/Long-term-loggers.csv")
 
 # plot
 ggplot(logger_data, aes(x = DateTime, y = DO_mgL)) +
