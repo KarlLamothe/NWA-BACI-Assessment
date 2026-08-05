@@ -112,8 +112,8 @@ Log.7450_390571$flag <- Log.7450_390571$Temp_C < -2 |
 subset(Log.7450_390571, flag)
 
 # repeated identical values
-rle_vals <- rle(Log.7450_390571$Temp_C)
-which(rle_vals$lengths > 10)
+rle_vals <- rle(Log.7450_390571$DO_mgL)
+which(rle_vals$lengths > 30)
 
 # plot
 (ggplot(Log.7450_390571, aes(x = DateTime, y = DO_mgL, group=group)) +
