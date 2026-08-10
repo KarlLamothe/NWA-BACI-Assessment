@@ -1,6 +1,11 @@
 # load packages and set custom ggplot theme
 source("Rscript00-Packages-Theme.R") 
 
+################################################################################
+################################################################################
+# Long term loggers
+################################################################################
+################################################################################
 # read csv files
 Loggers <- read.csv("Data/Long-term-loggers.csv", header=T)
 colnames(Loggers)
@@ -219,3 +224,40 @@ ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = Temperature_C)) +
   geom_line() +
   labs(y = "Water temperature (C)") +
   theme(axis.title.x = element_blank())
+
+################################################################################
+################################################################################
+# Fyke net loggers
+################################################################################
+################################################################################
+# read csv files
+Fyke.logs <- read.csv("Data/Fyke-loggers.csv", header=T)
+colnames(Fyke.logs)
+unique(Fyke.logs$Group)
+unique(Fyke.logs$Notes)
+unique(Fyke.logs$Site_Name)
+
+Fyke.logs <- Fyke.logs[c(1:12,17:18)]
+Fyke.logs$Local_Date_Time
+
+# create a separate date and time column 
+Fyke.logs <- Fyke.logs %>%
+  mutate(
+    Local_Date_Time = with_tz(ymd_hms(Local_Date_Time), "America/Toronto"),
+    Date = as.Date(Local_Date_Time),
+    Time = format(Local_Date_Time, "%H:%M:%S")
+  )
+
+# remove rows with Temp_Change_Back or temp change forward > 0.1
+Fyke.logs <- Fyke.logs %>%
+  filter(
+    (is.na(Temp_Change_Back) | abs(Temp_Change_Back) <= 0.1),
+    (is.na(Temp_Change_Fwd)  | abs(Temp_Change_Fwd)  <= 0.1)
+  )
+
+aggregate(Fyke.logs$Temperature_C, list(Fyke.logs$Site_Name), mean)
+aggregate(Fyke.logs$Temperature_C, list(Fyke.logs$Site_Name), range)
+
+aggregate(Fyke.logs$DO_mgL, list(Fyke.logs$Site_Name), mean)
+aggregate(Fyke.logs$DO_mgL, list(Fyke.logs$Site_Name), range)
+
