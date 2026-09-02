@@ -2,7 +2,7 @@
 source("Rscript00-Packages-Theme.R") 
 
 # read csv files
-Site.info <- read.csv("Data/Site-information.csv", header=T)
+Site.info <- read.csv("Data/Site-information(20260902).csv", header=T)
 colnames(Site.info)
 
 # Water quality data
@@ -59,7 +59,8 @@ Water.gg
 #Linear Models
 ################################################################################
 # shorter dataframe for testing
-Water.data.df <- Site.info[c(8,10,19:22,25)]
+colnames(Site.info)
+Water.data.df <- Site.info[c(8,10,20:23,26)]
 str(Water.data.df)
 Water.data.df$Year <- as.character(Water.data.df$Year)
 Water.data.df$Waterbody.Name[Water.data.df$Waterbody.Name=="St. Clair NWA - East Cell SCU"] <- "East Cell"

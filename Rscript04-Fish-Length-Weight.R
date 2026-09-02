@@ -2,13 +2,12 @@
 source("Rscript00-Packages-Theme.R") 
 
 # read csv file for TL and Weight
-TL.W <- read.csv("Data/Fish-TL-W.csv", header=T)
-TL.W <- TL.W[TL.W$Year=="2023" | TL.W$Year=="2024",]
+TL.W <- read.csv("Data/Fish-TL-W(20260902).csv", header=T)
 colnames(TL.W)
 unique(TL.W$Species)
 
 # site information
-Site.info <- read.csv("Data/Site-information.csv", header=T)
+Site.info <- read.csv("Data/Site-information(20260902).csv", header=T)
 colnames(Site.info)
 
 # merge so you can see east versus west cells
@@ -16,7 +15,8 @@ TL.W.site.info <- merge(TL.W, Site.info, "Field.Number")
 
 # make additional dataframes
 # Limit the number of columns and rename variables
-TL.W.site.info2 <- TL.W.site.info[c(1,3,7,8,9,18)]
+colnames(TL.W.site.info)
+TL.W.site.info2 <- TL.W.site.info[c(1,18,9,10,11,6)]
 colnames(TL.W.site.info2) <- c("Field.Number","Year","Species","Total.Length","Weight","Cell")
 TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - East Cell SCU"] <- "East"
 TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - West Cell SCU"] <- "West"

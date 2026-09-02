@@ -2,7 +2,7 @@
 source("Rscript00-Packages-Theme.R") 
 
 # read csv files
-Site.info <- read.csv("Data/Site-information.csv", header=T)
+Site.info <- read.csv("Data/Site-information(20260902).csv", header=T)
 colnames(Site.info)
 
 #vegetation
@@ -45,7 +45,8 @@ ggplot(Veg.data, aes(x = factor(Year), y = Measure, colour = Cell,
   facet_wrap(~Variable)
 
 # shorter dataframe for testing
-Veg.data.df <- Site.info[35:38]/100
+colnames(Site.info)
+Veg.data.df <- Site.info[33:36]/100
 Site.info$Waterbody.Name[Site.info$Waterbody.Name=="St. Clair NWA - East Cell SCU"] <- "East Cell"
 Site.info$Waterbody.Name[Site.info$Waterbody.Name=="St. Clair NWA - West Cell SCU"] <- "West Cell"
 

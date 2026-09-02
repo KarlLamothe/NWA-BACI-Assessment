@@ -2,8 +2,8 @@
 source("Rscript00-Packages-Theme.R") 
 
 # read csv files
-Fish <- read.csv("Data/Fish-captures.csv", header=T)
-Site.info <- read.csv("Data/Site-information.csv", header=T)
+Fish <- read.csv("Data/Fish-captures(20260902).csv", header=T)
+Site.info <- read.csv("Data/Site-information(20260902).csv", header=T)
 
 # summarize effort
 aggregate(Site.info$Effort, list(Site.info$Year, Site.info$Waterbody.Name), mean)
@@ -14,10 +14,9 @@ aggregate(Site.info$Effort, list(Site.info$Year, Site.info$Waterbody.Name), min)
 
 # clean fish data
 colnames(Fish)
-Fish <- Fish[c(2,4,5,8)]
-Fish <- merge(Fish, Site.info, "Field.Number")
-Fish <- Fish[c(1:4,13)]
-colnames(Fish) <- c("Field.Number", "Number.Captured", "Species", "Year", "Cell")
+Fish <- Fish[c(2,11,12,5,7)]
+colnames(Fish) <- c("Field.Number", "Species", "Number.Captured","Year", "Cell")
+head(Fish)
 
 # summary
 unique(Fish$Species)
