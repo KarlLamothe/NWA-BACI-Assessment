@@ -216,14 +216,94 @@ subset(Log.7450_592323, flag)
 rle_vals <- rle(Log.7450_592323$Temperature_C)
 which(rle_vals$lengths > 10)
 
-ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = DO_mgL)) +
+(ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = DO_mgL)) +
   geom_line() +
   labs(y = "DO (mg/L)") +
-  theme(axis.title.x = element_blank())
-ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = Temperature_C)) +
+  theme(axis.title.x = element_blank()))/
+(ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = Temperature_C)) +
+  geom_line() +
+  labs(y = "Water temperature (C)") +
+  theme(axis.title.x = element_blank()))
+
+################################################################################
+################################################################################
+# All loggers
+################################################################################
+################################################################################
+# Temperature all loggers
+Logger_daily <- Loggers %>%
+  mutate(Date = as.Date(Local_Date_Time)) %>%
+  group_by(Date, Serial_Number) %>%
+  summarize(
+    Tmean = mean(Temperature_C, na.rm = TRUE),
+    .groups = "drop"
+  )
+head(Logger_daily)
+
+Logger_daily_allcomb <- Loggers %>%
+  mutate(Date = as.Date(Local_Date_Time)) %>%
+  group_by(Date) %>%
+  summarize(
+    Tmean = mean(Temperature_C, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(data=Loggers, aes(x=Local_Date_Time, y=Temperature_C, 
+                         group=Serial_Number, color=Serial_Number))+
   geom_line() +
   labs(y = "Water temperature (C)") +
   theme(axis.title.x = element_blank())
+
+ggplot(data=Logger_daily, aes(x=Date, y=Tmean, 
+                         group=Serial_Number, color=Serial_Number))+
+  geom_line() +
+  labs(y = "Water temperature (C)") +
+  theme(axis.title.x = element_blank())
+
+ggplot(data=Logger_daily_allcomb, aes(x=Date, y=Tmean))+
+  geom_line() +
+  #geom_hline(yintercept = c(23.08480, 21.86737, 21.54133, 22.06458)) +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  labs(y = "Water temperature (C)") +
+  theme(axis.title.x = element_blank())
+
+##################
+# DO all loggers #
+##################
+Logger_daily_DO <- Loggers %>%
+  mutate(Date = as.Date(Local_Date_Time)) %>%
+  group_by(Date, Serial_Number) %>%
+  summarize(
+    DOmean = mean(DO_mgL, na.rm = TRUE),
+    .groups = "drop"
+  )
+head(Logger_daily_DO)
+
+Logger_daily_allcomb_DO <- Loggers %>%
+  mutate(Date = as.Date(Local_Date_Time)) %>%
+  group_by(Date) %>%
+  summarize(
+    DOmean = mean(DO_mgL, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(data=Loggers, aes(x=Local_Date_Time, y=DO_mgL, 
+                         group=Serial_Number, color=Serial_Number))+
+  geom_line() +
+  labs(y = "Dissolved oxygen (mg/L)") +
+  theme(axis.title.x = element_blank())
+
+ggplot(data=Logger_daily_DO, aes(x=Date, y=DOmean, 
+                              group=Serial_Number, color=Serial_Number))+
+  geom_line() +
+  labs(y = "Dissolved oxygen (mg/L)") +
+  theme(axis.title.x = element_blank())
+
+ggplot(data=Logger_daily_allcomb_DO, aes(x=Date, y=DOmean))+
+  geom_line() +
+  labs(y = "Dissolved oxygen (mg/L)") +
+  theme(axis.title.x = element_blank())
+
 
 ################################################################################
 ################################################################################
