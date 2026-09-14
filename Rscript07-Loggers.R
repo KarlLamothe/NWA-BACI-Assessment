@@ -46,11 +46,11 @@ aggregate(Log.7450_390571$DO_mgL, list(Log.7450_390571$Date), mean)
 aggregate(Log.7450_390571$DO_mgL, list(Log.7450_390571$Date), sd)
 aggregate(Log.7450_390571$DO_mgL, list(Log.7450_390571$Date), range)
 
-# checking for anomolies
-# impossible values of temperature
-Log.7450_390571$flag <- Log.7450_390571$Temperature_C < -2 |
-  Log.7450_390571$Temperature_C > 40
-subset(Log.7450_390571, flag)
+## checking for anomolies
+## impossible values of temperature
+#Log.7450_390571$flag <- Log.7450_390571$Temperature_C < -2 |
+#  Log.7450_390571$Temperature_C > 40
+#subset(Log.7450_390571, flag)
 
 # repeated identical values
 rle_vals <- rle(Log.7450_390571$DO_mgL)
@@ -76,15 +76,15 @@ aggregate(Log.7450_400400$DO_mgL, list(Log.7450_400400$Date), mean)
 aggregate(Log.7450_400400$DO_mgL, list(Log.7450_400400$Date), sd)
 aggregate(Log.7450_400400$DO_mgL, list(Log.7450_400400$Date), range)
 
-# checking for anomolies
-# impossible values of temperature
-Log.7450_400400$flag <- Log.7450_400400$Temperature_C < -2 |
-  Log.7450_400400$Temperature_C > 40
-subset(Log.7450_400400, flag)
-
-# repeated identical values
-rle_vals <- rle(Log.7450_400400$Temperature_C)
-which(rle_vals$lengths > 10)
+## checking for anomolies
+## impossible values of temperature
+#Log.7450_400400$flag <- Log.7450_400400$Temperature_C < -2 |
+#  Log.7450_400400$Temperature_C > 40
+#subset(Log.7450_400400, flag)
+#
+## repeated identical values
+#rle_vals <- rle(Log.7450_400400$Temperature_C)
+#which(rle_vals$lengths > 10)
 
 (ggplot(Log.7450_400400, aes(x = Local_Date_Time, y = DO_mgL)) +
   geom_line() +
@@ -102,25 +102,25 @@ aggregate(Log.7450_431525$DO_mgL, list(Log.7450_431525$Date), mean)
 aggregate(Log.7450_431525$DO_mgL, list(Log.7450_431525$Date), sd)
 aggregate(Log.7450_431525$DO_mgL, list(Log.7450_431525$Date), range)
 
-# checking for anomolies
-# impossible values of temperature
-Log.7450_431525$flag <- Log.7450_431525$Temperature_C < -2 |
-  Log.7450_431525$Temperature_C > 40
-subset(Log.7450_431525, flag)
+## checking for anomolies
+## impossible values of temperature
+#Log.7450_431525$flag <- Log.7450_431525$Temperature_C < -2 |
+#  Log.7450_431525$Temperature_C > 40
+#subset(Log.7450_431525, flag)
+#
+## repeated identical values
+#rle_vals <- rle(Log.7450_431525$Temperature_C)
+#which(rle_vals$lengths > 10)
 
-# repeated identical values
-rle_vals <- rle(Log.7450_431525$Temperature_C)
-which(rle_vals$lengths > 10)
-
-ggplot(Log.7450_431525, aes(x = Local_Date_Time, y = DO_mgL)) +
+(ggplot(Log.7450_431525, aes(x = Local_Date_Time, y = DO_mgL)) +
   geom_line() +
   labs(y = "DO (mg/L)") +
-  theme(axis.title.x = element_blank())
-ggplot(Log.7450_431525, aes(x = Local_Date_Time, y = Temperature_C)) +
+  theme(axis.title.x = element_blank()))/
+(ggplot(Log.7450_431525, aes(x = Local_Date_Time, y = Temperature_C)) +
   geom_line() +
   labs(y = "Water temperature (C)") +
-  theme(axis.title.x = element_blank())
-#  
+  theme(axis.title.x = element_blank()))
+  
 # ~~~~~~~~~~~~~~~ #
 # Log.7450_439471 #
 # ~~~~~~~~~~~~~~~ #
@@ -128,15 +128,15 @@ aggregate(Log.7450_439471$DO_mgL, list(Log.7450_439471$Date), mean)
 aggregate(Log.7450_439471$DO_mgL, list(Log.7450_439471$Date), sd)
 aggregate(Log.7450_439471$DO_mgL, list(Log.7450_439471$Date), range)
 
-# checking for anomolies
-# impossible values of temperature
-Log.7450_439471$flag <- Log.7450_439471$Temperature_C < -2 |
-  Log.7450_439471$Temperature_C > 40
-subset(Log.7450_439471, flag)
-
-# repeated identical values
-rle_vals <- rle(Log.7450_439471$Temperature_C)
-which(rle_vals$lengths > 10)
+## checking for anomolies
+## impossible values of temperature
+#Log.7450_439471$flag <- Log.7450_439471$Temperature_C < -2 |
+#  Log.7450_439471$Temperature_C > 40
+#subset(Log.7450_439471, flag)
+#
+## repeated identical values
+#rle_vals <- rle(Log.7450_439471$Temperature_C)
+#which(rle_vals$lengths > 10)
 
 (ggplot(Log.7450_439471, aes(x = Local_Date_Time, y = DO_mgL)) +
   geom_line() +
@@ -154,15 +154,15 @@ aggregate(Log.7450_561235$DO_mgL, list(Log.7450_561235$Date), mean)
 aggregate(Log.7450_561235$DO_mgL, list(Log.7450_561235$Date), sd)
 aggregate(Log.7450_561235$DO_mgL, list(Log.7450_561235$Date), range)
 
-# checking for anomolies
-# impossible values of temperature
-Log.7450_561235$flag <- Log.7450_561235$Temperature_C < -2 |
-  Log.7450_561235$Temperature_C > 40
-subset(Log.7450_561235, flag)
-
-# repeated identical values
-rle_vals <- rle(Log.7450_561235$Temperature_C)
-which(rle_vals$lengths > 10)
+## checking for anomolies
+## impossible values of temperature
+#Log.7450_561235$flag <- Log.7450_561235$Temperature_C < -2 |
+#  Log.7450_561235$Temperature_C > 40
+#subset(Log.7450_561235, flag)
+#
+## repeated identical values
+#rle_vals <- rle(Log.7450_561235$Temperature_C)
+#which(rle_vals$lengths > 10)
 
 (ggplot(Log.7450_561235, aes(x = Local_Date_Time, y = DO_mgL)) +
   geom_line() +
@@ -180,15 +180,15 @@ aggregate(Log.7450_571784$DO_mgL, list(Log.7450_571784$Date), mean)
 aggregate(Log.7450_571784$DO_mgL, list(Log.7450_571784$Date), sd)
 aggregate(Log.7450_571784$DO_mgL, list(Log.7450_571784$Date), range)
 
-# checking for anomolies
-# impossible values of temperature
-Log.7450_571784$flag <- Log.7450_571784$Temperature_C < -2 |
-  Log.7450_571784$Temperature_C > 40
-subset(Log.7450_571784, flag)
-
-# repeated identical values
-rle_vals <- rle(Log.7450_571784$Temperature_C)
-which(rle_vals$lengths > 10)
+## checking for anomolies
+## impossible values of temperature
+#Log.7450_571784$flag <- Log.7450_571784$Temperature_C < -2 |
+#  Log.7450_571784$Temperature_C > 40
+#subset(Log.7450_571784, flag)
+#
+## repeated identical values
+#rle_vals <- rle(Log.7450_571784$Temperature_C)
+#which(rle_vals$lengths > 10)
 
 (ggplot(Log.7450_571784, aes(x = Local_Date_Time, y = DO_mgL)) +
   geom_line() +
@@ -206,15 +206,15 @@ aggregate(Log.7450_592323$DO_mgL, list(Log.7450_592323$Date), mean)
 aggregate(Log.7450_592323$DO_mgL, list(Log.7450_592323$Date), sd)
 aggregate(Log.7450_592323$DO_mgL, list(Log.7450_592323$Date), range)
 
-# checking for anomolies
-# impossible values of temperature
-Log.7450_592323$flag <- Log.7450_592323$Temperature_C < -2 |
-  Log.7450_592323$Temperature_C > 40
-subset(Log.7450_592323, flag)
-
-# repeated identical values
-rle_vals <- rle(Log.7450_592323$Temperature_C)
-which(rle_vals$lengths > 10)
+## checking for anomolies
+## impossible values of temperature
+#Log.7450_592323$flag <- Log.7450_592323$Temperature_C < -2 |
+#  Log.7450_592323$Temperature_C > 40
+#subset(Log.7450_592323, flag)
+#
+## repeated identical values
+#rle_vals <- rle(Log.7450_592323$Temperature_C)
+#which(rle_vals$lengths > 10)
 
 (ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = DO_mgL)) +
   geom_line() +
@@ -304,40 +304,38 @@ ggplot(data=Logger_daily_allcomb_DO, aes(x=Date, y=DOmean))+
   labs(y = "Dissolved oxygen (mg/L)") +
   theme(axis.title.x = element_blank())
 
-
-################################################################################
-################################################################################
-# Fyke net loggers
-################################################################################
-################################################################################
-# read csv files
-Fyke.logs <- read.csv("Data/Fyke-loggers.csv", header=T)
-colnames(Fyke.logs)
-unique(Fyke.logs$Group)
-unique(Fyke.logs$Notes)
-unique(Fyke.logs$Site_Name)
-
-Fyke.logs <- Fyke.logs[c(1:12,17:18)]
-Fyke.logs$Local_Date_Time
-
-# create a separate date and time column 
-Fyke.logs <- Fyke.logs %>%
-  mutate(
-    Local_Date_Time = with_tz(ymd_hms(Local_Date_Time), "America/Toronto"),
-    Date = as.Date(Local_Date_Time),
-    Time = format(Local_Date_Time, "%H:%M:%S")
-  )
-
-# remove rows with Temp_Change_Back or temp change forward > 0.1
-Fyke.logs <- Fyke.logs %>%
-  filter(
-    (is.na(Temp_Change_Back) | abs(Temp_Change_Back) <= 0.1),
-    (is.na(Temp_Change_Fwd)  | abs(Temp_Change_Fwd)  <= 0.1)
-  )
-
-aggregate(Fyke.logs$Temperature_C, list(Fyke.logs$Site_Name), mean)
-aggregate(Fyke.logs$Temperature_C, list(Fyke.logs$Site_Name), range)
-
-aggregate(Fyke.logs$DO_mgL, list(Fyke.logs$Site_Name), mean)
-aggregate(Fyke.logs$DO_mgL, list(Fyke.logs$Site_Name), range)
-
+#################################################################################
+#################################################################################
+## Fyke net loggers
+#################################################################################
+#################################################################################
+## read csv files
+#Fyke.logs <- read.csv("Data/Fyke-loggers.csv", header=T)
+#colnames(Fyke.logs)
+#unique(Fyke.logs$Group)
+#unique(Fyke.logs$Notes)
+#unique(Fyke.logs$Site_Name)
+#
+#Fyke.logs <- Fyke.logs[c(1:12,17:18)]
+#Fyke.logs$Local_Date_Time
+#
+## create a separate date and time column 
+#Fyke.logs <- Fyke.logs %>%
+#  mutate(
+#    Local_Date_Time = with_tz(ymd_hms(Local_Date_Time), "America/Toronto"),
+#    Date = as.Date(Local_Date_Time),
+#    Time = format(Local_Date_Time, "%H:%M:%S")
+#  )
+#
+## remove rows with Temp_Change_Back or temp change forward > 0.1
+#Fyke.logs <- Fyke.logs %>%
+#  filter(
+#    (is.na(Temp_Change_Back) | abs(Temp_Change_Back) <= 0.1),
+#    (is.na(Temp_Change_Fwd)  | abs(Temp_Change_Fwd)  <= 0.1)
+#  )
+#
+#aggregate(Fyke.logs$Temperature_C, list(Fyke.logs$Site_Name), mean)
+#aggregate(Fyke.logs$Temperature_C, list(Fyke.logs$Site_Name), range)
+#
+#aggregate(Fyke.logs$DO_mgL, list(Fyke.logs$Site_Name), mean)
+#aggregate(Fyke.logs$DO_mgL, list(Fyke.logs$Site_Name), range)
