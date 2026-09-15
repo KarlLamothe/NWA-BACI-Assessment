@@ -315,6 +315,86 @@ fish.ord.gg
 
 ################################################################################
 ################################################################################
+# NMDS
+################################################################################
+################################################################################
+fish.nmds <- metaMDS(fish_wide_CPUE2[4:(ncol(fish_wide_CPUE2)-1)], 
+                     distance = "bray", k = 3, trymax = 500)
+plot(fish.nmds)
+stressplot(fish.nmds)
+fish.nmds
+
+# Extract NMDS coordinates
+fish_scores <- as.data.frame(
+  scores(fish.nmds, display = "sites", choices = 1:3)
+)
+
+fish_scores$Cell <- factor(fish_wide_CPUE2$Cell)
+fish_scores$Year <- factor(fish_wide_CPUE2$Year)
+
+fish_scores$Group <- interaction(
+  fish_scores$Cell,
+  fish_scores$Year
+)
+
+fish_centroids <- fish_scores %>%
+  group_by(Cell, Year) %>%
+  summarise(
+    NMDS1 = mean(NMDS1),
+    NMDS2 = mean(NMDS2),
+    NMDS3 = mean(NMDS3),
+    .groups = "drop"
+  )
+
+# plot nmds
+p1<-ggplot(fish_scores, aes(x = NMDS1, y = NMDS2)) +
+  stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
+               level=0.95) +
+  geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
+  #geom_path(data = fish_centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, group = Cell),
+  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  geom_point(data = fish_centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, shape = Year),
+             size = 2) +
+  coord_fixed(ratio=1)+
+  labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year")
+
+p2<-ggplot(fish_scores, aes(x = NMDS1, y = NMDS3)) +
+  stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
+               level=0.95) +
+  geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
+  #geom_path(data = fish_centroids, aes(x = NMDS1, y = NMDS3, colour = Cell, group = Cell),
+  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  geom_point(data = fish_centroids, aes(x = NMDS1, y = NMDS3, colour = Cell, shape = Year),
+             size = 2) +
+  coord_fixed(ratio=1)+
+  labs(x = "NMDS1", y = "NMDS3", colour = "Cell", shape = "Year", lty = "Year")
+
+p3<-ggplot(fish_scores, aes(x = NMDS2, y = NMDS3)) +
+  stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
+               level=0.95) +
+  geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
+  #geom_path(data = fish_centroids, aes(x = NMDS2, y = NMDS3, colour = Cell, group = Cell),
+  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  geom_point(data = fish_centroids, aes(x = NMDS2, y = NMDS3, colour = Cell, shape = Year),
+             size = 2) +
+  coord_fixed(ratio=1)+
+  labs(x = "NMDS2", y = "NMDS3", colour = "Cell", shape = "Year", lty = "Year")
+
+png("Results/Figures/fish.nmds.png", height=2, width=5, units='in', res=800)
+p1 + p2 + p3 + plot_layout(guides = "collect") &
+  theme(legend.position = "top",
+        legend.margin = margin(0, 0, 0, 0),
+        legend.box.margin = margin(0, 0, 0, 0),
+        legend.spacing.y = unit(0.05, "cm"),
+        legend.key.height = unit(0.4, "cm"),
+        legend.key.width = unit(0.5, "cm"))
+dev.off()
+
+################################################################################
+################################################################################
 # Look at CPUE variance
 ################################################################################
 ################################################################################

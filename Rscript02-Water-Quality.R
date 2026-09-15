@@ -163,7 +163,7 @@ Water.data.df2$Waterbody.Name[Water.data.df2$Waterbody.Name=="St. Clair NWA - We
 perm1<-adonis2(Water.data.df2[c(3:7)] ~ Year*Waterbody.Name,
                data = Water.data.df2,
                method = "euclidean",
-               permutations = 999,
+               permutations = 9999,
                by='terms',
                na.rm=T)
 perm1
@@ -173,43 +173,60 @@ d <- vegdist(Water.data.df2[c(3:7)], method = "euclidean")
 disp <- betadisper(d, Water.data.df2$Year)
 anova(disp)
 plot(disp)
-permutest(disp, pairwise = TRUE, permutations = 999)
+permutest(disp, pairwise = TRUE, permutations = 9999)
 
-# Site coordinates (samples)
-sites <- as.data.frame(scores(disp, display = "sites"))
-sites$Year <- as.character(Water.data.df2$Year)
-sites$Cell <- Water.data.df2$Waterbody.Name
-sites$Field.Number <- Water.data.df2$Field.Number
+################################################################################
+################################################################################
+# NMDS
+################################################################################
+################################################################################
+wq.nmds <- metaMDS(Water.data.df2[c(3:7)], distance = "euclidean", k = 2, trymax = 100)
+plot(wq.nmds)
+stressplot(wq.nmds)
+wq.nmds
 
-# Eigenvalues
-eig <- disp$eig
-var_explained <- eig / sum(eig[eig > 0]) * 100
-var_explained[1:2]
+# Extract NMDS coordinates
+nmds_scores <- as.data.frame(scores(wq.nmds, display = "sites"))
 
-xlab <- paste0("PCoA1 (", round(var_explained[1], 2), "%)")
-ylab <- paste0("PCoA2 (", round(var_explained[2], 2), "%)")
-
-centroids <- sites %>%
-  group_by(Cell, Year) %>%
-  summarise(
-    PCoA1 = mean(PCoA1),
-    PCoA2 = mean(PCoA2),
-    .groups = "drop"
+# Add metadata
+nmds_scores <- nmds_scores %>%
+  mutate(
+    Field.Number = Water.data.df2$Field.Number,
+    Year = factor(Water.data.df2$Year),
+    Cell = factor(Water.data.df2$Waterbody.Name)
   )
 
-WQ.ordination<-ggplot(sites, aes(PCoA1, PCoA2, colour = Year, fill = Year)) +
-  geom_hline(yintercept = 0, linetype='dashed', lwd=0.5)+
-  geom_vline(xintercept = 0, linetype='dashed', lwd=0.5)+
-  stat_ellipse(aes(group = Year), geom = "polygon", 
-               alpha = 0.2, level = 0.95, lwd=0.5)+
-  scale_color_manual(values=c("#134A8E", "#E8291C"))+
-  scale_fill_manual(values=c("#134A8E", "#E8291C"))+
-  geom_point(size = 1) +
-  geom_point(data = centroids, shape = 4, size = 3, stroke = 1.5)+
-  coord_cartesian() +
-  facet_wrap(~ Cell)+
-  labs(x = xlab, y = ylab)
+nmds_scores <- nmds_scores %>%
+  mutate(Group = interaction(Cell, Year))
 
-#png("Results/Figures/Water.Quality.Ordination.png", width=7, height=3, units='in', res=800)
-WQ.ordination
-#dev.off()
+# group centroids
+centroids <- nmds_scores %>%
+  group_by(Cell, Year) %>%
+  summarise(
+    NMDS1 = mean(NMDS1),
+    NMDS2 = mean(NMDS2),
+    .groups = "drop"
+  )
+centroids
+
+# plot
+nmds_scores <- nmds_scores %>%
+  mutate(Group = interaction(Cell, Year))
+
+# plot nmds
+wq.comp.gg<-ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2)) +
+  stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
+               level=0.95) +
+  geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
+  geom_path(data = centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, group = Cell),
+            lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  geom_point(data = centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, shape = Year),
+             size = 2) +
+  coord_fixed(ratio=1)+
+  labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year")
+wq.comp.gg
+
+png("Results/Figures/WQ.nmds.png", height=2.5, width=5, units='in', res=800)
+wq.comp.gg
+dev.off()

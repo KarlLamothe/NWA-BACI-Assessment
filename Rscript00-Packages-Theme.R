@@ -2,7 +2,7 @@
 list.of.packages <- c('ggplot2', 'dplyr', 'DHARMa','tidyr','vegan','reshape2',
                       'emmeans','broom','sf','terra','tidyterra','maptiles','grateful',
                       'ggspatial','cowplot','FSAmisc','patchwork','BiodiversityR',
-                      'lubridate', 'purrr','readr','stringr')
+                      'lubridate', 'purrr','readr','stringr','grid')
 
 # Identify packages in the list that are not on the computer
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -33,6 +33,7 @@ library(grateful)
 library(lubridate)
 library(readr)
 library(stringr)
+library(grid)
 
 # set ggplot theme
 theme_set(theme_bw() +

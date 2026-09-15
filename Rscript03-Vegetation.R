@@ -50,16 +50,20 @@ Veg.data.df <- Site.info[33:36]/100
 Site.info$Waterbody.Name[Site.info$Waterbody.Name=="St. Clair NWA - East Cell SCU"] <- "East Cell"
 Site.info$Waterbody.Name[Site.info$Waterbody.Name=="St. Clair NWA - West Cell SCU"] <- "West Cell"
 
+################################################################################
+################################################################################
+# permanova
+################################################################################
+################################################################################
 adonis2(Veg.data.df ~ Year*Waterbody.Name,
         data = Site.info,
         method = "bray",
         by='terms',
-        permutations = 999)
+        permutations = 9999)
 
 d <- vegdist(Veg.data.df, method = "bray")
 disp <- betadisper(d, Site.info$Year)
-anova(disp) #significant
-permutest(disp, pairwise = TRUE, permutations = 999)
+permutest(disp, pairwise = TRUE, permutations = 9999)
 plot(disp, ellipse = TRUE, hull = FALSE) # 1 sd data ellipse
 
 # extract distances to centroid
@@ -77,44 +81,61 @@ veg.dispersion.gg<-ggplot(distance.plot2, aes(x=interaction(Year,Cell), y=Distan
 veg.dispersion.gg
 #dev.off()
 
-# Site coordinates (samples)
-sites <- as.data.frame(scores(disp, display = "sites"))
-sites$Year <- as.character(Site.info$Year)
-sites$Cell <- Site.info$Waterbody.Name
-sites$Field.Number <- Site.info$Field.Number
+################################################################################
+################################################################################
+# NMDS
+################################################################################
+################################################################################
+## 2023-LCS-NWA-140823-006A
+#Site.info[Site.info$Field.Number=="2023-LCS-NWA-140823-006A",]
+#Site.info$Emergent
 
-sites[sites$PCoA2 < (-0.5),]
-Site.info[66,]
+nmds.veg <- metaMDS(Veg.data.df, distance = "bray", binary = FALSE, k = 2, trymax = 100)
+plot(nmds.veg)
+stressplot(nmds.veg)
+nmds.veg
 
-centroids <- sites %>%
-  group_by(Cell, Year) %>%
-  summarise(
-    PCoA1 = mean(PCoA1),
-    PCoA2 = mean(PCoA2),
-    .groups = "drop"
+# Extract NMDS coordinates
+scores_nmds <- as.data.frame(scores(nmds.veg, display = "sites"))
+
+# Add metadata
+scores_nmds <- scores_nmds %>%
+  mutate(
+    Field.Number = Site.info$Field.Number,
+    Year = factor(Site.info$Year),
+    Cell = factor(Site.info$Waterbody.Name)
   )
 
-# Eigenvalues
-eig <- disp$eig
-var_explained <- eig / sum(eig[eig > 0]) * 100
-var_explained[1:2]
+scores_nmds <- scores_nmds %>%
+  mutate(Group = interaction(Cell, Year))
 
-xlab <- paste0("PCoA1 (", round(var_explained[1], 2), "%)")
-ylab <- paste0("PCoA2 (", round(var_explained[2], 2), "%)")
+# group centroids
+nmds_centroids <- scores_nmds %>%
+  group_by(Cell, Year) %>%
+  summarise(
+    NMDS1 = mean(NMDS1),
+    NMDS2 = mean(NMDS2),
+    .groups = "drop"
+  )
+nmds_centroids
 
-veg.ordination<-ggplot(sites, aes(PCoA1, PCoA2, colour = Year, fill = Year)) +
-  geom_hline(yintercept = 0, linetype='dashed', lwd=0.5)+
-  geom_vline(xintercept = 0, linetype='dashed', lwd=0.5)+
-  stat_ellipse(aes(group = Year), geom = "polygon", 
-               alpha = 0.2, level = 0.95, lwd=0.5)+
+# plot
+scores_nmds <- scores_nmds %>%
+  mutate(Group = interaction(Cell, Year))
+
+# plot nmds
+veg.cover.gg<-ggplot(scores_nmds, aes(x = NMDS1, y = NMDS2)) +
+  stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
+               level=0.95) +
+  geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
+  geom_path(data = nmds_centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, group = Cell),
+            lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
   scale_color_manual(values=c("#134A8E", "#E8291C"))+
-  scale_fill_manual(values=c("#134A8E", "#E8291C"))+
-  geom_point(size = 1) +
-  geom_point(data = centroids, shape = 4, size = 3, stroke = 1.5)+
-  coord_cartesian() +
-  facet_wrap(~ Cell) +
-  labs(x = xlab, y = ylab)
-
-#png("Results/Figures/Vegetation.Ordination.png", width=7, height=3, units='in', res=800)
-veg.ordination
-#dev.off()
+  geom_point(data = nmds_centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, shape = Year),
+             size = 2) +
+  #annotate("text", label="Stress = 0.05", x = -1, y = 1.6) +
+  coord_fixed(ratio=1)+
+  labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year",
+       title = "Vegetation cover")+
+  theme(legend.position='none')
+veg.cover.gg
