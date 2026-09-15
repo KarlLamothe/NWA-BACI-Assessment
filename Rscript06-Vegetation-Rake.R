@@ -255,6 +255,20 @@ Rake.pres.wide <- Rake.data.full.rev %>%
     values_fill = 0
   )
 
+species.table <- Rake.data.full.rev %>%
+  group_by(Common.Name, Year, Cell) %>%
+  summarise(pres = max(pres, na.rm = TRUE),
+            .groups = "drop") %>%
+  unite("Year_Cell",Year,Cell,sep = "_") %>%
+  pivot_wider(
+    names_from = Year_Cell,
+    values_from = pres,
+    values_fill = 0) %>%
+  arrange(Common.Name)
+
+species.table
+write.csv(species.table, "Results/species.table.presabs.csv")
+
 #########################################
 length(Rake.pres.wide$Year[Rake.pres.wide$Cell=="West" & Rake.pres.wide$Year=="2023"])
 length(Rake.pres.wide$Year[Rake.pres.wide$Cell=="West" & Rake.pres.wide$Year=="2024"])
