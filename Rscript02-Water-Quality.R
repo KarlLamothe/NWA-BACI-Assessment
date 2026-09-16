@@ -160,6 +160,7 @@ Water.data.df2$Waterbody.Name[Water.data.df2$Waterbody.Name=="St. Clair NWA - Ea
 Water.data.df2$Waterbody.Name[Water.data.df2$Waterbody.Name=="St. Clair NWA - West Cell SCU"] <- "West Cell"
 
 # permanova
+set.seed(0432)
 perm1<-adonis2(Water.data.df2[c(3:7)] ~ Year*Waterbody.Name,
                data = Water.data.df2,
                method = "euclidean",
@@ -171,16 +172,36 @@ perm1
 #Multivariate homogeneity of groups dispersions (variances)
 d <- vegdist(Water.data.df2[c(3:7)], method = "euclidean")
 disp <- betadisper(d, Water.data.df2$Year)
-anova(disp)
-plot(disp)
 permutest(disp, pairwise = TRUE, permutations = 9999)
+plot(disp)
 
 ################################################################################
 ################################################################################
 # NMDS
 ################################################################################
 ################################################################################
-wq.nmds <- metaMDS(Water.data.df2[c(3:7)], distance = "euclidean", k = 2, trymax = 100)
+## elbow method (unnecessary since we only have four variables)
+#set.seed(0528)
+#k_values <- 1:3
+#nmds_models <- lapply(1:4, function(k) {
+#  metaMDS(Water.data.df2[c(3:7)], 
+#          distance = "euclidean", 
+#          k = k, trymax = 500)})
+#
+#stress_df <- data.frame(k = 1:3,
+#                        stress = sapply(nmds_models, function(x) x$stress))
+#stress_df
+#
+#ggplot(stress_df, aes(x = k, y = stress)) +
+#  geom_line() +
+#  geom_point() +
+#  scale_x_continuous(breaks = stress_df$k) +
+#  labs(x = "Number of NMDS dimensions (k)", y = "Stress")
+
+# final model
+set.seed(0528)
+wq.nmds <- metaMDS(Water.data.df2[c(3:7)], distance = "euclidean", 
+                   k = 2, trymax = 500)
 plot(wq.nmds)
 stressplot(wq.nmds)
 wq.nmds
@@ -227,6 +248,6 @@ wq.comp.gg<-ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2)) +
   labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year")
 wq.comp.gg
 
-png("Results/Figures/WQ.nmds.png", height=2.5, width=5, units='in', res=800)
+#png("Results/Figures/WQ.nmds.png", height=2.5, width=5, units='in', res=800)
 wq.comp.gg
-dev.off()
+#dev.off()
