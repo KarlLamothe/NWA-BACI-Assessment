@@ -1,3 +1,5 @@
+rm(list = ls(all.names = TRUE))
+
 # load packages and set custom ggplot theme
 source("Rscript00-Packages-Theme.R") 
 
@@ -31,6 +33,7 @@ veg.gg<-ggplot(Veg.data, aes(y=Measure, x=Cell, color=Year))+
   labs(y="Percent cover")+
   theme(axis.title.x = element_blank())
 
+# Figure S2
 #png('Results/Figures/Veg.boxplots.png',height=3, width=5, units='in', res=800)
 veg.gg
 #dev.off()
@@ -55,16 +58,20 @@ Site.info$Waterbody.Name[Site.info$Waterbody.Name=="St. Clair NWA - West Cell SC
 # permanova
 ################################################################################
 ################################################################################
+set.seed(0232)
 adonis2(Veg.data.df ~ Year*Waterbody.Name,
         data = Site.info,
         method = "bray",
         by='terms',
         permutations = 9999)
 
+# homogeneity of multivariate dispersion
+Site.info$Group <- interaction(Site.info$Waterbody.Name,  
+                               Site.info$Year, sep = "_")
+
 d <- vegdist(Veg.data.df, method = "bray")
-disp <- betadisper(d, Site.info$Year)
+disp <- betadisper(d, Site.info$Group)
 permutest(disp, pairwise = TRUE, permutations = 9999)
-plot(disp, ellipse = TRUE, hull = FALSE) # 1 sd data ellipse
 
 # extract distances to centroid
 distance.plot2 <- disp$distance
@@ -74,26 +81,25 @@ distance.plot2 <- cbind.data.frame(Distance=distance.plot2,
 distance.plot2$Year <- as.character(distance.plot2$Year)
 
 # create boxplot
-veg.dispersion.gg<-ggplot(distance.plot2, aes(x=interaction(Year,Cell), y=Distance))+
+ggplot(distance.plot2, aes(x=interaction(Year,Cell), y=Distance))+
   geom_boxplot()
-
-#png("Results/Figures/Veg.dispersion.png", height=3, width=7, units='in', res=800)
-veg.dispersion.gg
-#dev.off()
 
 ################################################################################
 ################################################################################
 # NMDS
 ################################################################################
 ################################################################################
-## 2023-LCS-NWA-140823-006A
-#Site.info[Site.info$Field.Number=="2023-LCS-NWA-140823-006A",]
-#Site.info$Emergent
-
-nmds.veg <- metaMDS(Veg.data.df, distance = "bray", binary = FALSE, k = 2, trymax = 100)
+set.seed(3462)
+nmds.veg <- metaMDS(Veg.data.df, distance = "bray", 
+                    binary = FALSE, k = 2, trymax = 500)
 plot(nmds.veg)
 stressplot(nmds.veg)
 nmds.veg
+
+# this is the outlier thats observed
+## 2023-LCS-NWA-140823-006A
+Site.info[Site.info$Field.Number=="2023-LCS-NWA-140823-006A",]
+Site.info$Emergent
 
 # Extract NMDS coordinates
 scores_nmds <- as.data.frame(scores(nmds.veg, display = "sites"))
@@ -123,6 +129,7 @@ nmds_centroids
 scores_nmds <- scores_nmds %>%
   mutate(Group = interaction(Cell, Year))
 
+# part of Figure 3
 # plot nmds
 veg.cover.gg<-ggplot(scores_nmds, aes(x = NMDS1, y = NMDS2)) +
   stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,

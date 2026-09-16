@@ -51,6 +51,7 @@ Water.gg<-ggplot(Water.data, aes(y=Measure, x=Cell, color=Year))+
         axis.title.x = element_blank(),
         legend.position = 'top')
 
+# Figure S1
 #png('Results/Figures/WaterQ.boxplots.png',height=4, width=7, units='in', res=800)
 Water.gg
 #dev.off()
@@ -139,6 +140,7 @@ emmeans(Cond.model, pairwise ~ Waterbody.Name | Year)
 Water.data.df
 colnames(Water.data)
 
+# Table 1
 results <- Water.data %>%
   group_by(Variable) %>%
   do(tidy(lm(Measure ~ Year*Cell, data = .), conf.int = TRUE))
@@ -170,8 +172,12 @@ perm1<-adonis2(Water.data.df2[c(3:7)] ~ Year*Waterbody.Name,
 perm1
 
 #Multivariate homogeneity of groups dispersions (variances)
+Water.data.df2$Group <- interaction(Water.data.df2$Waterbody.Name,  
+                                    Water.data.df2$Year, sep = "_")
+
+
 d <- vegdist(Water.data.df2[c(3:7)], method = "euclidean")
-disp <- betadisper(d, Water.data.df2$Year)
+disp <- betadisper(d, Water.data.df2$Group)
 permutest(disp, pairwise = TRUE, permutations = 9999)
 plot(disp)
 
@@ -180,25 +186,6 @@ plot(disp)
 # NMDS
 ################################################################################
 ################################################################################
-## elbow method (unnecessary since we only have four variables)
-#set.seed(0528)
-#k_values <- 1:3
-#nmds_models <- lapply(1:4, function(k) {
-#  metaMDS(Water.data.df2[c(3:7)], 
-#          distance = "euclidean", 
-#          k = k, trymax = 500)})
-#
-#stress_df <- data.frame(k = 1:3,
-#                        stress = sapply(nmds_models, function(x) x$stress))
-#stress_df
-#
-#ggplot(stress_df, aes(x = k, y = stress)) +
-#  geom_line() +
-#  geom_point() +
-#  scale_x_continuous(breaks = stress_df$k) +
-#  labs(x = "Number of NMDS dimensions (k)", y = "Stress")
-
-# final model
 set.seed(0528)
 wq.nmds <- metaMDS(Water.data.df2[c(3:7)], distance = "euclidean", 
                    k = 2, trymax = 500)
@@ -248,6 +235,7 @@ wq.comp.gg<-ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2)) +
   labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year")
 wq.comp.gg
 
+# Figure 2
 #png("Results/Figures/WQ.nmds.png", height=2.5, width=5, units='in', res=800)
 wq.comp.gg
 #dev.off()

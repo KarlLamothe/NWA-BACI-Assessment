@@ -1,3 +1,5 @@
+rm(list = ls(all.names = TRUE))
+
 # load packages and set custom ggplot theme
 source("Rscript00-Packages-Theme.R") 
 
@@ -28,7 +30,6 @@ TL.W.site.info3 <- TL.W.site.info3[TL.W.site.info3$Weight > 0,]
 TL.W.site.info3$YearCell <- interaction(TL.W.site.info3$Year,
                                         TL.W.site.info3$Cell,
                                         sep = "_")
-table(TL.W.site.info3$Species, TL.W.site.info3$YearCell)
 
 # remove species with less than 15 individuals per year cell combo
 rare_species <- c('Ameiurus melas','Ameiurus natalis','Ameiurus nebulosus',
@@ -92,15 +93,13 @@ df_summary2 <- df %>%
 df_summary2$Measure <- "Weight (g)"
 df_summary <- rbind(df_summary, df_summary2)
 
-(TotalLength.Weight.gg<-ggplot(df_summary,aes(x = Year, y = mean, color = Cell, group = Cell)) +
+TotalLength.Weight.gg<-ggplot(df_summary,aes(x = Year, y = mean, color = Cell, group = Cell)) +
     geom_point() +
     geom_line() +
     scale_color_manual(values=c("#134A8E", "#E8291C"))+
     geom_errorbar(aes(ymin = ci_lower,ymax = ci_upper),width = 0.1) +
     facet_grid(~Measure)+
-    theme(legend.position='top',
-          legend.title=element_blank(),
-          axis.title.y = element_blank()))
+    theme(axis.title.y = element_blank())
 
 aggregate(TL.W.site.info4$Total.Length, list(TL.W.site.info4$Year), mean)
 aggregate(TL.W.site.info4$Total.Length, list(TL.W.site.info4$Cell), mean)
@@ -118,6 +117,23 @@ unique(TL.W.site.info4$Species)
 ####################
 L.gibbosus <- TL.W.site.info4[TL.W.site.info4$Species=="Lepomis gibbosus",]
 
+L.gibbosus <- L.gibbosus %>%
+  mutate(
+    Weight = case_when(
+      Field.Number == "2023-LCS-NWA-220823-003A" & Total.Length == 76 ~ 7.6,
+      Field.Number == "2023-LCS-NWA-080823-004A" & Total.Length == 69 ~ 5.13,
+      TRUE ~ Weight))
+
+ggplot(L.gibbosus, aes(x = Total.Length, y = Weight, colour = interaction(Year, Cell))) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() 
+
+ggplot(L.gibbosus, aes(log(Total.Length), log(Weight), colour = interaction(Year, Cell))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_grid(Year ~ Cell)
+
 ggplot(L.gibbosus, aes(x=Total.Length, y=Weight, color=Year))+
   geom_point(alpha=0.4) +
   facet_wrap(~Cell) + 
@@ -128,17 +144,40 @@ ggplot(L.gibbosus, aes(x=Total.Length, y=Weight, color=Year))+
 
 # model
 L.gib.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=L.gibbosus)
-plot(L.gib.lm) # some outliers but lots of data so not worried
+L.gib.sim <- simulateResiduals(fittedModel = L.gib.lm, plot = TRUE)
 summary(L.gib.lm)
-hoCoef(L.gib.lm, 2, 3)
 confint(L.gib.lm)
-
 pairs(emmeans(L.gib.lm, ~ Year * Cell))
+
+L.gibbosus_diag <- L.gibbosus %>%
+  mutate(
+    fitted = fitted(L.gib.lm),
+    resid = residuals(L.gib.lm),
+    std_resid = rstandard(L.gib.lm),
+    cooksD = cooks.distance(L.gib.lm)
+  )
+
+L.gibbosus_diag %>%
+  arrange(desc(abs(std_resid))) %>%
+  select(
+    Total.Length, Weight, Year, Cell,Field.Number,
+    fitted, resid, std_resid, cooksD
+  ) %>%
+  head(20)
 
 #######################
 # Lepomis macrochirus #
 #######################
 L.macrochirus <- TL.W.site.info4[TL.W.site.info4$Species=="Lepomis macrochirus",]
+
+L.macrochirus <- L.macrochirus %>%
+  mutate(
+    Weight = case_when(
+      Field.Number == "2024-LCS-NWA-280824-003A" & Total.Length == 187 ~ 119,
+      TRUE ~ Weight))
+
+L.macrochirus <- L.macrochirus %>%
+  filter(!(Field.Number == "2024-LCS-NWA-210824-003A" & Total.Length == 121))
 
 ggplot(L.macrochirus, aes(x=Total.Length, y=Weight, color=Year))+
   geom_point(alpha=0.4) +
@@ -148,14 +187,33 @@ ggplot(L.macrochirus, aes(x=Total.Length, y=Weight, color=Year))+
   labs(x = 'Total Length (mm)', y = "Weight (g)", 
        title=expression(paste(italic("Lepomis macrochirus"))))
 
+ggplot(L.macrochirus, aes(log(Total.Length), log(Weight), colour = interaction(Year, Cell))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_grid(Year ~ Cell)
+
 # model
 L.mac.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=L.macrochirus)
+L.mac.sim <- simulateResiduals(fittedModel = L.mac.lm, plot = TRUE)
 summary(L.mac.lm) # some outliers but lots of data so not worried
-plot(L.mac.lm)
-hoCoef(L.mac.lm, 2, 3)
 confint(L.mac.lm)
-
 pairs(emmeans(L.mac.lm, ~ Year * Cell))
+
+L.macrochirus_diag <- L.macrochirus %>%
+  mutate(
+    fitted = fitted(L.mac.lm),
+    resid = residuals(L.mac.lm),
+    std_resid = rstandard(L.mac.lm),
+    cooksD = cooks.distance(L.mac.lm)
+  )
+
+L.macrochirus_diag %>%
+  arrange(desc(abs(std_resid))) %>%
+  select(
+    Total.Length, Weight, Year, Cell,Field.Number,
+    fitted, resid, std_resid, cooksD
+  ) %>%
+  head(20)
 
 #########################
 # Micropterus nigricans #
@@ -166,22 +224,49 @@ ggplot(M.nigricans, aes(x=Total.Length, y=Weight, color=Year))+
   geom_point(alpha=0.4) +
   facet_wrap(~Cell) + 
   scale_color_manual(values=c("#134A8E", "#E8291C"))+
-  geom_smooth(formula= y~x, se=F) +
+  #geom_smooth(formula= y~x, se=F) +
   labs(x = 'Total Length (mm)', y = "Weight (g)", 
        title=expression(paste(italic("Micropterus nigricans"))))
 
+ggplot(M.nigricans, aes(log(Total.Length), log(Weight), colour = interaction(Year, Cell))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_grid(Year ~ Cell)
+
 # model
 M.nig.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=M.nigricans)
+M.nig.sim <- simulateResiduals(fittedModel = M.nig.lm, plot = TRUE)
 summary(M.nig.lm)
-plot(M.nig.lm) # ac couple outliers but not too bad
-hoCoef(M.nig.lm, 2, 3)
 confint(M.nig.lm)
-
 pairs(emmeans(M.nig.lm, ~ Year * Cell))
+
+M.nigricans_diag <- M.nigricans %>%
+  mutate(
+    fitted = fitted(M.nig.lm),
+    resid = residuals(M.nig.lm),
+    std_resid = rstandard(M.nig.lm),
+    cooksD = cooks.distance(M.nig.lm)
+  )
+
+M.nigricans_diag %>%
+  arrange(desc(abs(std_resid))) %>%
+  select(
+    Total.Length, Weight, Year, Cell,Field.Number,
+    fitted, resid, std_resid, cooksD
+  ) %>%
+  head(20)
 
 #########################
 # Pomoxis nigromaculatus
 P.nigromaculatus <- TL.W.site.info4[TL.W.site.info4$Species=="Pomoxis nigromaculatus",]
+
+P.nigromaculatus <- P.nigromaculatus %>%
+  mutate(
+    Weight = case_when(
+      Field.Number == "2023-LCS-NWA-280823-004A" & Total.Length == 229 ~ 190,
+      Field.Number == "2023-LCS-NWA-140823-005A" & Total.Length == 194 ~ 117.8,
+      Field.Number == "2023-LCS-NWA-100823-003A" & Total.Length == 127 ~ 66.8,
+      TRUE ~ Weight))
 
 ggplot(P.nigromaculatus, aes(x=Total.Length, y=Weight, color=Year))+
   geom_point(alpha=0.4) +
@@ -191,12 +276,32 @@ ggplot(P.nigromaculatus, aes(x=Total.Length, y=Weight, color=Year))+
   labs(x = 'Total Length (mm)', y = "Weight (g)", 
        title=expression(paste(italic("Pomoxis nigromaculatus"))))
 
+ggplot(P.nigromaculatus, aes(log(Total.Length), log(Weight), colour = interaction(Year, Cell))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_grid(Year ~ Cell)
+
 # model
 P.nig.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=P.nigromaculatus)
+P.nig.sim <- simulateResiduals(fittedModel = P.nig.lm, plot = TRUE)
 summary(P.nig.lm)
-plot(P.nig.lm)
-hoCoef(P.nig.lm, 2, 3)
 confint(P.nig.lm)
+
+P.nigromaculatus_diag <- P.nigromaculatus %>%
+  mutate(
+    fitted = fitted(P.nig.lm),
+    resid = residuals(P.nig.lm),
+    std_resid = rstandard(P.nig.lm),
+    cooksD = cooks.distance(P.nig.lm)
+  )
+
+P.nigromaculatus_diag %>%
+  arrange(desc(abs(std_resid))) %>%
+  select(
+    Total.Length, Weight, Year, Cell,Field.Number,
+    fitted, resid, std_resid, cooksD
+  )%>%
+  head(20)
 
 ####################
 # Amia ocellicauda #
@@ -211,15 +316,53 @@ ggplot(A.ocellicauda, aes(x=log(Total.Length), y=log(Weight), color=Year))+
   labs(x = 'Total Length (mm)', y = "Weight (g)", 
     title=expression(paste(italic("Amia ocellicauda"))))
 
+ggplot(A.ocellicauda, aes(x=Total.Length, y=Weight, color=Year))+
+  geom_point(alpha=0.4) +
+  facet_wrap(~Cell) + 
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  geom_smooth(formula= y~x, se=F) +
+  labs(x = 'Total Length (mm)', y = "Weight (g)", 
+       title=expression(paste(italic("Amia ocellicauda"))))
+
 # model
 A.oce.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=A.ocellicauda)
+A.oce.sim <- simulateResiduals(fittedModel = A.oce.lm, plot = TRUE)
 summary(A.oce.lm)
-hoCoef(A.oce.lm, 2, 3)
 confint(A.oce.lm)
+
+A.ocellicauda_diag <- A.ocellicauda %>%
+  mutate(
+    fitted = fitted(A.oce.lm),
+    resid = residuals(A.oce.lm),
+    std_resid = rstandard(A.oce.lm),
+    cooksD = cooks.distance(A.oce.lm)
+  )
+
+A.ocellicauda_diag %>%
+  arrange(desc(abs(std_resid))) %>%
+  select(
+    Total.Length, Weight, Year, Cell,Field.Number,
+    fitted, resid, std_resid, cooksD
+  )%>%
+  head(20)
 
 #########################
 # Notemigonus crysoleucas
 N.crysoleucas <- TL.W.site.info4[TL.W.site.info4$Species=="Notemigonus crysoleucas",]
+
+N.crysoleucas <- N.crysoleucas %>%
+  mutate(
+    Weight = case_when(
+      Field.Number == "2023-LCS-NWA-210823-002A" & Total.Length == 49 ~ 0.6,
+      TRUE ~ Weight))
+
+N.crysoleucas <- N.crysoleucas %>%
+  filter(!(Field.Number == "2024-LCS-NWA-140824-001A" & Weight == 1.50 & Total.Length == 47))
+
+ggplot(N.crysoleucas, aes(log(Total.Length), log(Weight), colour = interaction(Year, Cell))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_grid(Year ~ Cell)
 
 ggplot(N.crysoleucas, aes(x=Total.Length, y=Weight, color=Year))+
   geom_point(alpha=0.4) +
@@ -231,10 +374,25 @@ ggplot(N.crysoleucas, aes(x=Total.Length, y=Weight, color=Year))+
 
 # model
 N.crys.lm<-lm(log(Weight)~log(Total.Length) + Year*Cell, data=N.crysoleucas)
+N.crys.sim <- simulateResiduals(fittedModel = N.crys.lm, plot = TRUE)
 summary(N.crys.lm)
-plot(N.crys.lm)
-hoCoef(N.crys.lm, 2, 3)
 confint(N.crys.lm)
+
+N.crysoleucas_diag <- N.crysoleucas %>%
+  mutate(
+    fitted = fitted(N.crys.lm),
+    resid = residuals(N.crys.lm),
+    std_resid = rstandard(N.crys.lm),
+    cooksD = cooks.distance(N.crys.lm)
+  )
+
+N.crysoleucas_diag %>%
+  arrange(desc(abs(std_resid))) %>%
+  select(
+    Total.Length, Weight, Year, Cell,Field.Number,
+    fitted, resid, std_resid, cooksD
+  )%>%
+  head(20)
 
 ################################################################################
 ################################################################################
@@ -410,7 +568,8 @@ Prop.length.gg<-ggplot(size.comp,aes(LengthClass, Prop,fill =Year)) +
   theme(axis.text.x = element_text(angle = 90, vjust=0.5, hjust=1))
 Prop.length.gg
 
-#png("Results/Figures/ECDF.lengclasses.tiff", height=5, width=6, units='in', res=800)
+# Figure 5
+#png("Results/Figures/ECDF.length.classes.png", height=5, width=6, units='in', res=800)
 TL.ECDF/Prop.length.gg + plot_layout(guides='collect')
 #dev.off()
 

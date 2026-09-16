@@ -1,3 +1,5 @@
+rm(list = ls(all.names = TRUE))
+
 # load packages and set custom ggplot theme
 source("Rscript00-Packages-Theme.R") 
 
@@ -17,19 +19,32 @@ colnames(Fish)
 Fish <- Fish[c(2,11,12,5,7)]
 colnames(Fish) <- c("Field.Number", "Species", "Number.Captured","Year", "Cell")
 head(Fish)
+Fish$Cell[Fish$Cell=="St. Clair NWA - East Cell SCU"] <- "East Cell"
+Fish$Cell[Fish$Cell=="St. Clair NWA - West Cell SCU"] <- "West Cell"
 
 # summary
 unique(Fish$Species)
 sum(Fish$Number.Captured)
 aggregate(Fish$Number.Captured, list(Fish$Year, Fish$Cell), sum)
-
-1168+1097
-1230+546
+aggregate(Fish$Number.Captured, list(Fish$Cell), sum)
 
 # number of fish captured per species per year
 List<-aggregate(Fish$Number.Captured, list(Fish$Species, Fish$Year, Fish$Cell), sum)
 sum(List$x)
-#write.csv(List, "Results/Species.counts.csv")
+head(List)
+colnames(List) <- c("Species", "Year", "Cell", "Count")
+
+wide_df <- List %>%
+  mutate(Column = paste(Year, Cell)) %>%
+  select(Species, Column, Count) %>%
+  pivot_wider(names_from = Column, values_from = Count, values_fill = 0) %>%
+  select(
+    Species,
+    `2023 East Cell`,
+    `2024 East Cell`,
+    `2023 West Cell`,
+    `2024 West Cell`
+  )
 
 # Effort data
 Effort <- cbind.data.frame(Field.Number = Site.info$Field.Number, 
@@ -42,8 +57,7 @@ fish_wide <- dcast(
   value.var = "Number.Captured",
   fun.aggregate = sum
 )
-fish_wide$Cell[fish_wide$Cell=="St. Clair NWA - East Cell SCU"] <- "East Cell"
-fish_wide$Cell[fish_wide$Cell=="St. Clair NWA - West Cell SCU"] <- "West Cell"
+head(fish_wide)
 
 #remove no fish captured
 colnames(fish_wide)
@@ -87,6 +101,42 @@ fish_wide_CPUE2$YearCell <- interaction(fish_wide_CPUE2$Year,
 ###################
 Fish.Counts.CPUE <- merge(Fish, Effort, "Field.Number")
 Fish.Counts.CPUE$CPUE <- Fish.Counts.CPUE$Number.Captured/Fish.Counts.CPUE$Effort
+
+##################
+# Combine counts and CPUE into a single table:
+# Calculate mean CPUE +/- SD
+CPUE_summary <- fish_wide_CPUE %>%
+  pivot_longer(cols = -c(Year, Field.Number, Cell),
+               names_to = "Species",
+               values_to = "CPUE") %>%
+  group_by(Species, Year, Cell) %>%
+  summarise(
+    mean_CPUE = mean(CPUE, na.rm = TRUE),
+    SD_CPUE = sd(CPUE, na.rm = TRUE),
+    .groups = "drop") %>%
+  mutate(CPUE_SD = sprintf("%.2f \u00b1 %.2f", mean_CPUE, SD_CPUE),
+         column = paste(Year, Cell)) %>%
+  select(Species, column, CPUE_SD) %>%
+  pivot_wider(names_from = column,
+              values_from = CPUE_SD,
+              names_glue = "{column} CPUE")
+
+# Combine Count and CPUE tables
+fish_summary <- wide_df %>%
+  left_join(CPUE_summary, by = "Species") %>%
+  select(
+    Species,
+    `2023 East Cell`,
+    `2023 East Cell CPUE`,
+    `2024 East Cell`,
+    `2024 East Cell CPUE`,
+    `2023 West Cell`,
+    `2023 West Cell CPUE`,
+    `2024 West Cell`,
+    `2024 West Cell CPUE`)
+
+head(fish_summary)
+#write.csv(fish_summary, "Results/Fish.summary.csv", row.names = F)
 
 ################################################################################
 ################################################################################
@@ -134,36 +184,21 @@ sa_w23 <- specaccum(west23, method = "random")
 sa_w24 <- specaccum(west24, method = "random")
 
 # Convert to dataframe
-accum_df <- bind_rows(data.frame(
-  Sites = sa_e23$sites, 
-  Richness = sa_e23$richness,
-  SD = sa_e23$sd,
-  YearCell = "2023 East"),
-  data.frame(
-    Sites = sa_e24$sites,
-    Richness = sa_e24$richness,
-    SD = sa_e24$sd,
-    YearCell = "2024 East"),
-  data.frame(
-    Sites = sa_w23$sites,
-    Richness = sa_w23$richness,
-    SD = sa_w23$sd,
-    YearCell = "2023 West"),
-  data.frame(
-    Sites = sa_w24$sites,
-    Richness = sa_w24$richness,
-    SD = sa_w24$sd,
-    YearCell = "2024 West")
-)
+accum_df <- bind_rows(
+  data.frame(Sites = sa_e23$sites,Richness = sa_e23$richness,
+             SD = sa_e23$sd,YearCell = "2023 East"),
+  data.frame(Sites = sa_e24$sites, Richness = sa_e24$richness,
+             SD = sa_e24$sd, YearCell = "2024 East"),
+  data.frame(Sites = sa_w23$sites, Richness = sa_w23$richness,
+             SD = sa_w23$sd, YearCell = "2023 West"),
+  data.frame(Sites = sa_w24$sites, Richness = sa_w24$richness,
+             SD = sa_w24$sd, YearCell = "2024 West"))
 
 accum_df <- accum_df %>%
-  mutate(
-    Lower = Richness - SD,
-    Upper = Richness + SD
-  )
+  mutate(Lower = Richness - SD, Upper = Richness + SD)
 
 accum_df$Year <- c(rep("2023",35),rep("2024",40),rep("2023",36),rep("2024",40))
-accum_df$Cell <- c(rep("East Cell",75),rep("West Cell",76))
+accum_df$Cell <- c(rep("East cell",75),rep("West cell",76))
 
 accum.plotgg<-ggplot(accum_df, aes(x = Sites, y = Richness, colour = Year, fill = Year)) +
   geom_ribbon(aes(ymin = Lower, ymax = Upper), alpha = 0.2, colour = NA) +
@@ -179,6 +214,7 @@ accum.plotgg<-ggplot(accum_df, aes(x = Sites, y = Richness, colour = Year, fill 
         legend.position.inside = c(0.85, 0.4),
         legend.background = element_blank())
 
+# figure 4
 #png("Results/Figures/spec.accum.gg.png", width=6, height=2.5, units='in', res=800)
 accum.plotgg
 #dev.off()
@@ -187,10 +223,12 @@ accum.plotgg
 # Permanova of relative abundance CPUE 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 comm <- fish_wide_CPUE2[4:(ncol(fish_wide_CPUE2)-1)]
+
+set.seed(0936)
 adonis2(comm ~ Year*Cell, 
         data = fish_wide_CPUE2, 
         method='bray',
-        permutations = 999,
+        permutations = 9999,
         by='terms')
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -198,11 +236,7 @@ adonis2(comm ~ Year*Cell,
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 dist <- vegdist(comm, method = "bray")
 mod <- betadisper(dist, group=fish_wide_CPUE2$YearCell) # multivariate dispersion
-anova(mod)
-
-# calculate difference in dispersion between years
-set.seed(876)
-permutest(mod, pairwise = T, permutations = 999) 
+permutest(mod, pairwise = T, permutations = 9999) 
 
 # extract distances to centroid
 Year_distance <- mod$distance
@@ -213,111 +247,35 @@ Year_distance <- cbind.data.frame(Distance=Year_distance,
 ggplot(Year_distance, aes(x=Year_Cell, y=Distance))+
   geom_boxplot()
 
-# distance to centroid
-Year_distance %>%
-  group_by(Year_Cell) %>%
-  summarise(
-    MeanDistance = mean(Distance),
-    SDDistance = sd(Distance),
-    n = n()
-  )
-
-# Eigenvalues
-eig <- mod$eig
-
-# % variance explained
-var_explained <- eig / sum(eig[eig > 0]) * 100
-var_explained[1:2]
-
-# Site coordinates (samples)
-sites <- as.data.frame(scores(mod, display = "sites"))
-sites$Year <- as.character(fish_wide_CPUE2$Year)
-sites$Cell <- fish_wide_CPUE2$Cell
-sites$Field.Number <- fish_wide_CPUE2$Field.Number
-
-# significant species
-fit <- envfit(sites[, c("PCoA1", "PCoA2")],
-              comm,
-              permutations = 999)
-
-species_fit <- as.data.frame(scores(fit, display = "vectors"))
-species_fit$Species <- rownames(species_fit)
-species_fit$r2 <- fit$vectors$r
-species_fit$pval <- fit$vectors$pvals
-
-species_fit %>%
-  arrange(desc(r2))
-
-# create vector for plotting
-vec <- as.data.frame(scores(fit, display = "vectors"))
-vec$Species <- rownames(vec)
-vec$pval <- fit$vectors$pvals
-vec$r2 <- fit$vectors$r
-
-vec %>%
-  arrange(desc(r2)) %>%
-  head(20)
-
-sig_vec <- vec %>%
-  filter(pval < 0.01)
-sig_vec
-
-centroids <- sites %>%
-  group_by(Cell, Year) %>%
-  summarise(
-    PCoA1 = mean(PCoA1),
-    PCoA2 = mean(PCoA2),
-    .groups = "drop"
-  )
-
-# Create hull points for each Cell × Year combination
-hulls <- sites %>%
-  group_by(Cell, Year) %>%
-  slice(chull(PCoA1, PCoA2))
-
-xlab <- paste0("PCoA1 (", round(var_explained[1], 2), "%)")
-ylab <- paste0("PCoA2 (", round(var_explained[2], 2), "%)")
-
-ggplot(sites, aes(PCoA1, PCoA2, colour = Year, fill = Year)) +
-  geom_hline(yintercept = 0, linetype='dashed', lwd=0.5)+
-  geom_vline(xintercept = 0, linetype='dashed', lwd=0.5)+
-  #geom_polygon(data = hulls, aes(group = Year), alpha = 0.2, colour = NA) +
-  scale_color_manual(values=c("#134A8E", "#E8291C"))+
-  scale_fill_manual(values=c("#134A8E", "#E8291C"))+
-  geom_point(size = 2) +
-  coord_cartesian() +
-  #facet_wrap(~ Cell) +
-  geom_segment(data = sig_vec, aes(x = 0, y = 0, xend = PCoA1/2, yend = PCoA2/2),
-               inherit.aes = FALSE, arrow = arrow(length = unit(0.2, "cm"))) +
-  geom_text(data = sig_vec, aes(x = PCoA1/2, y = PCoA2/2, label = Species),
-            inherit.aes = FALSE, size = 3)+
-  labs(x = xlab, y = ylab)
-
-fish.ord.gg<-ggplot(sites, aes(PCoA1, PCoA2, colour = Year, fill = Year)) +
-  geom_hline(yintercept = 0, linetype='dashed', lwd=0.5)+
-  geom_vline(xintercept = 0, linetype='dashed', lwd=0.5)+
-  stat_ellipse(aes(group = Year), geom = "polygon", alpha=0.2, level = 0.9) +
-  scale_color_manual(values=c("#134A8E", "#E8291C"))+
-  scale_fill_manual(values=c("#134A8E", "#E8291C"))+
-  geom_point(size = 1) +
-  coord_cartesian() +
-  facet_wrap(~ Cell) +
-  geom_point(data = centroids, shape = 4, size = 3, stroke = 1.5)+
-  #geom_text(data = sig_vec, aes(x = PCoA1/2, y = PCoA2/2, label = Species),
-  #          inherit.aes = FALSE, size = 3, fontface='italic')+
-  #geom_segment(data = sig_vec, aes(x = 0, y = 0, xend = PCoA1/2, yend = PCoA2/2),
-  #             inherit.aes = FALSE) +
-  labs(x = xlab, y = ylab)
-
-#png("Results/Figures/Fish.Ordination.png", width=7, height=3, units='in', res=800)
-fish.ord.gg
-#dev.off()
+aggregate(Year_distance$Distance, 
+          list(Group = Year_distance$Year_Cell), mean)
+aggregate(Year_distance$Distance, 
+          list(Group = Year_distance$Year_Cell), sd)
 
 ################################################################################
 ################################################################################
 # NMDS
 ################################################################################
 ################################################################################
+# elbow method to determine an ideal number of dimensions
+set.seed(0528)
+k_values <- 1:6
+nmds_models <- lapply(1:6, function(k) {
+  metaMDS(fish_wide_CPUE2[4:(ncol(fish_wide_CPUE2)-1)], 
+          distance = "bray", 
+          k = k, trymax = 100)})
+
+stress_df <- data.frame(k = 1:6,
+                        stress = sapply(nmds_models, function(x) x$stress))
+stress_df
+
+ggplot(stress_df, aes(x = k, y = stress)) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = stress_df$k) +
+  labs(x = "Number of NMDS dimensions (k)", y = "Stress")
+
+# final model
 fish.nmds <- metaMDS(fish_wide_CPUE2[4:(ncol(fish_wide_CPUE2)-1)], 
                      distance = "bray", k = 3, trymax = 500)
 plot(fish.nmds)
@@ -383,7 +341,7 @@ p3<-ggplot(fish_scores, aes(x = NMDS2, y = NMDS3)) +
   coord_fixed(ratio=1)+
   labs(x = "NMDS2", y = "NMDS3", colour = "Cell", shape = "Year", lty = "Year")
 
-png("Results/Figures/fish.nmds.png", height=2, width=5, units='in', res=800)
+#png("Results/Figures/fish.nmds.png", height=2.5, width=7, units='in', res=800)
 p1 + p2 + p3 + plot_layout(guides = "collect") &
   theme(legend.position = "top",
         legend.margin = margin(0, 0, 0, 0),
@@ -391,7 +349,7 @@ p1 + p2 + p3 + plot_layout(guides = "collect") &
         legend.spacing.y = unit(0.05, "cm"),
         legend.key.height = unit(0.4, "cm"),
         legend.key.width = unit(0.5, "cm"))
-dev.off()
+#dev.off()
 
 ################################################################################
 ################################################################################
@@ -427,6 +385,11 @@ var_df <- fish_wide_CPUE2 %>%
     )
   )
 t(var_df)
+
+fish_wide_CPUE %>%
+  filter(Year == 2024, Cell == "East Cell") %>%
+  select(Field.Number, `Notemigonus crysoleucas`) %>%
+  arrange(desc(`Notemigonus crysoleucas`))
 
 #################################################################################
 #################################################################################
@@ -466,10 +429,3 @@ aggregate(Chubsucker$Number.Captured, list(Chubsucker$Year, Chubsucker$Cell), su
 LCS.mod<-lm(log(CPUE)~Year*Cell, data=Chubsucker)
 summary(LCS.mod)
 emmeans(LCS.mod, pairwise ~ Year*Cell)
-
-################################################################################
-################################################################################
-cite_packages(out.format = "docx", out.dir = ".", 
-              citation.style = 'wetlands-ecology-and-management')
-################################################################################
-################################################################################

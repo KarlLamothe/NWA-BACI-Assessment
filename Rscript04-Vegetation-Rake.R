@@ -87,157 +87,6 @@ species.g
 
 ################################################################################
 ################################################################################
-# count number of sites for each taxa not identified to species
-################################################################################
-################################################################################
-###########################
-# 2023 East
-###########################
-Rake.data.full.rev[Rake.data.full.rev$Species=="Chara sp." &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Algae" &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Lemna sp." &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Najas sp." &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Nymphaea sp." &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Utricularia sp." &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "East",]
-###########################
-################# 2023 West
-###########################
-Rake.data.full.rev[Rake.data.full.rev$Species=="Lemna sp." &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Nymphaea sp." &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Utricularia sp." &
-                     Rake.data.full.rev$Year == "2023" &
-                     Rake.data.full.rev$Cell == "West",]
-###########################
-# 2024 East
-###########################
-Rake.data.full.rev[Rake.data.full.rev$Species=="Algae" &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Juncus sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Lemna sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Myriophyllum sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Najas sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Nitella sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Nymphaea sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Ranunculus sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Sagittaria sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Sparganium sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Typha sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Wolffia sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "East",]
-
-###########################
-# 2024 West
-###########################
-Rake.data.full.rev[Rake.data.full.rev$Species=="Algae" &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Lemna sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Myriophyllum sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Nitella sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Nymphaea sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Potamogeton sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Ranunculus sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Sagittaria sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Sparganium sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Schoenplectus sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Typha sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Utricularia sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-Rake.data.full.rev[Rake.data.full.rev$Species=="Wolffia sp." &
-                     Rake.data.full.rev$Year == "2024" &
-                     Rake.data.full.rev$Cell == "West",]
-
-################################################################################
-################################################################################
 # convert rake data to presence absence and wide
 Rake.data.full.rev$pres <- 1
 colnames(Rake.data.full.rev)
@@ -267,7 +116,7 @@ species.table <- Rake.data.full.rev %>%
   arrange(Common.Name)
 
 species.table
-write.csv(species.table, "Results/species.table.presabs.csv")
+#write.csv(species.table, "Results/species.table.presabs.csv")
 
 #########################################
 length(Rake.pres.wide$Year[Rake.pres.wide$Cell=="West" & Rake.pres.wide$Year=="2023"])
@@ -285,30 +134,23 @@ length(Rake.pres.wide$Year[Rake.pres.wide$Cell=="East" & Rake.pres.wide$Year=="2
 
 colnames(Rake.pres.wide)
 Rake.pres.analysis <- Rake.pres.wide %>%
-  
   # Utricularia
   mutate(Bladderwort = pmax(`Bladderwort sp.`, `Humped bladderwort`, `Common bladderwort`, na.rm = TRUE)) %>%
   select(-`Bladderwort sp.`, -`Humped bladderwort`, -`Common bladderwort`) %>%
-  
   # Nitella
   mutate(Stonewort = pmax(`Stonewort sp.`, `Starry stonewort`,na.rm = TRUE)) %>%
   select(-`Stonewort sp.`,-`Starry stonewort`) %>%
-  
   # Najas
   mutate(Nymph = pmax(`Water nymph sp.`,`Slender naiad`,`Brittle water nymph`,na.rm = TRUE)) %>%
   select(-`Water nymph sp.`,-`Slender naiad`,-`Brittle water nymph`) %>%
-  
   # Myriophyllum
   mutate(Milfoil = pmax(`Milfoil sp.`,`Northern water milfoil`,`Eurasian water milfoil`,na.rm = TRUE)) %>%
   select(-`Milfoil sp.`,-`Northern water milfoil`,-`Eurasian water milfoil`) %>%
-  
   # Lemna
   mutate(Duckweed = pmax(`Duckweed sp.`,`Star duckweed`,`Lesser duckweed`, na.rm = TRUE)) %>%
   select(-`Duckweed sp.`,-`Star duckweed`,-`Lesser duckweed`) %>%
-  
   # Remove unidentified Potamogeton
   select(-`Pondweed sp.`)
-
 colnames(Rake.pres.analysis)
 
 ################################################################################
@@ -318,20 +160,38 @@ veg.cols <- setdiff(
 )
 
 veg <- Rake.pres.analysis[, veg.cols]
-veg[veg>0]<-1
+veg[veg>0]<-1 # presence absence
 
 Rake.pres.analysis <- cbind.data.frame(
   Year = Rake.pres.analysis$Year,
   Cell = Rake.pres.analysis$Cell,
   Field.Number = Rake.pres.analysis$Field.Number, 
-  veg
-)
+  veg)
 
 ################################################################################
 ################################################################################
 # NMDS
 ################################################################################
 ################################################################################
+# elbow method to determine an ideal number of dimensions
+set.seed(0528)
+k_values <- 1:6
+nmds_models <- lapply(1:6, function(k) {
+  metaMDS(veg, 
+          distance = "jaccard", 
+          k = k, trymax = 100)})
+
+stress_df <- data.frame(k = 1:6,
+                        stress = sapply(nmds_models, function(x) x$stress))
+stress_df
+
+ggplot(stress_df, aes(x = k, y = stress)) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = stress_df$k) +
+  labs(x = "Number of NMDS dimensions (k)", y = "Stress")
+
+# final nmds
 veg.nmds <- metaMDS(veg, distance = "jaccard", binary = TRUE, k = 2, trymax = 100)
 plot(veg.nmds)
 stressplot(veg.nmds)
@@ -380,6 +240,7 @@ veg.comp.gg<-ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2)) +
   labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year",
        title="Vegetation community")
 
+# Figure 3
 #png("Results/Figures/Vegation.cover.comp.nmds.png", height=3.25, width=6, units='in',res=800)
 veg.cover.gg + veg.comp.gg
 #dev.off()
@@ -395,6 +256,7 @@ sort(unique(unlist(veg)))
 veg.jac <- vegdist(veg, method = "jaccard", binary = TRUE)
 
 # Permanova
+set.seed(0934)
 adonis2(veg.jac ~ Cell * Year, data = Rake.pres.analysis, 
         by='terms', permutations = 9999)
 
