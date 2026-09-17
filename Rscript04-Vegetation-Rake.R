@@ -9,7 +9,6 @@ Rake.data.full <- read.csv("Data/Rake_data_full_revised_commonnames.csv", header
 colnames(Rake.data.full)
 str(Rake.data.full)
 Rake.data.full$Year <- as.character(Rake.data.full$Year)
-Rake.data.full[Rake.data.full$Species=="No Vegetation",]
 
 ################################################################################
 # Data Summaries
@@ -25,7 +24,10 @@ ggplot(Rake.data.full, aes(x=Species, y=Volume_mL, color=Year))+
   facet_wrap(Year~Cell, scales="free_y") +
   scale_color_manual(values=c("#134A8E", "#E8291C"))
 
-## 
+## removing no vegetation and unknown submerged from data set
+Rake.data.full[Rake.data.full$Species=="No Vegetation",]
+Rake.data.full[Rake.data.full$Species=="Unknown Submerged",]
+
 Rake.data.full.rev <- Rake.data.full[!Rake.data.full$Species == "No Vegetation",]
 Rake.data.full.rev <- Rake.data.full.rev[!Rake.data.full.rev$Species == "Unknown Submerged",]
 
@@ -134,30 +136,23 @@ length(Rake.pres.wide$Year[Rake.pres.wide$Cell=="East" & Rake.pres.wide$Year=="2
 
 colnames(Rake.pres.wide)
 Rake.pres.analysis <- Rake.pres.wide %>%
-  # Utricularia
   mutate(Bladderwort = pmax(`Bladderwort sp.`, `Humped bladderwort`, `Common bladderwort`, na.rm = TRUE)) %>%
   select(-`Bladderwort sp.`, -`Humped bladderwort`, -`Common bladderwort`) %>%
-  # Nitella
   mutate(Stonewort = pmax(`Stonewort sp.`, `Starry stonewort`,na.rm = TRUE)) %>%
   select(-`Stonewort sp.`,-`Starry stonewort`) %>%
-  # Najas
   mutate(Nymph = pmax(`Water nymph sp.`,`Slender naiad`,`Brittle water nymph`,na.rm = TRUE)) %>%
   select(-`Water nymph sp.`,-`Slender naiad`,-`Brittle water nymph`) %>%
-  # Myriophyllum
   mutate(Milfoil = pmax(`Milfoil sp.`,`Northern water milfoil`,`Eurasian water milfoil`,na.rm = TRUE)) %>%
   select(-`Milfoil sp.`,-`Northern water milfoil`,-`Eurasian water milfoil`) %>%
-  # Lemna
   mutate(Duckweed = pmax(`Duckweed sp.`,`Star duckweed`,`Lesser duckweed`, na.rm = TRUE)) %>%
   select(-`Duckweed sp.`,-`Star duckweed`,-`Lesser duckweed`) %>%
-  # Remove unidentified Potamogeton
   select(-`Pondweed sp.`)
 colnames(Rake.pres.analysis)
 
 ################################################################################
 veg.cols <- setdiff(
   names(Rake.pres.analysis),
-  c("Field.Number", "Year", "Cell")
-)
+  c("Field.Number", "Year", "Cell"))
 
 veg <- Rake.pres.analysis[, veg.cols]
 veg[veg>0]<-1 # presence absence
@@ -185,6 +180,7 @@ stress_df <- data.frame(k = 1:6,
                         stress = sapply(nmds_models, function(x) x$stress))
 stress_df
 
+# plot
 ggplot(stress_df, aes(x = k, y = stress)) +
   geom_line() +
   geom_point() +
@@ -241,9 +237,11 @@ veg.comp.gg<-ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2)) +
        title="Vegetation community")
 
 # Figure 3
+# note that the veg cover plot comes from Rscript03-Vegetation.R
 #png("Results/Figures/Vegation.cover.comp.nmds.png", height=3.25, width=6, units='in',res=800)
 veg.cover.gg + veg.comp.gg
 #dev.off()
+
 ################################################################################
 ################################################################################
 # Permanova
@@ -269,5 +267,12 @@ set.seed(123)
 permutest(disp, permutations = 9999, pairwise = T)
 
 aggregate(disp$distances, by = list(Group = disp$group), FUN = mean)
+D <- cbind.data.frame(Distance = disp$distances, 
+                      Group = disp$group)
 
-boxplot(disp, ylab = "Distance to group centroid", xlab = "Cell × Year", las=1)
+# plot
+ggplot(D, aes(x=Group, y=Distance))+
+  geom_boxplot()+
+  geom_jitter(width=0.1, height=0, alpha=0.25, color="blue")+
+  labs(x="Cell - Year Group", y = "Distance to Group Centroid")
+
