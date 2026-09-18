@@ -21,6 +21,9 @@ Veg.data$Year <- as.character(Veg.data$Year)
 Veg.data$Cell[Veg.data$Cell=="St. Clair NWA - East Cell SCU"] <- "East Cell"
 Veg.data$Cell[Veg.data$Cell=="St. Clair NWA - West Cell SCU"] <- "West Cell"
 
+aggregate(Veg.data$Measure, list(Veg.data$Variable, Veg.data$Cell, Veg.data$Year), mean)
+aggregate(Veg.data$Measure, list(Veg.data$Variable, Veg.data$Cell, Veg.data$Year), sd)
+
 # plot
 veg.gg<-ggplot(Veg.data, aes(y=Measure, x=Cell, color=Year))+
   geom_boxplot(outlier.shape = NA, width=0.5, position = position_dodge(width = 0.8)) + 
@@ -146,3 +149,50 @@ veg.cover.gg<-ggplot(scores_nmds, aes(x = NMDS1, y = NMDS2)) +
        title = "Vegetation cover")+
   theme(legend.position='none')
 veg.cover.gg
+
+################################################################################
+################################################################################
+# Linear models
+veg.analysis <- data.frame(
+  Year = Site.info$Year,
+  Cell = Site.info$Waterbody.Name,
+  Veg.data.df
+)
+str(veg.analysis)
+
+# make
+veg.analysis$Year <- factor(veg.analysis$Year)
+veg.analysis$Cell <- factor(veg.analysis$Cell)
+
+# identify reference levels for model
+veg.analysis$Year <- relevel(veg.analysis$Year, ref = "2023")
+veg.analysis$Cell <- relevel(veg.analysis$Cell, ref = "West Cell")
+
+# summarize the floating veg data
+veg.analysis %>%
+  group_by(Cell, Year) %>%
+  summarise(
+    n = n(),
+    mean = mean(Floating),
+    sd = sd(Floating),
+    median = median(Floating),
+    IQR = IQR(Floating),
+    .groups = "drop"
+  )
+
+# develop linear model
+mod.float <- lm(Floating ~ Year * Cell, data = veg.analysis)
+summary(mod.float)
+anova(mod.float)
+
+Float.sim <- simulateResiduals(fittedModel = mod.float, plot = TRUE)
+
+emm.float <- emmeans(mod.float, ~ Year * Cell)
+emm.float
+
+# Annual change within East and West
+pairs(emmeans(mod.float, ~ Year | Cell))
+
+did.float <- contrast(emm.float, interaction = c("pairwise", "pairwise"))
+summary(did.float, infer = TRUE)
+
