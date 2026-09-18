@@ -429,3 +429,6 @@ aggregate(Chubsucker$Number.Captured, list(Chubsucker$Year, Chubsucker$Cell), su
 LCS.mod<-lm(log(CPUE)~Year*Cell, data=Chubsucker)
 summary(LCS.mod)
 emmeans(LCS.mod, pairwise ~ Year*Cell)
+
+cite_packages(citation.style = "wetlands-ecology-and-management", out.format = "docx",
+              pkgs = "Session", out.dir = getwd())

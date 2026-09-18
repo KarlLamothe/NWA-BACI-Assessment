@@ -1,8 +1,8 @@
 # List of packages being used
 list.of.packages <- c('ggplot2', 'dplyr', 'DHARMa','tidyr','vegan','reshape2',
-                      'emmeans','broom','sf','terra','tidyterra','maptiles','grateful',
-                      'ggspatial','cowplot','FSAmisc','patchwork','BiodiversityR',
-                      'lubridate', 'purrr','readr','stringr','grid')
+                      'emmeans','sf','tidyterra','maptiles','grateful',
+                      'ggspatial','cowplot','patchwork',
+                      'lubridate')
 
 # Identify packages in the list that are not on the computer
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -12,28 +12,20 @@ if(length(new.packages)) install.packages(new.packages); rm(list.of.packages); r
 
 # packages
 library(ggplot2)
-library(broom)
-library(vegan)
-library(dplyr)
 library(reshape2)
-library(purrr)
-library(DHARMa)
-library(emmeans)
+library(dplyr)
 library(tidyr)
 library(sf)
-library(terra)    
-library(tidyterra)    
 library(maptiles)    
+library(tidyterra)    
 library(ggspatial)   
-library(cowplot)    
-library(FSAmisc)
-library(patchwork)
-library(BiodiversityR)
-library(grateful)
 library(lubridate)
-library(readr)
-library(stringr)
-library(grid)
+library(cowplot)    
+library(DHARMa)
+library(emmeans)
+library(vegan)
+library(patchwork)
+library(grateful)
 
 # set ggplot theme
 theme_set(theme_bw() +
