@@ -1,0 +1,23 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+Data/Data Loggers/
+Data/Long-term-loggers.csv
+Data/Fyke-loggers-csvData/Long-term-loggers.csv 
+Data/2023-2024-LCS-NWA_Master_DOTlongterm_Combined_Raw_2026-08-11.csv
+Data/2023-LCS-NWA_AIR_WEST.csv
+Data/2023-LCS-NWA_AirTemp_EastCell_(2024-08-21).csv
+Data/2023-LCS-NWA_MID-DEPTH_WEST.csv
+.gitignore
+DATA/RAW DATA - DO NOT EDIT/*.csv 
+DATA/RAW DATA - DO NOT EDIT/*.xlsx 
+"Data/RAW DATA - DO NOT EDIT" 
+"Data/RAW DATA - DO NOT EDIT" 
+Data/Province.cpg
+Data/Province.dbf
+Data/Province.prj
+Data/Province.shp
+Data/Province.shx
+Data/Province.xml
+Results/Figures/Map.tiff
