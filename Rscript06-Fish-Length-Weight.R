@@ -16,7 +16,7 @@ TL.W.site.info <- merge(TL.W, Site.info, "Field.Number")
 # make additional dataframes
 # Limit the number of columns and rename variables
 colnames(TL.W.site.info)
-TL.W.site.info2 <- TL.W.site.info[c(1,18,9,10,11,6)]
+TL.W.site.info2 <- TL.W.site.info[c(1,19,10,11,12,7)]
 colnames(TL.W.site.info2) <- c("Field.Number","Year","Species","Total.Length","Weight","Cell")
 TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - East Cell SCU"] <- "East cell"
 TL.W.site.info2$Cell[TL.W.site.info2$Cell=="St. Clair NWA - West Cell SCU"] <- "West cell"
@@ -611,7 +611,7 @@ TL.W.site.info4 <- subset(
   TL.W.site.info3,
   Species %in% rare_species
 )
-
+################################################################################
 Bl.bullhead <- TL.W.site.info4[TL.W.site.info4$Species=="Ameiurus melas",]
 Y.bullhead <- TL.W.site.info4[TL.W.site.info4$Species=="Ameiurus natalis",]
 Br.bullhead <- TL.W.site.info4[TL.W.site.info4$Species=="Ameiurus nebulosus",]
@@ -678,7 +678,11 @@ Br.bullhead <- Br.bullhead %>%
 ################################################################################
 Total.revised.fishes <- rbind(
   A.ocellicauda, L.gibbosus, L.macrochirus, M.nigricans, N.crysoleucas,
-  P.nigromaculatus, Bl.bullhead, Y.bullhead, Br.bullhead, C.Carp, N.Pike, C.mudminnow)
+  P.nigromaculatus, Bl.bullhead, Y.bullhead, Br.bullhead, C.Carp, N.Pike, C.mudminnow,
+  Chubsucker,
+  TL.W.site.info4[TL.W.site.info4$Species=="Carassius auratus",],
+  TL.W.site.info4[TL.W.site.info4$Species=="Noturus gyrinus",],
+  TL.W.site.info4[TL.W.site.info4$Species=="Perca flavescens",])
 
 # make plotting dataframe
 df <- Total.revised.fishes %>%
