@@ -5,13 +5,20 @@ source("Rscript00-Packages-Theme.R")
 # Water loggers
 Loggers <- read.csv("Data/RAW DATA - DO NOT EDIT/2023-2024-LCS-NWA_Master_DOTlongterm_Combined_Raw_2026-08-11.csv", header=T)
 Logger.Hobo <- read.csv("Data/2023-LCS-NWA_MID-DEPTH_WEST.csv", header=T)
+
 head(Loggers)
+Loggers$Waterbody[Loggers$Waterbody=="St Clair NWA - East Cell"] <- "East cell"
+Loggers$Waterbody[Loggers$Waterbody=="St Clair NWA - West Cell"] <- "West cell"
+
+# revise a couple variables
+Loggers$Serial_Number <- as.factor(Loggers$Serial_Number)
+Logger.Hobo$SN <- as.factor(Logger.Hobo$SN)
+Logger.Hobo$DO.conc..mg.L.[Logger.Hobo$DO.conc..mg.L.<0]<-0
+unique(Logger.Hobo$SN)
 
 # Air loggers
 Air.logger.West <- read.csv("Data/2023-LCS-NWA_AIR_WEST.csv", header=T)
 Air.logger.East <- read.csv("Data/2023-LCS-NWA_AirTemp_EastCell_(2024-08-21).csv", header=T)
-head(Air.logger.West)
-head(Air.logger.East)
 
 # fish site information
 Site.info <- read.csv("Data/Site-information(20260902).csv", header=T)
@@ -46,10 +53,6 @@ Loggers <- Loggers %>%
     Time = format(Local_Date_Time, "%H:%M:%S")
   )
 colnames(Loggers)
-head(Loggers)
-
-Loggers$Waterbody[Loggers$Waterbody=="St Clair NWA - East Cell"] <- "East cell"
-Loggers$Waterbody[Loggers$Waterbody=="St Clair NWA - West Cell"] <- "West cell"
 
 # reduce it down
 Loggers <- Loggers[c(1,3:7,15,35,36)]
@@ -206,13 +209,13 @@ Log.7450_431525_rev <- Log.7450_431525 %>%
 #rle_vals <- rle(Log.7450_431525_rev$Temperature_C)
 #which(rle_vals$lengths > 10)
 
-(ggplot(Log.7450_431525_rev, aes(x = Local_Date_Time, y = DO_mgL)) +
+(ggplot(Log.7450_431525, aes(x = Local_Date_Time, y = DO_mgL)) +
   geom_line() +
   labs(y = "DO (mg/L)") +
   annotate("rect",xmin = as.Date("2024-08-08"),xmax = as.Date("2024-09-05"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
   theme(axis.title.x = element_blank()))/
-(ggplot(Log.7450_431525_rev, aes(x = Local_Date_Time, y = Temperature_C)) +
+(ggplot(Log.7450_431525, aes(x = Local_Date_Time, y = Temperature_C)) +
   geom_line() +
   annotate("rect",xmin = as.Date("2024-08-08"),xmax = as.Date("2024-09-05"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
@@ -237,8 +240,12 @@ Log.7450_431525_2024 <- Log.7450_431525_rev %>%
      theme(axis.title.x = element_blank()))
 
 #############################
-# Log.7450_439471 # West Cell
+# Log.7450_439471 # West Cell Buried until April 18ish ### West cell
 #############################
+Log.7450_439471_rev1 <- Log.7450_439471 %>%
+  filter( Local_Date_Time >= as.POSIXct("2024-04-18 14:00:00"))
+Log.7450_439471_rev2 <- Log.7450_439471 %>%
+  filter( Local_Date_Time <= as.POSIXct("2023-08-22"))
 #Log.7450_439471$flag <- Log.7450_439471$Temperature_C < -2 |
 #  Log.7450_439471$Temperature_C > 40
 #subset(Log.7450_439471, flag)
@@ -337,15 +344,14 @@ Log.7450_431525_2024 <- Log.7450_431525_rev %>%
 ####rle_vals <- rle(Log.7450_592323$Temperature_C)
 ####which(rle_vals$lengths > 10)
 ###
-###(ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = DO_mgL)) +
-###  geom_line() +
-###  labs(y = "DO (mg/L)") +
-###  theme(axis.title.x = element_blank()))/
-###(ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = Temperature_C)) +
-###  geom_line() +
-###  labs(y = "Water temperature (C)") +
-###  theme(axis.title.x = element_blank()))
-###
+(ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = DO_mgL)) +
+  geom_line() +
+  labs(y = "DO (mg/L)") +
+  theme(axis.title.x = element_blank()))/
+(ggplot(Log.7450_592323, aes(x = Local_Date_Time, y = Temperature_C)) +
+  geom_line() +
+  labs(y = "Water temperature (C)") +
+  theme(axis.title.x = element_blank()))
 
 #############################
 # Logger Hobo # West Cell Log.20273341 
@@ -376,10 +382,14 @@ which(rle_vals$lengths > 10)
 # All loggers
 ################################################################################
 ################################################################################
+unique(Loggers$Serial_Number)
 Loggers1 <- Loggers %>%
   filter(!(Loggers$Serial_Number=='7450-592323'), # Buried 
-         !(Loggers$Serial_Number=='7450-431525')) # removes full time series
-Loggers1 <- rbind(Loggers1, Log.7450_431525_rev) # reattaches revised 
+         !(Loggers$Serial_Number=='7450-431525'),
+         !(Loggers$Serial_Number=='7450-439471')) # removes full time series
+Loggers1 <- rbind(Loggers1, 
+                  Log.7450_431525_rev,
+                  Log.7450_439471_rev1,Log.7450_439471_rev2) 
 
 head(Loggers1)
 unique(Loggers1$Serial_Number)
@@ -411,51 +421,66 @@ Logger_daily_allcomb <- Loggers1 %>%
   group_by(Date, Waterbody) %>%
   summarize(
     Tmean = mean(Temperature_C, na.rm = TRUE),
+    Tmax = max(Temperature_C, na.rm = TRUE),
+    Tmin = min(Temperature_C, na.rm = TRUE),
     .groups = "drop"
   )
 
+Logger_daily_allcomb <- Logger_daily_allcomb %>%
+  arrange(Waterbody, Date) %>%
+  group_by(Waterbody) %>%
+  mutate(
+    gap = as.numeric(Date - lag(Date)),
+    segment = cumsum(if_else(is.na(gap) | gap > 5, 1L, 0L))
+  ) %>%
+  ungroup()
+
 # plot all data
 ggplot(data=Loggers1, aes(x=Local_Date_Time, y=Temperature_C, 
-                         group=Serial_Number, color=Waterbody))+
+                         group=Serial_Number, color=Serial_Number))+
   annotate("rect",xmin = as.Date("2023-08-09"),xmax = as.Date("2023-08-22"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
   annotate("rect",xmin = as.Date("2024-08-08"),xmax = as.Date("2024-09-05"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
   geom_line() +
-  scale_color_manual(values=c("#E66100", "#149A37"))+
+  facet_wrap(~Waterbody)+
+  #scale_color_manual(values=c("#E66100", "#149A37"))+
   labs(y = "Water temperature (°C)") +
   theme(axis.title.x = element_blank())
 
 # plot daily mean per logger
 ggplot(data=Logger_daily, aes(x=Date, y=Tmean, 
-                         group=Serial_Number, color=Waterbody))+
+                         group=Serial_Number, color=Serial_Number))+
   annotate("rect",xmin = as.Date("2023-08-09"),xmax = as.Date("2023-08-22"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
   annotate("rect",xmin = as.Date("2024-08-08"),xmax = as.Date("2024-09-05"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
   geom_line() +
-  scale_color_manual(values=c("#E66100", "#149A37"))+
+  facet_wrap(~Waterbody)+
+  #scale_color_manual(values=c("#E66100", "#149A37"))+
   scale_x_date(date_breaks = "2 month", date_labels = "%b %Y") +
   labs(y = "Water temperature (°C)") +
   theme(axis.title.x = element_blank())
 
 # plot mean across loggers
-temp.overall<-ggplot(data=Logger_daily_allcomb, aes(x=Date, y=Tmean, color=Waterbody))+
+temp.overall<-ggplot(data=Logger_daily_allcomb, aes(x=Date, y=Tmean, color=Waterbody,
+                                                    group = interaction(Waterbody, segment)))+
   annotate("rect",xmin = as.Date("2023-08-09"),xmax = as.Date("2023-08-22"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
   annotate("rect",xmin = as.Date("2024-08-08"),xmax = as.Date("2024-09-05"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
+  geom_ribbon(aes(ymin = Tmin, ymax = Tmax, fill = Waterbody),
+              alpha = 0.15,colour = NA) +  
   geom_line(lwd=1) +
+  annotate('text', label="B)", x=as.Date("2023-07-30"), y = 30, hjust=1.3) +
   guides(color=guide_legend(position='inside'))+
-  scale_color_manual(values=c("#E66100", "#149A37"))+
-  scale_y_continuous(breaks=c(0, 3, 6, 9, 12, 15, 18, 21, 24, 27))+
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  scale_fill_manual(values=c("#134A8E", "#E8291C")) +  
+  scale_y_continuous(breaks=c(0, 5, 10, 15, 20, 25, 30,35), limits=c(-1, 34))+
   scale_x_date(date_breaks = "2 month", date_labels = "%b %Y") +
-  labs(y = "Water Temperature (°C)") +
+  labs(y = "Water temperature") +
   theme(axis.title.x = element_blank(),
-        legend.title = element_blank(),
-        legend.position = c(0.5, 0.8),
-        legend.key = element_blank(),
-        legend.background = element_blank())
+        legend.position = 'none')
 temp.overall
 
 # summarize for the periods
@@ -477,7 +502,6 @@ aggregate(Loggers.2024$DO_mgL, list(Loggers.2024$Waterbody), mean)
 aggregate(Loggers.2024$DO_mgL, list(Loggers.2024$Waterbody), sd)
 aggregate(Loggers.2023$DO_mgL, list(Loggers.2023$Waterbody), range)
 aggregate(Loggers.2024$DO_mgL, list(Loggers.2024$Waterbody), range)
-
 
 ##################
 # DO all loggers #
@@ -503,7 +527,19 @@ Logger_daily_DO <- Logger_daily_DO %>%
 Logger_daily_allcomb_DO <- Loggers1 %>%
   mutate(Date = as.Date(Local_Date_Time)) %>%
   group_by(Date, Waterbody) %>%
-  summarize(DOmean = mean(DO_mgL, na.rm = TRUE), .groups = "drop")
+  summarize(DOmean = mean(DO_mgL, na.rm = TRUE), 
+            DOmax = max(DO_mgL, na.rm = TRUE),
+            DOmin = min(DO_mgL, na.rm = TRUE),
+            .groups = "drop")
+
+Logger_daily_allcomb_DO <- Logger_daily_allcomb_DO %>%
+  arrange(Waterbody, Date) %>%
+  group_by(Waterbody) %>%
+  mutate(
+    gap = as.numeric(Date - lag(Date)),
+    segment = cumsum(if_else(is.na(gap) | gap > 5, 1L, 0L))
+  ) %>%
+  ungroup()
 
 # all data plotted
 ggplot(data=Loggers1, aes(x=Local_Date_Time, y=DO_mgL, 
@@ -533,24 +569,111 @@ ggplot(data=Logger_daily_DO, aes(x=Date, y=DOmean,
   theme(axis.title.x = element_blank())
 
 # overall daily mean
-DO.overall<-ggplot(data=Logger_daily_allcomb_DO, aes(x=Date, y=DOmean, color=Waterbody))+
+DO.overall<-ggplot(data=Logger_daily_allcomb_DO, aes(x=Date, y=DOmean, color=Waterbody,
+                                                     group = interaction(Waterbody, segment)))+
   annotate("rect",xmin = as.Date("2023-08-09"),xmax = as.Date("2023-08-22"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
   annotate("rect",xmin = as.Date("2024-08-08"),xmax = as.Date("2024-09-05"),
            ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
+  geom_ribbon(aes(ymin = DOmin, ymax = DOmax, fill = Waterbody),
+              alpha = 0.15,colour = NA) +  
+  annotate('text', label="A)", x=as.Date("2023-07-30"), y = 25, hjust=1.3) +
   geom_line(lwd=1) +
+  guides(color=guide_legend(position='inside'))+
   scale_x_date(date_breaks = "2 month", date_labels = "%b %Y") +
-  labs(y = "Dissolved oxygen (mg/L)") +
-  scale_color_manual(values=c("#E66100", "#149A37"))+
+  labs(y = "Dissolved oxygen") +
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  scale_fill_manual(values=c("#134A8E", "#E8291C")) +  
+  scale_y_continuous(breaks=c(0, 5, 10, 15, 20, 25))+
   theme(axis.title.x = element_blank(),
-        legend.position = 'none')
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        legend.title = element_blank(),
+        legend.position = c(0.15, 0.7),
+        legend.key = element_blank(),
+        legend.background = element_blank())
 DO.overall
 
-temp.overall/DO.overall
+DO.overall/temp.overall
+
+################################################################
+################################################################
+# Growing degree days 2024 using water temperatures
+################################################################
+################################################################
+names(Loggers1)
+# check length of time series of each logger
+Loggers1 %>%
+  filter(year(Date) == 2024) %>%
+  group_by(Waterbody, Serial_Number) %>%
+  summarise(First.date = min(Date, na.rm = TRUE),
+            Last.date = max(Date, na.rm = TRUE),
+            n.days = n_distinct(Date),.groups = "drop") %>%
+  arrange(Waterbody, Serial_Number)
+
+# remove the one that isnt complete
+logger.data.gdd <- Loggers1 %>%
+  filter(Serial_Number != "7450-431525")
+
+# Calculate daily temp 
+daily.temp <- logger.data.gdd %>%
+  mutate(Year = year(Date)) %>%
+  filter(Year == 2024) %>%
+  group_by(Waterbody, Serial_Number, Date) %>%
+  summarise(Temp.daily = mean(Temperature_C, na.rm = TRUE), .groups = "drop")
+
+# add in degree days
+daily.temp <- daily.temp %>%
+  mutate(DD10 = pmax(Temp.daily - 10, 0))
+
+# adding in growing degree days
+daily.temp <- daily.temp %>%
+  group_by(Waterbody, Serial_Number) %>%
+  arrange(Date, .by_group = TRUE) %>%
+  mutate(GDD10 = cumsum(DD10)) %>%
+  ungroup()
+
+# summarize
+GDD.summary <- daily.temp %>%
+  group_by(Waterbody, Serial_Number) %>%
+  summarise(GDD10 = sum(DD10, na.rm = TRUE), n.days = n(), .groups = "drop")
+
+# summarize by cell
+GDD.cell.summary <- GDD.summary %>%
+  group_by(Waterbody) %>%
+  summarise(mean.GDD10 = mean(GDD10), SD.GDD10 = sd(GDD10), min.GDD10 = min(GDD10),
+            max.GDD10 = max(GDD10),n.loggers = n(),.groups = "drop")
+
+# plot individual loggers
+ggplot(daily.temp, aes(x = Date, y = GDD10, colour = Waterbody, group = Serial_Number)) +
+  geom_line(linewidth = 0.8, alpha = 0.7) +
+  labs(x = "Date", y = "Cumulative growing degree days (°C)", colour = NULL)
+
+# take mean across loggers (for East cell)
+gdd.daily.summary <- daily.temp %>%
+  group_by(Waterbody, Date) %>%
+  summarise(GDD.mean = mean(GDD10, na.rm = TRUE),
+            GDD.min = min(GDD10, na.rm = TRUE),
+            GDD.max = max(GDD10, na.rm = TRUE),.groups = "drop")
+
+ggplot() +
+  annotate("rect",xmin = as.Date("2024-08-08"),xmax = as.Date("2024-09-05"),
+           ymin = -Inf, ymax = Inf, fill = "grey70", alpha = 0.3) +
+  geom_line(data = daily.temp, aes(x = Date,y = GDD10, colour = Waterbody,
+                                 group = Serial_Number), lwd = 0.5, alpha = 0.3) +
+  geom_line(data = gdd.daily.summary, aes(x = Date, y = GDD.mean, 
+                                        colour = Waterbody), lwd = 1.2) +
+  guides(color = guide_legend(position='inside'))+
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_color_manual(values=c("#E66100", "#149A37"))+
+  labs(x = NULL, y = "Cumulative growing\ndegree days (°C)", colour = NULL) +
+  theme(legend.position.inside = c(0.4, 0.75),
+        legend.background = element_blank(),
+        legend.key = element_blank())
 
 ################################################################################
 ################################################################################
-# Link loggers to different locations
+# Link loggers to different sites
 ################################################################################
 ################################################################################
 Logger.locations <- Loggers1 %>%
@@ -599,11 +722,12 @@ nearest.logger %>%
 
 # identify the periods that the loggers were running
 logger.periods <- Loggers1 %>%
-  group_by(Serial_Number) %>%
+  group_by(Serial_Number,Waterbody) %>%
   summarise(First.Record = min(Local_Date_Time, na.rm = TRUE),
             Last.Record = max(Local_Date_Time, na.rm = TRUE),
             N = n(), .groups = "drop")
 logger.periods
+head(Loggers1)
 
 Site.info <- Site.info %>%
   mutate(Date = as.Date(Date),
@@ -655,7 +779,9 @@ Event.logger.data <- lapply(seq_len(nrow(Fish.events)), function(i) {
 
 head(Event.logger.data)
 
+######################################
 # summarize loggers for events
+######################################
 Logger.event.summary <- Event.logger.data %>%
   group_by(Event.ID,Fish.Date,Waterbody.Name,Period,Serial_Number) %>%
   summarise(
@@ -668,7 +794,7 @@ Logger.event.summary <- Event.logger.data %>%
     n = n(), .groups = "drop")
 
 Event.environment <- Logger.event.summary %>%
-  group_by(Event.ID,Fish.Date,Waterbody.Name,Period) %>%
+  group_by(Event.ID, Fish.Date, Waterbody.Name, Period) %>%
   summarise(
     n.loggers = n_distinct(Serial_Number),
     Temp.mean = mean(Temp.mean, na.rm = TRUE),
@@ -682,7 +808,204 @@ Event.environment <- Logger.event.summary %>%
 Event.environment %>%
   select(Fish.Date,Waterbody.Name,Period,n.loggers)
 
+cell.event.summary <- Logger.event.summary %>%
+  mutate(Temp.range = Temp.max - Temp.min,
+         DO.range = DO.max - DO.min) %>%
+  group_by(Event.ID, Fish.Date, Waterbody.Name, Period) %>%
+  summarise(
+    Temp.mean = mean(Temp.mean, na.rm = TRUE),
+    Temp.range = mean(Temp.range, na.rm = TRUE),
+    DO.mean = mean(DO.mean, na.rm = TRUE),
+    DO.min = mean(DO.min, na.rm = TRUE),
+    DO.range = mean(DO.range, na.rm = TRUE),
+    n.loggers = n_distinct(Serial_Number),
+    .groups = "drop")
+cell.event.summary$Year = year(cell.event.summary$Fish.Date)
+
+cell.year.summary <- cell.event.summary %>%
+  group_by(Year, Waterbody.Name, Period) %>%
+  summarise(
+    Temp.mean = mean(Temp.mean, na.rm = TRUE),
+    Temp.range = mean(Temp.range, na.rm = TRUE),
+    DO.mean = mean(DO.mean, na.rm = TRUE),
+    DO.min = mean(DO.min, na.rm = TRUE),
+    DO.range = mean(DO.range, na.rm = TRUE),
+    n.events = n(),
+    .groups = "drop"
+  )
+
+EW.diff <- cell.year.summary %>%
+  pivot_wider(names_from = Waterbody.Name,
+              values_from = c(Temp.mean,Temp.range,DO.mean,DO.min,DO.range,n.events)) %>%
+  mutate(
+    Temp.mean.diff = `Temp.mean_East cell` - `Temp.mean_West cell`,
+    Temp.range.diff = `Temp.range_East cell` - `Temp.range_West cell`,
+    DO.mean.diff = `DO.mean_East cell` - `DO.mean_West cell`,
+    DO.min.diff = `DO.min_East cell` - `DO.min_West cell`,
+    DO.range.diff = `DO.range_East cell` - `DO.range_West cell`
+  )
+
+EW.diff %>%
+  select(Year,Period,Temp.mean.diff,Temp.range.diff,
+         DO.mean.diff,DO.min.diff,DO.range.diff)
+
+##############################################
+# compare between calendar dates of sampling
+##############################################
+sampling.windows <- tibble(
+  Year = c(2023, 2024),
+  Start = as.Date(c("2023-08-08", "2024-08-07")),
+  End   = as.Date(c("2023-08-30", "2024-09-04")))
+
+water.daily <- Loggers1 %>%
+  mutate(Year = year(Date)) %>%
+  group_by(Year, Waterbody, Serial_Number, Date) %>%
+  summarise(
+    Temp.mean = mean(Temperature_C, na.rm = TRUE),
+    Temp.min = min(Temperature_C, na.rm = TRUE),
+    Temp.max = max(Temperature_C, na.rm = TRUE),
+    DO.mean  = mean(DO_mgL, na.rm = TRUE),
+    DO.min  = min(DO_mgL, na.rm = TRUE),
+    DO.max  = max(DO_mgL, na.rm = TRUE),
+    .groups = "drop") %>%
+  mutate(Temp.range = Temp.max - Temp.min,
+         DO.range = DO.max - DO.min)
+
+water.sampling <- water.daily %>%
+  left_join(sampling.windows, by = "Year") %>%
+  filter(Date >= Start, Date <= End)
+
+logger.sampling.summary <- water.sampling %>%
+  group_by(Year, Waterbody, Serial_Number) %>%
+  summarise(
+    Temp.mean = mean(Temp.mean, na.rm = TRUE),
+    Temp.min = min(Temp.min, na.rm = TRUE),
+    Temp.max = max(Temp.max, na.rm = TRUE),
+    Temp.range = Temp.max - Temp.min,
+    DO.mean = mean(DO.mean, na.rm = TRUE),
+    DO.min = min(DO.min, na.rm = TRUE),
+    DO.max = max(DO.max, na.rm = TRUE),
+    DO.range = DO.max - DO.min,
+    n.days = n_distinct(Date), .groups = "drop")
+logger.sampling.summary
+
+cell.sampling.summary <- logger.sampling.summary %>%
+  group_by(Year, Waterbody) %>%
+  summarise(
+    Temp.mean = mean(Temp.mean, na.rm = TRUE),
+    Temp.min = mean(Temp.min, na.rm = TRUE),
+    Temp.max = mean(Temp.max, na.rm = TRUE),
+    Temp.range = mean(Temp.range, na.rm = TRUE),
+    SD.Temp.mean = sd(Temp.mean, na.rm = TRUE),
+    DO.mean = mean(DO.mean, na.rm = TRUE),
+    DO.min = mean(DO.min, na.rm = TRUE),
+    DO.max = mean(DO.max, na.rm = TRUE),
+    DO.range = mean(DO.range, na.rm = TRUE),
+    SD.DO.mean = sd(DO.mean, na.rm = TRUE),
+    n.loggers = n(), .groups = "drop")
+
+temp.EW <- cell.sampling.summary %>%
+  select(Year, Waterbody, Temp.mean, Temp.min, Temp.max, Temp.range) %>%
+  pivot_wider(names_from = Waterbody, values_from = c(
+    Temp.mean,Temp.min,Temp.max,Temp.range)) %>%
+  mutate(
+    Mean.diff = `Temp.mean_East cell` - `Temp.mean_West cell`,
+    Min.diff = `Temp.min_East cell` - `Temp.min_West cell`,
+    Max.diff = `Temp.max_East cell` - `Temp.max_West cell`,
+    Range.diff = `Temp.range_East cell` - `Temp.range_West cell`
+  )
+
+temp.EW %>%
+  select(Year,Mean.diff,Min.diff,Max.diff,Range.diff)
+
+cell.daily.temp <- water.sampling %>%
+  group_by(Year, Waterbody, Date) %>%
+  summarise(
+    Mean = mean(Temp.mean, na.rm = TRUE),
+    Min = mean(Temp.min, na.rm = TRUE),
+    Max = mean(Temp.max, na.rm = TRUE),
+    .groups = "drop")
+cell.daily.temp$Measure <- "Temperature (°C)"
+
+facet.labels <- data.frame(
+  Year = c(2023, 2024),
+  label = c("D)", "F)"),
+  Date = c(as.Date("2023-08-07"),as.Date("2024-08-07"))
+)
+
+Temp.daily.gg<-ggplot(cell.daily.temp, aes(x = Date, y = Mean, colour = Waterbody)) +
+  geom_ribbon(aes(ymin = Min, ymax = Max, fill = Waterbody),
+              alpha = 0.15,colour = NA) +
+  geom_line(lwd = 0.8) +
+  geom_point() +
+  guides(fill = guide_legend(position='inside'),
+         color = guide_legend(position='inside'))+
+  facet_wrap(~ Year, scales = "free_x") +
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  scale_fill_manual(values=c("#134A8E", "#E8291C")) +
+  geom_text(data = facet.labels, aes(x = Date, y = 29,
+                                     label = label), inherit.aes = FALSE)+
+  scale_y_continuous(breaks=c(16,18,20,22,24,26,28,30), limits=c(16,30))+
+  labs(x = NULL, y = "Water temperature",
+       colour = NULL, fill = NULL) +
+  theme(legend.position = 'none',
+        strip.background = element_blank(),
+        strip.text = element_blank())
+Temp.daily.gg
+
+DO.EW <- cell.sampling.summary %>%
+  select(Year, Waterbody, DO.mean, DO.min, DO.max, DO.range) %>%
+  pivot_wider(names_from = Waterbody, values_from = c(
+    DO.mean,DO.min,DO.max,DO.range)) %>%
+  mutate(
+    Mean.diff = `DO.mean_East cell` - `DO.mean_West cell`,
+    Min.diff = `DO.min_East cell` - `DO.min_West cell`,
+    Max.diff = `DO.max_East cell` - `DO.max_West cell`,
+    Range.diff = `DO.range_East cell` - `DO.range_West cell`
+  )
+
+cell.daily.DO <- water.sampling %>%
+  group_by(Year, Waterbody, Date) %>%
+  summarise(
+    Mean = mean(DO.mean, na.rm = TRUE),
+    Min = mean(DO.min, na.rm = TRUE),
+    Max = mean(DO.max, na.rm = TRUE),
+    .groups = "drop")
+cell.daily.DO$Measure <- "Dissolved oxygen (mg/L)"
+
+facet.labels2 <- data.frame(
+  Year = c(2023, 2024),
+  label = c("C)", "E)"),
+  Date = c(as.Date("2023-08-07"),as.Date("2024-08-07"))
+)
+
+DO.daily.gg<-ggplot(cell.daily.DO, aes(x = Date, y = Mean, colour = Waterbody)) +
+  geom_ribbon(aes(ymin = Min, ymax = Max, fill = Waterbody),
+              alpha = 0.15,colour = NA) +
+  geom_line(lwd = 0.8) +
+  geom_point() +
+  guides(fill = guide_legend(position='inside'),
+         color = guide_legend(position='inside'))+
+  facet_wrap(~ Year, scales = "free_x") +
+  scale_color_manual(values=c("#134A8E", "#E8291C"))+
+  scale_fill_manual(values=c("#134A8E", "#E8291C")) +
+  geom_text(data = facet.labels2, aes(x = Date, y = 9,
+                                     label = label), inherit.aes = FALSE)+
+  scale_y_continuous(breaks=c(0,2,4,6,8,10), limits=c(0,10))+
+  labs(x = NULL, y = "Dissolved oxygen", colour = NULL, fill = NULL) +
+  theme(legend.position = 'none',
+        legend.background = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+
+#png("Results/Figures/Loggers.png", height=6, width = 7, units='in', res=800)
+(DO.overall/temp.overall) / (DO.daily.gg/Temp.daily.gg) +
+  plot_layout(ncol=1, nrow=3,
+              heights=c(0.75,0.75,2))
+#dev.off()
+##############################################
 # create data frame for plotting
+##############################################
 plot.data <- Event.logger.data %>%
   filter(Period == "During sampling") %>%
   mutate(
@@ -851,11 +1174,12 @@ Temp.2024 <- ggplot(plot.data %>%filter(Year == 2024),
   facet_wrap( ~ Event.Label, ncol = 4) +
   scale_x_continuous(breaks = breaks_width(6)) +
   labs(title = "2024", x = "Hours since first net set",y="Temperature",colour = "Logger")
-
 Temp.2024
 
 #################################################################################
+#################################################################################
 ###### compare logger to point estimates
+#################################################################################
 #################################################################################
 head(Site.info)
 head(Loggers)
@@ -972,14 +1296,7 @@ Air.logger.West <- Air.logger.West %>%
     Date = as.Date(Local_Date_Time),
     Time = format(Local_Date_Time, "%H:%M:%S")
   )
-
-# daily mean
-Air.logger.West
-Air.logger.West.daily <- Air.logger.West %>%
-  mutate(Date = as.Date(Date)) %>%
-  group_by(Date) %>%
-  summarize(TMean = mean(Temp...C., na.rm = TRUE), .groups = "drop")
-Air.logger.West.daily$Cell <- "West cell"
+Air.logger.West$Waterbody <- "West cell"
 
 # East cell
 Air.logger.East <- Air.logger.East %>%
@@ -988,17 +1305,30 @@ Air.logger.East <- Air.logger.East %>%
     Date = as.Date(Local_Date_Time),
     Time = format(Local_Date_Time, "%H:%M:%S")
   )
+Air.logger.East$Waterbody <- "East cell"
+
+# daily mean
+names(Air.logger.West)
+Air.logger.West.daily <- Air.logger.West %>%
+  mutate(Date = as.Date(Date)) %>%
+  group_by(Date, SN) %>%
+  summarize(AMean = mean(Temp...C., na.rm = TRUE), .groups = "drop")
+Air.logger.West.daily$Cell <- "West cell"
 
 Air.logger.East.daily <- Air.logger.East %>%
   mutate(Date = as.Date(Date)) %>%
-  group_by(Date) %>%
-  summarize(TMean = mean(Temp...C., na.rm = TRUE), .groups = "drop")
+  group_by(Date, SN) %>%
+  summarize(AMean = mean(Temp...C., na.rm = TRUE), .groups = "drop")
 Air.logger.East.daily$Cell <- "East cell"
 
+# combine data frames
+Air.temp <- rbind(Air.logger.West, Air.logger.East)
 Daily.air.temp <- rbind(Air.logger.West.daily, Air.logger.East.daily)
+str(Daily.air.temp)
+Daily.air.temp$SN <- as.factor(Daily.air.temp$SN)
 
 # plot
-daily.air.gg<-(ggplot(Daily.air.temp, aes(x = Date, y = TMean, group=Cell, color=Cell)) +
+daily.air.gg<-(ggplot(Daily.air.temp, aes(x = Date, y = AMean, group=Cell, color=SN)) +
                  geom_line(lwd=1) +
                  labs(y = "Air temperature (C)") +
                  annotate("rect",xmin = as.Date("2023-08-09"),xmax = as.Date("2023-08-22"),
@@ -1013,3 +1343,50 @@ daily.air.gg<-(ggplot(Daily.air.temp, aes(x = Date, y = TMean, group=Cell, color
                        legend.background = element_blank(),
                        legend.position.inside = c(0.15,0.25)))
 daily.air.gg
+
+################################################################################
+################################################################################
+# Air - water temp model
+names(Air.temp)
+colnames(Air.temp) <- c("Serial_Number", "Date.Time_UTC", "Temperature_C",
+                        "Local_Date_Time", "Date", "Time", "Waterbody")
+Logger_daily
+
+temp.model.data <- Logger_daily %>%
+  left_join(
+    Daily.air.temp,
+    by = c("Waterbody" = "Cell",
+           "Date" = "Date"))
+
+ggplot(temp.model.data, aes(x = AMean, y = Tmean, colour=Waterbody))+
+  geom_point(alpha=0.5)+
+  geom_smooth(se = F) +
+  facet_wrap(~Waterbody)
+
+Air.daily <- Daily.air.temp %>%
+  group_by(Cell) %>%
+  arrange(Date, .by_group = TRUE) %>%
+  mutate(Air.lag1 = lag(AMean, 1),
+         Air.mean3 = slider::slide_dbl(AMean, mean, .before = 2,.complete = TRUE)) %>%
+  ungroup()
+
+temp.model.data <- Logger_daily %>%
+  left_join(
+    Air.daily,
+    by = c("Waterbody" = "Cell",
+           "Date" = "Date"))
+
+ggplot(temp.model.data, aes(x = AMean, y = Tmean, colour=Waterbody))+
+  geom_point(alpha=0.5)+
+  geom_smooth(se = F) +
+  facet_wrap(~Waterbody)
+
+ggplot(temp.model.data, aes(x = Air.lag1, y = Tmean, colour=Waterbody))+
+  geom_point(alpha=0.5)+
+  geom_smooth(se = F) +
+  facet_wrap(~Waterbody)
+
+ggplot(temp.model.data, aes(x = Air.mean3, y = Tmean, colour=Waterbody))+
+  geom_point(alpha=0.5)+
+  geom_smooth(se = F) +
+  facet_wrap(~Waterbody)
