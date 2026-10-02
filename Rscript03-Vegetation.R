@@ -108,11 +108,9 @@ scores_nmds <- as.data.frame(scores(nmds.veg, display = "sites"))
 
 # Add metadata
 scores_nmds <- scores_nmds %>%
-  mutate(
-    Field.Number = Site.info$Field.Number,
-    Year = factor(Site.info$Year),
-    Cell = factor(Site.info$Waterbody.Name)
-  )
+  mutate(Field.Number = Site.info$Field.Number,
+         Year = factor(Site.info$Year),
+         Cell = factor(Site.info$Waterbody.Name))
 
 scores_nmds <- scores_nmds %>%
   mutate(Group = interaction(Cell, Year))
@@ -120,11 +118,7 @@ scores_nmds <- scores_nmds %>%
 # group centroids
 nmds_centroids <- scores_nmds %>%
   group_by(Cell, Year) %>%
-  summarise(
-    NMDS1 = mean(NMDS1),
-    NMDS2 = mean(NMDS2),
-    .groups = "drop"
-  )
+  summarise(NMDS1 = mean(NMDS1), NMDS2 = mean(NMDS2), .groups = "drop")
 nmds_centroids
 
 # plot
@@ -137,12 +131,9 @@ veg.cover.gg<-ggplot(scores_nmds, aes(x = NMDS1, y = NMDS2)) +
   stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
                level=0.95) +
   geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
-  #geom_path(data = nmds_centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, group = Cell),
-  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
   scale_color_manual(values=c("#134A8E", "#E8291C"))+
   geom_point(data = nmds_centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, shape = Year),
              size = 2) +
-  #annotate("text", label="Stress = 0.05", x = -1, y = 1.6) +
   coord_fixed(ratio=1)+
   labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year")+
   theme(legend.position='none',
@@ -152,11 +143,9 @@ veg.cover.gg
 ################################################################################
 ################################################################################
 # Linear models
-veg.analysis <- data.frame(
-  Year = Site.info$Year,
-  Cell = Site.info$Waterbody.Name,
-  Veg.data.df
-)
+veg.analysis <- data.frame(Year = Site.info$Year,
+                           Cell = Site.info$Waterbody.Name,
+                           Veg.data.df)
 str(veg.analysis)
 
 # make
@@ -170,14 +159,12 @@ veg.analysis$Cell <- relevel(veg.analysis$Cell, ref = "West Cell")
 # summarize the floating veg data
 veg.analysis %>%
   group_by(Cell, Year) %>%
-  summarise(
-    n = n(),
-    mean = mean(Floating),
-    sd = sd(Floating),
-    median = median(Floating),
-    IQR = IQR(Floating),
-    .groups = "drop"
-  )
+  summarise(n = n(),
+            mean = mean(Floating),
+            sd = sd(Floating),
+            median = median(Floating),
+            IQR = IQR(Floating),
+            .groups = "drop")
 
 # develop linear model
 mod.float <- lm(Floating ~ Year * Cell, data = veg.analysis)

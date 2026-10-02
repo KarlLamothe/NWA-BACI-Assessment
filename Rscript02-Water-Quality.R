@@ -69,8 +69,6 @@ Water.data.df$Year <- as.character(Water.data.df$Year)
 Water.data.df$Waterbody.Name[Water.data.df$Waterbody.Name=="St. Clair NWA - East Cell SCU"] <- "East cell"
 Water.data.df$Waterbody.Name[Water.data.df$Waterbody.Name=="St. Clair NWA - West Cell SCU"] <- "West cell"
 
-cor(Water.data.df$Water.Temperature, Water.data.df$Air.Temperature)
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # DO
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -161,7 +159,7 @@ colnames(Water.data)
 results <- Water.data %>%
   group_by(Variable) %>%
   do(tidy(lm(Measure ~ Year*Cell, data = .), conf.int = TRUE))
-results
+print(results, n=24)
 
 #write.csv(results, "Results/Water.Quality.csv")
 
@@ -172,21 +170,35 @@ results
 ################################################################################
 Water.data.df2 <- Water.data.df[complete.cases(Water.data.df),]
 Water.data.df2$Water.Temperature <- log(Water.data.df2$Water.Temperature)
-Water.data.df2$Conductivity <- log(Water.data.df2$Conductivity)
-Water.data.df2$Turbidity..ntu. <- log(Water.data.df2$Turbidity..ntu.)
-Water.data.df2$Dissolved.Oxygen <- log(Water.data.df2$Dissolved.Oxygen)
-Water.data.df2$Air.Temperature <- log(Water.data.df2$Air.Temperature)
+Water.data.df2$Conductivity      <- log(Water.data.df2$Conductivity)
+Water.data.df2$Turbidity..ntu.   <- log(Water.data.df2$Turbidity..ntu.)
+Water.data.df2$Dissolved.Oxygen  <- log(Water.data.df2$Dissolved.Oxygen)
+Water.data.df2$Air.Temperature   <- log(Water.data.df2$Air.Temperature)
 Water.data.df2$Waterbody.Name[Water.data.df2$Waterbody.Name=="St. Clair NWA - East Cell SCU"] <- "East cell"
 Water.data.df2$Waterbody.Name[Water.data.df2$Waterbody.Name=="St. Clair NWA - West Cell SCU"] <- "West cell"
 
+colnames(Water.data.df2)
+CorrVars<-cbind.data.frame(Water.data.df2[,c(3:8)])
+colnames(CorrVars)<-c("Air temperature", "Water temperature", "Conductivity",
+                      "Dissolved oxygen", "pH", "Turbidity")
+
+# Generate correlation plot with pearson correlations
+correlationplot<-ggcorrplot(cor(CorrVars, method="pearson"), hc.order = TRUE, outline.col = "black",
+                            type = "lower", lab=TRUE,
+                            ggtheme = theme_gray,
+                            insig = "blank")+
+  theme(panel.border = element_rect(colour = "black", fill=NA),
+        axis.text.x = element_text(colour = "black"),
+        axis.text.y = element_text(colour = "black"))
+correlationplot
+cor(CorrVars$pH, CorrVars$`Dissolved oxygen`, method="pearson")
+
 # permanova
 set.seed(0432)
-perm1<-adonis2(Water.data.df2[c(3:8)] ~ Year*Waterbody.Name,
-               data = Water.data.df2,
-               method = "euclidean",
-               permutations = 9999,
-               by='terms',
-               na.rm=T)
+# not including pH due to strong correlation with DO
+perm1<-adonis2(Water.data.df2[c(3:6,8)] ~ Year*Waterbody.Name,
+               data = Water.data.df2, method = "euclidean",
+               permutations = 9999, by='terms', na.rm=T)
 perm1
 
 #Multivariate homogeneity of groups dispersions (variances)
@@ -194,7 +206,7 @@ Water.data.df2$Group <- interaction(Water.data.df2$Waterbody.Name,
                                     Water.data.df2$Year, sep = "_")
 
 
-d <- vegdist(Water.data.df2[c(3:8)], method = "euclidean")
+d <- vegdist(Water.data.df2[c(3:6,8)], method = "euclidean")
 disp <- betadisper(d, Water.data.df2$Group)
 permutest(disp, pairwise = TRUE, permutations = 9999)
 plot(disp)
@@ -206,7 +218,7 @@ plot(disp)
 ################################################################################
 set.seed(0528)
 head(Water.data.df2)
-wq.nmds <- metaMDS(Water.data.df2[c(3:8)], distance = "euclidean", 
+wq.nmds <- metaMDS(Water.data.df2[c(3:6,8)], distance = "euclidean", 
                    k = 2, trymax = 500)
 plot(wq.nmds)
 stressplot(wq.nmds)
@@ -217,11 +229,9 @@ nmds_scores <- as.data.frame(scores(wq.nmds, display = "sites"))
 
 # Add metadata
 nmds_scores <- nmds_scores %>%
-  mutate(
-    Field.Number = Water.data.df2$Field.Number,
-    Year = factor(Water.data.df2$Year),
-    Cell = factor(Water.data.df2$Waterbody.Name)
-  )
+  mutate(Field.Number = Water.data.df2$Field.Number,
+         Year = factor(Water.data.df2$Year),
+         Cell = factor(Water.data.df2$Waterbody.Name))
 
 nmds_scores <- nmds_scores %>%
   mutate(Group = interaction(Cell, Year))
@@ -229,11 +239,7 @@ nmds_scores <- nmds_scores %>%
 # group centroids
 centroids <- nmds_scores %>%
   group_by(Cell, Year) %>%
-  summarise(
-    NMDS1 = mean(NMDS1),
-    NMDS2 = mean(NMDS2),
-    .groups = "drop"
-  )
+  summarise(NMDS1 = mean(NMDS1), NMDS2 = mean(NMDS2), .groups = "drop")
 centroids
 
 # plot
@@ -245,8 +251,6 @@ wq.comp.gg<-ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2)) +
   stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
                level=0.95) +
   geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
-  #geom_path(data = centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, group = Cell),
-  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
   scale_color_manual(values=c("#134A8E", "#E8291C"))+
   geom_point(data = centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, shape = Year),
              size = 2) +
@@ -254,8 +258,3 @@ wq.comp.gg<-ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2)) +
   labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year")+
   theme(legend.title = element_blank())
 wq.comp.gg
-
-# Figure 2
-#png("Results/Figures/WQ.nmds.png", height=2.5, width=5, units='in', res=800)
-wq.comp.gg
-#dev.off()

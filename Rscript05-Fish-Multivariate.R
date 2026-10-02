@@ -36,31 +36,19 @@ wide_df <- List %>%
   mutate(Column = paste(Year, Cell)) %>%
   select(Species, Column, Count) %>%
   pivot_wider(names_from = Column, values_from = Count, values_fill = 0) %>%
-  select(
-    Species,
-    `2023 East cell`,
-    `2024 East cell`,
-    `2023 West cell`,
-    `2024 West cell`
-  )
+  select(Species, `2023 East cell`, `2024 East cell`, `2023 West cell`, `2024 West cell`)
 
 # Effort data
 Effort <- cbind.data.frame(Field.Number = Site.info$Field.Number, 
                            Effort = Site.info$Effort)
 
 #make to wide data frame
-fish_wide <- dcast(
-  Fish,
-  Field.Number + Cell + Year ~ Species,
-  value.var = "Number.Captured",
-  fun.aggregate = sum
-)
+fish_wide <- dcast(Fish, Field.Number + Cell + Year ~ Species,
+                   value.var = "Number.Captured", fun.aggregate = sum)
 head(fish_wide)
 
-#remove no fish captured
-colnames(fish_wide)
+# merge effort 
 fish_wide <- merge(fish_wide, Effort, by="Field.Number")
-fish_wide <- fish_wide[,-18]
 
 # CPUE
 colnames(fish_wide)
@@ -86,12 +74,7 @@ fish_wide_PA   <- cbind.data.frame(Year = fish_wide$Year,
 colnames(fish_wide_PA)
 
 # remove Lepomis sp, and hybrids from CPUE data
-fish_wide_CPUE2 <- fish_wide_CPUE[-c(9,14,16)]
-
-# remove rows that have zero fish counts after removal of lepomis sp and hybrids
-sort(colSums(fish_wide_CPUE2[c(4:ncol(fish_wide_CPUE2))]), decreasing = TRUE)
-which(rowSums(fish_wide_CPUE2[c(4:ncol(fish_wide_CPUE2))]) == 0)
-fish_wide_CPUE2 <- fish_wide_CPUE2[-c(50,72,77,131,139),]
+fish_wide_CPUE2 <- fish_wide_CPUE[-c(10,15,17)]
 fish_wide_CPUE2$YearCell <- interaction(fish_wide_CPUE2$Year,
                                         fish_wide_CPUE2$Cell,
                                         sep = "_")
@@ -108,10 +91,8 @@ CPUE_summary <- fish_wide_CPUE %>%
                names_to = "Species",
                values_to = "CPUE") %>%
   group_by(Species, Year, Cell) %>%
-  summarise(
-    mean_CPUE = mean(CPUE, na.rm = TRUE),
-    SD_CPUE = sd(CPUE, na.rm = TRUE),
-    .groups = "drop") %>%
+  summarise(mean_CPUE = mean(CPUE, na.rm = TRUE),
+            SD_CPUE = sd(CPUE, na.rm = TRUE), .groups = "drop") %>%
   mutate(CPUE_SD = sprintf("%.2f \u00b1 %.2f", mean_CPUE, SD_CPUE),
          column = paste(Year, Cell)) %>%
   select(Species, column, CPUE_SD) %>%
@@ -122,16 +103,9 @@ CPUE_summary <- fish_wide_CPUE %>%
 # Combine Count and CPUE tables
 fish_summary <- wide_df %>%
   left_join(CPUE_summary, by = "Species") %>%
-  select(
-    Species,
-    `2023 East cell`,
-    `2023 East cell CPUE`,
-    `2024 East cell`,
-    `2024 East cell CPUE`,
-    `2023 West cell`,
-    `2023 West cell CPUE`,
-    `2024 West cell`,
-    `2024 West cell CPUE`)
+  select(Species, `2023 East cell`, `2023 East cell CPUE`, `2024 East cell`,
+         `2024 East cell CPUE`, `2023 West cell`, `2023 West cell CPUE`,
+         `2024 West cell`, `2024 West cell CPUE`)
 
 head(fish_summary)
 #write.csv(fish_summary, "Results/Fish.summary.csv", row.names = F)
@@ -151,8 +125,7 @@ Richness <- cbind.data.frame(
   Richness = rowSums(fish_wide_PA[5:23]),
   Cell     = fish_wide_PA$Cell,
   Year     = fish_wide_PA$Year,
-  YearCell = fish_wide_PA$YearCell
-)
+  YearCell = fish_wide_PA$YearCell)
 Richnessaov <- lm(Richness~YearCell, data=Richness)
 summary(Richnessaov)
 emmeans(Richnessaov, pairwise ~ YearCell)
@@ -195,8 +168,8 @@ accum_df <- bind_rows(
 accum_df <- accum_df %>%
   mutate(Lower = Richness - SD, Upper = Richness + SD)
 
-accum_df$Year <- c(rep("2023",35),rep("2024",40),rep("2023",36),rep("2024",40))
-accum_df$Cell <- c(rep("East cell",75),rep("West cell",76))
+accum_df$Year <- c(rep("2023",35),rep("2024",40),rep("2023",35),rep("2024",36))
+accum_df$Cell <- c(rep("East cell",75),rep("West cell",71))
 
 accum.plotgg<-ggplot(accum_df, aes(x = Sites, y = Richness, colour = Year, fill = Year)) +
   geom_ribbon(aes(ymin = Lower, ymax = Upper), alpha = 0.2, colour = NA) +
@@ -281,34 +254,21 @@ stressplot(fish.nmds)
 fish.nmds
 
 # Extract NMDS coordinates
-fish_scores <- as.data.frame(
-  scores(fish.nmds, display = "sites", choices = 1:3)
-)
-
+fish_scores <- as.data.frame(scores(fish.nmds, display = "sites", choices = 1:3))
 fish_scores$Cell <- factor(fish_wide_CPUE2$Cell)
 fish_scores$Year <- factor(fish_wide_CPUE2$Year)
-
-fish_scores$Group <- interaction(
-  fish_scores$Cell,
-  fish_scores$Year
-)
+fish_scores$Group <- interaction(fish_scores$Cell, fish_scores$Year)
 
 fish_centroids <- fish_scores %>%
   group_by(Cell, Year) %>%
-  summarise(
-    NMDS1 = mean(NMDS1),
-    NMDS2 = mean(NMDS2),
-    NMDS3 = mean(NMDS3),
-    .groups = "drop"
-  )
+  summarise(NMDS1 = mean(NMDS1), NMDS2 = mean(NMDS2), NMDS3 = mean(NMDS3),
+            .groups = "drop")
 
 # plot nmds
 p1<-ggplot(fish_scores, aes(x = NMDS1, y = NMDS2)) +
   stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
                level=0.95) +
   geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
-  #geom_path(data = fish_centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, group = Cell),
-  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
   scale_color_manual(values=c("#134A8E", "#E8291C"))+
   geom_point(data = fish_centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, shape = Year),
              size = 2) +
@@ -319,8 +279,6 @@ p2<-ggplot(fish_scores, aes(x = NMDS1, y = NMDS3)) +
   stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
                level=0.95) +
   geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
-  #geom_path(data = fish_centroids, aes(x = NMDS1, y = NMDS3, colour = Cell, group = Cell),
-  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
   scale_color_manual(values=c("#134A8E", "#E8291C"))+
   geom_point(data = fish_centroids, aes(x = NMDS1, y = NMDS3, colour = Cell, shape = Year),
              size = 2) +
@@ -332,8 +290,6 @@ p3<-ggplot(fish_scores, aes(x = NMDS2, y = NMDS3)) +
   stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
                level=0.95) +
   geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
-  #geom_path(data = fish_centroids, aes(x = NMDS2, y = NMDS3, colour = Cell, group = Cell),
-  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
   scale_color_manual(values=c("#134A8E", "#E8291C"))+
   geom_point(data = fish_centroids, aes(x = NMDS2, y = NMDS3, colour = Cell, shape = Year),
              size = 2) +
@@ -341,33 +297,13 @@ p3<-ggplot(fish_scores, aes(x = NMDS2, y = NMDS3)) +
   labs(x = "NMDS2", y = "NMDS3", colour = "Cell", shape = "Year", lty = "Year")+
   theme(legend.position = "none")
 
-#png("Results/Figures/fish.nmds.png", height=2.5, width=7, units='in', res=800)
-p1 + p2 + p3 + plot_layout(guides = "collect") &
-  theme(legend.position = "top",
-        legend.title = element_blank(),
-        legend.margin = margin(0, 0, 0, 0),
-        legend.box.margin = margin(0, 0, 0, 0),
-        legend.spacing.y = unit(0.05, "cm"),
-        legend.key.height = unit(0.4, "cm"),
-        legend.key.width = unit(0.5, "cm"))
-#dev.off()
-
+################################################################################
+# create plot for all NMDS ordinations
+################################################################################
 veg.cover.gg <- veg.cover.gg +
   scale_x_continuous(breaks = c(-1, 0, 1))
 
-wq.comp.gg <- wq.comp.gg +
-  scale_y_continuous(breaks = c(-2, -1, 0, 1))
-
-wq.comp.gg <- wq.comp.gg +
-  scale_y_continuous(breaks = c(-1, 0, 1))
-
 veg.comp.gg <- veg.comp.gg +
-  scale_y_continuous(breaks = c(-1, 0, 1))
-
-p2 <- p2 +
-  scale_y_continuous(breaks = c(-1, 0, 1))
-
-p3 <- p3 +
   scale_y_continuous(breaks = c(-1, 0, 1))
 
 #png("Results/Figures/All.NMDS.png", height=4.5, width=6.5, units='in', res=800)

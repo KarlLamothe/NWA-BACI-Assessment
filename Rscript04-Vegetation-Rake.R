@@ -39,10 +39,7 @@ unique_species
 # species richness (note that this includes genera and some unknown)
 species_richness <- Rake.data.full.rev %>%
   group_by(Cell, Year) %>%
-  summarise(
-    n_species = n_distinct(Common_Name),
-    .groups = "drop"
-  )
+  summarise(n_species = n_distinct(Common_Name), .groups = "drop")
 species_richness
 
 sort(unique(Rake.data.full.rev$Species))
@@ -50,11 +47,7 @@ sort(unique(Rake.data.full.rev$Species))
 # grams per species per year and cell
 species.g <- Rake.data.full.rev %>%
   group_by(Cell, Year, Common_Name) %>%
-  summarise(
-    weight = sum(Weight_g),
-    volume = sum(Volume_mL),
-    .groups = "drop"
-  )
+  summarise(weight = sum(Weight_g), volume = sum(Volume_mL), .groups = "drop")
 species.g
 
 ################################################################################
@@ -68,25 +61,15 @@ str(Rake.data.full.rev$Present.at.Site)
 Rake.pres.wide <- Rake.data.full.rev %>%
   select(Field.Number, Year, Cell, Common_Name, Present.at.Site) %>%
   group_by(Field.Number, Year, Cell, Common_Name) %>%
-  summarise(
-    pres = max(Present.at.Site, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  pivot_wider(
-    names_from = Common_Name,
-    values_from = pres,
-    values_fill = 0
-  )
+  summarise(pres = max(Present.at.Site, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(names_from = Common_Name, values_from = pres, values_fill = 0)
 
 species.table <- Rake.data.full.rev %>%
   group_by(Common_Name, Year, Cell) %>%
   summarise(pres = max(Present.at.Site, na.rm = TRUE),
             .groups = "drop") %>%
   unite("Year_Cell",Year,Cell,sep = "_") %>%
-  pivot_wider(
-    names_from = Year_Cell,
-    values_from = pres,
-    values_fill = 0) %>%
+  pivot_wider(names_from = Year_Cell, values_from = pres, values_fill = 0) %>%
   arrange(Common_Name)
 
 species.table
@@ -136,9 +119,7 @@ veg <- Rake.pres.analysis[, veg.cols]
 set.seed(0528)
 k_values <- 1:6
 nmds_models <- lapply(1:6, function(k) {
-  metaMDS(veg, 
-          distance = "jaccard", 
-          k = k, trymax = 100)})
+  metaMDS(veg,  distance = "jaccard",  k = k, trymax = 100)})
 
 stress_df <- data.frame(k = 1:6,
                         stress = sapply(nmds_models, function(x) x$stress))
@@ -162,11 +143,9 @@ nmds_scores <- as.data.frame(scores(veg.nmds, display = "sites"))
 
 # Add metadata
 nmds_scores <- nmds_scores %>%
-  mutate(
-    Field.Number = Rake.pres.analysis$Field.Number,
-    Year = factor(Rake.pres.analysis$Year),
-    Cell = factor(Rake.pres.analysis$Cell)
-  )
+  mutate(Field.Number = Rake.pres.analysis$Field.Number,
+         Year = factor(Rake.pres.analysis$Year),
+         Cell = factor(Rake.pres.analysis$Cell))
 
 nmds_scores <- nmds_scores %>%
   mutate(Group = interaction(Cell, Year))
@@ -174,11 +153,7 @@ nmds_scores <- nmds_scores %>%
 # group centroids
 centroids <- nmds_scores %>%
   group_by(Cell, Year) %>%
-  summarise(
-    NMDS1 = mean(NMDS1),
-    NMDS2 = mean(NMDS2),
-    .groups = "drop"
-  )
+  summarise(NMDS1 = mean(NMDS1), NMDS2 = mean(NMDS2), .groups = "drop")
 centroids
 
 # plot
@@ -190,23 +165,14 @@ veg.comp.gg<-ggplot(nmds_scores, aes(x = NMDS1, y = NMDS2)) +
   stat_ellipse(aes(colour = Cell, lty = Year, group = Group), lwd = 0.6, alpha = 0.7,
                level=0.95) +
   geom_point(aes(colour = Cell, shape = Year), size = 1, alpha = 0.4) +
-  #geom_path(data = centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, group = Cell),
-  #          lwd = 0.5, arrow = arrow(length = unit(0.20, "cm"), type = "closed")) +
   scale_color_manual(values=c("#134A8E", "#E8291C"))+
   geom_point(data = centroids, aes(x = NMDS1, y = NMDS2, colour = Cell, shape = Year),
              size = 2) +
-  #annotate("text", label="Stress = 0.16", x = 0.6, y = 1.5) +
   coord_fixed(ratio=1)+
   labs(x = "NMDS1", y = "NMDS2", colour = "Cell", shape = "Year", lty = "Year")+
   theme(legend.title = element_blank(),
         legend.position = 'none')
 veg.comp.gg
-
-# Figure 3
-# note that the veg cover plot comes from Rscript03-Vegetation.R
-#png("Results/Figures/Vegation.cover.comp.nmds.png", height=3.25, width=7, units='in',res=800)
-veg.cover.gg + veg.comp.gg
-#dev.off()
 
 ################################################################################
 ################################################################################
@@ -273,17 +239,18 @@ Rake.weight.wide <- Rake.weight %>%
   pivot_wider(names_from = Common_Name, values_from = Weight, values_fill = 0)
 
 # merge depth and volume/weight df
-Rake.vol.wide <- merge(Rake.vol.wide, Depth, by="Field.Number")
+Rake.vol.wide    <- merge(Rake.vol.wide, Depth, by="Field.Number")
 Rake.weight.wide <- merge(Rake.weight.wide, Depth, by="Field.Number")
 colnames(Rake.vol.wide)
 
+# remove duplicated columns
 Rake.vol.wide <- Rake.vol.wide[c(1:32, 35)]
 Rake.weight.wide <- Rake.weight.wide[c(1:32, 35)]
 colnames(Rake.vol.wide)[2:3] <- c("Cell","Year")
 colnames(Rake.weight.wide)[2:3] <- c("Cell","Year")
 colnames(Rake.weight.wide)
 
-# Weights
+# Weights - control for depth
 Weights <- Rake.weight.wide[c(4:32)]
 Weights$Site.Weight <- rowSums(Weights)
 Rake.weight.wide <- cbind.data.frame(Rake.weight.wide, Site.Weight = Weights$Site.Weight)
@@ -293,7 +260,7 @@ Rake.weight.wide$Year_Cell <- interaction(Rake.weight.wide$Year,
                                           Rake.weight.wide$Cell,
                                           sep="_")
 
-# Volume
+# Volume - control for depth
 colnames(Rake.vol.wide)
 Vols <- Rake.vol.wide[c(4:32)]
 Vols$Site.Volume <- rowSums(Vols)
@@ -307,9 +274,13 @@ Rake.vol.wide$Year_Cell <- interaction(Rake.vol.wide$Year,
 # look at differences by year-cell-combination
 aggregate(Rake.weight.wide$Weight_per_m, 
           list(Rake.weight.wide$Year_Cell), mean, na.rm=T)
+aggregate(Rake.weight.wide$Weight_per_m, 
+          list(Rake.weight.wide$Year_Cell), sd, na.rm=T)
+
 aggregate(Rake.vol.wide$Volume_per_m, 
           list(Rake.vol.wide$Year_Cell), mean, na.rm=T)
-
+aggregate(Rake.vol.wide$Volume_per_m, 
+          list(Rake.vol.wide$Year_Cell), sd, na.rm=T)
 #######################
 # develop linear models
 #######################
@@ -325,11 +296,9 @@ Weight.means <- Rake.weight.wide2 %>%
 
 # Create data for line segments
 Weight.lines <- Weight.means %>%
-  pivot_wider(
-    names_from = Year,
-    values_from = Mean)
+  pivot_wider(names_from = Year, values_from = Mean)
 
-weightgg<-ggplot(Rake.weight.wide2, aes(x=Cell, y = log(Weight_per_m), color=Year))+
+weightgg<-ggplot(Rake.weight.wide2, aes(x=Cell, y = Weight_per_m, color=Year))+
   geom_boxplot(outlier.shape = NA, width=0.5, position = position_dodge(width = 0.8))+
   geom_jitter(aes(color=Year), 
               position = position_jitterdodge(jitter.width = 0.2, jitter.height = 0.0,
@@ -337,16 +306,20 @@ weightgg<-ggplot(Rake.weight.wide2, aes(x=Cell, y = log(Weight_per_m), color=Yea
               size=2, alpha=0.5, pch=20) +
   geom_segment(data = Weight.lines, aes(x = as.numeric(factor(Cell)) - 0.2,
                                        xend = as.numeric(factor(Cell)) + 0.2,
-                                       y = log(`2023`), yend = log(`2024`)),
+                                       y = `2023`, yend =`2024`),
                inherit.aes = FALSE, colour = "black", linewidth = 0.5) +
-  geom_point(data = Weight.means, aes(x = Cell, y = log(Mean), group = Year),
+  geom_point(data = Weight.means, aes(x = Cell, y = Mean, group = Year),
              position = position_dodge(width = 0.8), size = 2, show.legend = FALSE,
              colour='black')+
+  guides(color=guide_legend(position='inside'))+
   scale_color_manual(values=c("#E66100", "#149A37"))+
-  labs(x = "Wetland cell", y = "log(Weight / m)") +
+  labs(x = "Wetland cell", y = "Weight / m") +
   theme(axis.title.x = element_blank(),
-        legend.position = 'none',
+        legend.background = element_blank(),
+        legend.key = element_blank(),
+        legend.position.inside = c(0.17, 0.85),
         legend.title = element_blank())
+weightgg
 
 # model
 mod.weight <- lm(log(Weight_per_m) ~ Year * Cell, data = Rake.weight.wide2)
@@ -375,23 +348,22 @@ Vol.lines <- Vol.means %>%
     names_from = Year,
     values_from = Mean)
 
-volumegg<-ggplot(Rake.vol.wide3, aes(x=Cell, y = log(Volume_per_m), color=Year))+
+volumegg<-ggplot(Rake.vol.wide3, aes(x=Cell, y =Volume_per_m, color=Year))+
   geom_boxplot(outlier.shape = NA, width=0.5, position = position_dodge(width = 0.8))+
-  geom_jitter(aes(color=Year), 
-              position = position_jitterdodge(jitter.width = 0.2, jitter.height = 0.0,
-                                              dodge.width = 0.8), 
-              size=2, alpha=0.5, pch=20) +
+  geom_jitter(aes(color=Year), position = position_jitterdodge(
+    jitter.width = 0.2, jitter.height = 0.0,dodge.width = 0.8), 
+    size=2, alpha=0.5, pch=20) +
   geom_segment(data = Vol.lines, aes(x = as.numeric(factor(Cell)) - 0.2,
                                         xend = as.numeric(factor(Cell)) + 0.2,
-                                        y = log(`2023`), yend = log(`2024`)),
+                                        y = `2023`, yend = `2024`),
                inherit.aes = FALSE, colour = "black", linewidth = 0.5) +
-  geom_point(data = Vol.means, aes(x = Cell, y = log(Mean), group = Year),
+  geom_point(data = Vol.means, aes(x = Cell, y = Mean, group = Year),
              position = position_dodge(width = 0.8), size = 2, show.legend = FALSE,
              colour='black')+
-  labs(x = "Wetland cell", y = "log(Displacement volume / m)") +
+  labs(x = "Wetland cell", y = "Displacement volume / m") +
   scale_color_manual(values=c("#E66100", "#149A37"))+
   theme(axis.title.x = element_blank(),
-        legend.position = 'right',
+        legend.position = 'none',
         legend.title = element_blank())
 
 #png("Results/Figures/Rake.weight.volume.png", height=2.5, width = 7, units='in', res=800)

@@ -1,7 +1,8 @@
 # List of packages being used
 list.of.packages <- c('ggplot2', 'dplyr', 'DHARMa','tidyr','vegan','reshape2',
                       'emmeans','sf','tidyterra','maptiles','grateful','scales',
-                      'ggspatial','cowplot','patchwork','lubridate','broom','purrr')
+                      'ggspatial','cowplot','patchwork','lubridate','broom','purrr',
+                      'ggcorrplot')
 
 # Identify packages in the list that are not on the computer
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -28,6 +29,7 @@ library(grateful)
 library(scales)
 library(broom)
 library(purrr)
+library(ggcorrplot)
 
 # set ggplot theme
 theme_set(theme_bw() +

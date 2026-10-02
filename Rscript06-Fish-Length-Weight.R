@@ -765,10 +765,8 @@ ecdf2(80)
 
 # Common x values
 x <- sort(unique(dat$Total.Length))
-comp <- data.frame(
-  Length = x,
-  Diff = ecdf1(x) - ecdf2(x)
-)
+comp <- data.frame(Length = x,
+                   Diff = ecdf1(x) - ecdf2(x))
 comp
 
 #West Cell
@@ -779,10 +777,8 @@ ecdf2 <- ecdf(dat$Total.Length[dat$Year == yrs[2]])
 
 # Common x values
 x <- sort(unique(dat$Total.Length))
-comp <- data.frame(
-  Length = x,
-  Diff = ecdf1(x) - ecdf2(x)
-)
+comp <- data.frame(Length = x,
+                   Diff = ecdf1(x) - ecdf2(x))
 comp
 
 ################################################################################
@@ -790,14 +786,11 @@ comp
 ################################################################################
 ks.test(
   Total.revised.fishes$Total.Length[Total.revised.fishes$Year=="2023"],
-  Total.revised.fishes$Total.Length[Total.revised.fishes$Year=="2024"]
-)
+  Total.revised.fishes$Total.Length[Total.revised.fishes$Year=="2024"])
 
 by(Total.revised.fishes, Total.revised.fishes$Cell,
-   function(x)
-     ks.test(
-       x$Total.Length[x$Year=="2023"],
-       x$Total.Length[x$Year=="2024"]))
+   function(x) ks.test(x$Total.Length[x$Year=="2023"],
+                       x$Total.Length[x$Year=="2024"]))
 
 ###############################################################################
 # bin the data by length
