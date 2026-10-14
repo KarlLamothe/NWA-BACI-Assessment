@@ -7,7 +7,8 @@ Site.info$Waterbody.Name[Site.info$Waterbody.Name=="St. Clair NWA - East Cell SC
 Site.info$Waterbody.Name[Site.info$Waterbody.Name=="St. Clair NWA - West Cell SCU"] <- "West cell"
 
 # Ontario shape
-ontario <- st_read("Data/Province.shp")
+ontario <- st_read("Data/Mapping/Province.shp")
+harvest_poly <- st_read('Data/Mapping/Harvest_Area.shp')
 
 # make a site data frame
 sites <- data.frame(
@@ -56,6 +57,7 @@ locator
 # main sampling map
 main_map <- ggplot() +
   geom_spatraster_rgb(data = img) +
+  geom_sf(data = harvest_poly, fill='grey90', color='black', alpha=0.5)+
   geom_sf(data = sites.sf, aes(color=Year, shape=Cell), size = 2)+
   scale_color_manual(values=c("#E66100","#3EE76A"))+
   theme(legend.title = element_blank()) +

@@ -2,7 +2,7 @@
 list.of.packages <- c('ggplot2', 'dplyr', 'DHARMa','tidyr','vegan','reshape2',
                       'emmeans','sf','tidyterra','maptiles','grateful','scales',
                       'ggspatial','cowplot','patchwork','lubridate','broom','purrr',
-                      'ggcorrplot')
+                      'ggcorrplot','concaveman')
 
 # Identify packages in the list that are not on the computer
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -30,6 +30,7 @@ library(scales)
 library(broom)
 library(purrr)
 library(ggcorrplot)
+library(concaveman)
 
 # set ggplot theme
 theme_set(theme_bw() +
