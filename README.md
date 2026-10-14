@@ -15,7 +15,6 @@ Achieving wetland management objectives often requires active interventions such
 ## Repository Structure
 
 ```text
-.
 ├── README.md
 ├── .gitignore
 |
@@ -52,7 +51,6 @@ Achieving wetland management objectives often requires active interventions such
 ├── Rscript05-Fish-Multivariate.R
 ├── Rscript06-Fish-Length-Weight.R
 └── Rscript07-Loggers.R
-.
 ```
 
 ## How to use:
